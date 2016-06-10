@@ -1,0 +1,7 @@
+*.pyc
+__pycache__
+mainenv
+db.sqlite3
+/static
+.DS_Store
+.idea
