@@ -1,7 +1,7 @@
-# quicktutors
+## QuickTutors
 
-Aplicacion para poder encontrar monitorias de forma rapida y facil.
-Hecha para la materia de Formulacion de Proyectos.
+#Aplicacion para poder encontrar monitorias de forma rapida y facil.
+#Hecha para la materia de Formulacion de Proyectos.
 
 Integrantes:
 
