@@ -27,11 +27,11 @@ We decided to make our application in a technology we didn't knew, or only had t
 
 ###Team Members (Collaborators):
 
-*[Pujolsluis] -  Project Leader / Software Engineer
-*[FabioFV] - Engineering Director / Software Engineer
-*[Phatale] - Finance Director / Software Engineer
-*[Franzax] - Marketing Director / Software Engineer
-*[Nelcolon22] - Quality Assurance Director / Software Engineer
+* [Pujolsluis] -  Project Leader / Software Engineer.
+* [FabioFV] - Engineering Director / Software Engineer.
+* [Phatale] - Finance Director / Software Engineer.
+* [Franzax] - Marketing Director / Software Engineer.
+* [Nelcolon22] - Quality Assurance Director / Software Engineer.
 
 
 [Pujolsluis]: <https://github.com/Pujolsluis>
