@@ -2,25 +2,44 @@
 
 {% block content %}
 
-    {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
+    <div class="logincontainer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4"></div>
+                    <div class="col-xs-4 text-center">
+                        {% if form.errors %}
+                        <p>Your username and password didn't match. Please try again.</p>
+                        {% endif %}
 
-    <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table>
-    <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-    </tr>
-    <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-    </tr>
-    </table>
-
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-    </form>
-
+                        <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+{##}
+{#                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">#}
+{#                            <input class="mdl-textfield__input" type="text" id="username">#}
+{#                            <label class="mdl-textfield__label" for="username">Username</label>#}
+{#                            </div>#}
+{##}
+{#                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">#}
+{#                            <input class="mdl-textfield__input" type="password" id="password">#}
+{#                            <label class="mdl-textfield__label" for="password">Password</label>#}
+{#                            </div>#}
+                        <table class="table">
+                        <tr>
+                            <td>{{ form.username.label_tag }}</td>
+                            <td>{{ form.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.password.label_tag }}</td>
+                            <td>{{ form.password }}</td>
+                        </tr>
+                        </table>
+                        <br>
+                        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="login" />
+                        <input type="hidden" name="next" value="{{ next }}" />
+                        </form>
+                    <div class="col-xs-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
