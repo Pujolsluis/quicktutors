@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-
+	    
             <!-- Latest compiled and minified CSS -->
             <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -19,21 +19,39 @@
 
             <!-- Application CSS File-->
             <link rel="stylesheet" href="{% static 'css/quicktutorsApp.css'%}">
-
-            <title>QuickTutors</title>
+ 	    
+            <!-- Material Design Files -->
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+	    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+            
+	    <title>QuickTutors</title>
     </head>
     <body>
-        <div class="page-header text-center">
-            <h1><a href="">QuickTutors</a></h1>
-        </div>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	  <header class="mdl-layout__header">
+	    <div class="mdl-layout__header-row">
 
-        <div class="content">
-            <div class="row">
-                <div class="col-xs-11">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </div>
-        </div>
+	      <span class="mdl-layout-title">QuickTutors</span>
+
+	      <div class="mdl-layout-spacer"></div>
+
+	      <nav class="mdl-navigation mdl-layout--large-screen-only">
+	        <a class="mdl-navigation__link" href="">Precios</a>
+	        <a class="mdl-navigation__link" href="">Sobre nosotros</a>
+	        <a class="mdl-navigation__link" href="">Contactos</a>
+	        <a class="mdl-navigation__link" href="">Preguntas Frecuentes</a>
+	      </nav>
+	    </div>
+	  </header>
+	  
+	  <main class="mdl-layout__content">
+	    <div class="page-content">
+	    	{% block content %}
+		{% endblock %}
+	    </div>
+	  </main>
+	</div>
+
     </body>
 </html>
