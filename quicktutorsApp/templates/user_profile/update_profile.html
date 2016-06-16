@@ -1,0 +1,10 @@
+{% extends "quicktutorsApp/base.html" %}
+    {% block content %}
+
+        <h1>Your Profile</h1>
+        <form action="/user/send_update_profile/" method='POST'>
+            {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+        </form>
+    {% endblock %}

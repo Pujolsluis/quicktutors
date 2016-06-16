@@ -1,0 +1,18 @@
+{% extends "quicktutorsApp/base.html" %}
+    {% block content %}
+
+        <h1>Welcome to {{ userProfile.user.get_full_name }} Profile </h1>
+        <label>Bio:</label>
+        <div>
+            <p>{{ userProfile.bio }}</p>
+        </div>
+        {{ userProfile.picture }}
+        <br>
+        <br>
+        <label>Carrera:</label>
+        <br>
+        {% for career in userProfile.career.all %}
+            {{ career.name }}
+            <br>
+        {% endfor %}
+    {% endblock %}
