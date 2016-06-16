@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'quicktutorsApp',
+    'user_profile',
 ]
 
 MIDDLEWARE_CLASSES = [
