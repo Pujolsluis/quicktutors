@@ -42,7 +42,7 @@ class Subject(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     bio = models.TextField(max_length=500, null=True, blank=True)
-    id = models.CharField(max_length=10)
+    ID = models.CharField(max_length=10)
     picture = models.ImageField(upload_to=user_directory_path, default='pic_folder/None/no-img.jpg')
     career = models.ManyToManyField(Career)
     university = models.ManyToManyField(University)
