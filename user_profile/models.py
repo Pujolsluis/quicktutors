@@ -3,15 +3,15 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-
+@staticmethod
 def user_directory_path(instance, filename):
     return 'user_{0}/{1}'.format(instance.user.id, filename)
 
-def reunionSite_directory_path(filename):
-    return 'reunion_site_directory/{1}'.format(filename)
+def reunionSite_directory_path(self,filename):
+    return 'reunion_site_directory/{0}'.format(filename)
 
-def university_directory_path(filename):
-    return 'university_directory/{1}'.format(filename)
+def university_directory_path(self,filename):
+    return 'university_directory/{0}'.format(filename)
 
 class Area(models.Model):
     name = models.CharField(max_length=100)
