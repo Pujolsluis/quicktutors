@@ -1,22 +1,31 @@
-{% extends "quicktutorsApp/base.html" %}
-    {% block content %}
+{% extends "quicktutorsApp/base_member.html" %}
+{% block content %}
 
-        <h1>Welcome to {{ userProfile.user.get_full_name }} Profile </h1>
-        <label>Bio:</label>
-        <div>
-            <p>{{ userProfile.bio }}</p>
-        </div>
-        {{ userProfile.picture }}
-        <br>
-        <br>
-        <label>Carrera:</label>
-        <br>
-            {{ userProfile.career }}
-        <br>
-        <label>Materias que Domina:</label>
-        <br>
-            {% for subject in userProfile.subjects.all %}
-            {{ subject }}
-            {% endfor %}
-        <br>
-    {% endblock %}
+    <h1>Welcome to {{ userProfile.user.get_full_name }} Profile </h1>
+    <label>Bio:</label>
+    <div>
+        <p>{{ userProfile.bio }}</p>
+    </div>
+    <label>Picture:</label>
+    <br>
+         <img src="quicktutorsApp/media/user_directory/user_1/Logo-CEISS-FONDO-BLANCO.png" width="200" height="236">
+    <br>
+    <label>Video de introduccion:</label>
+    <br>
+        {{ userProfile.video }}
+    <br>
+    <label>Carrera:</label>
+    <br>
+        {{ userProfile.career }}
+    <br>
+    <label>Materias que Domina:</label>
+    <br>
+        {% for subject in userProfile.subjects.all %}
+        {{ subject }}
+        {% endfor %}
+    <br>
+    <label>Tiempo en servicio:</label>
+    {{ userProfile.begin_time }} - {{ userProfile.end_time }}
+    <br>
+
+{% endblock %}
