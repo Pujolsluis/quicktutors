@@ -45,11 +45,11 @@
 
 			<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
 				<div class="mdl-layout__drawer">
-
-					<header class="avatar_header">
-						<img src="" class="avatar">
-						<span class="mdl-layout-title">{{ userProfile.user.get_full_name }}</span>
+					<header class="avatar_header avatar-div text-center">
+                            <img src="{{ userProfile.picture.url }}" class="avatar avatar-properties img-circle" width="100" height="100">
+                            <span class="mdl-layout-title avatar-name">{{ userProfile.user.get_full_name }}</span>
 					</header>
+
 
 					<nav class="mdl-navigation">
 						<a class="mdl-navigation__link" href=""><i class="material-icons">home</i>Inicio</a>

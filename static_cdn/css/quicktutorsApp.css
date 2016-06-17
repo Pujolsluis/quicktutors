@@ -25,20 +25,8 @@ h1{
 
 /*Base Member*/
 .avatar_header {
-	background-color: #1a97c9;
+	background-color: #2E4172;
 	height: 25%;
-}
-
-.avatar-div{
-    padding-top:15%;
-}
-
-.avatar-properties{
-    padding-bottom: 16px;
-}
-
-.avatar-name{
-    color: #ffffff;
 }
 
 .mdl-navigation__link {

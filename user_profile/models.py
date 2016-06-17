@@ -1,17 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.utils import timezone
 
 # Create your models here.
 
 def user_directory_path(instance, filename):
-    return 'quicktutorsApp/user_directory/user_{0}/{1}'.format(instance.user.id, filename)
+    return 'quicktutorsApp/media/user_directory/user_{0}/{1}'.format(instance.user.id, filename)
 
 def reunionSite_directory_path(self,filename):
-    return 'quicktutorsApp/reunion_site_directory/{0}'.format(filename)
+    return 'quicktutorsApp/media/reunion_site_directory/{0}'.format(filename)
 
 def university_directory_path(self,filename):
-    return 'quicktutorsApp/university_directory/{0}'.format(filename)
+    return 'quicktutorsApp/media/university_directory/{0}'.format(filename)
 
 class Area(models.Model):
     name = models.CharField(max_length=100)
@@ -77,8 +77,8 @@ class UserProfile(models.Model):
     university = models.ForeignKey(University, default='')
     subjects = models.ManyToManyField(Subject, default='')
     video = models.URLField(null=True, blank=True)
-    begin_time = models.TimeField()
-    end_time = models.TimeField
+    begin_time = models.TimeField(blank=True, default=timezone.now)
+    end_time = models.TimeField(blank=True, default=timezone.now)
 
     def __unicode__(self):
         return self.user.username

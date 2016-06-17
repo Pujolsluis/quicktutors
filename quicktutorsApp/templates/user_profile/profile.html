@@ -1,4 +1,6 @@
 {% extends "quicktutorsApp/base_member.html" %}
+{% load staticfiles %}
+
 {% block content %}
 
     <h1>Welcome to {{ userProfile.user.get_full_name }} Profile </h1>
@@ -8,7 +10,8 @@
     </div>
     <label>Picture:</label>
     <br>
-         <img src="quicktutorsApp/media/user_directory/user_1/Logo-CEISS-FONDO-BLANCO.png" width="200" height="236">
+
+         <img src="{{ userProfile.picture.url }}" class="img-circle">
     <br>
     <label>Video de introduccion:</label>
     <br>
