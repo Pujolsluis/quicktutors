@@ -21,7 +21,32 @@
 }
 h1{
     font-family: 'Lobster', cursive;
+}
 
+/*Base Member*/
+.avatar_header {
+	background-color: #2E4172;
+	height: 25%;
+}
+
+.mdl-navigation__link {
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgba(255, 255, 255, 0.56);
+  font-weight: 500;
+}
+
+.mdl-navigation__link .material-icons {
+  font-size: 24px;
+  margin-right: 32px;
+  /*color: rgba(255, 255, 255, 0.56);*/
 }
 
 
