@@ -11,8 +11,12 @@
         <br>
         <label>Carrera:</label>
         <br>
-        {% for career in userProfile.career.all %}
-            {{ career.name }}
-            <br>
-        {% endfor %}
+            {{ userProfile.career }}
+        <br>
+        <label>Materias que Domina:</label>
+        <br>
+            {% for subject in userProfile.subjects.all %}
+            {{ subject }}
+            {% endfor %}
+        <br>
     {% endblock %}
