@@ -135,4 +135,14 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 
+ACCOUNT_ACTIVATION_DAYS = 7
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'quicktutorsapp@gmail.com'
+EMAIL_HOST_PASSWORD = 'quicktutors1234'
+EMAIL_PORT = 587
+SERVER_EMAIL = 'quicktutorsapp@gmail.com'
+DEFAULT_FROM_EMAIL = "QuickTutors"
 
