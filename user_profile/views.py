@@ -38,7 +38,19 @@ def send_update_profile(request):
         if form.is_valid():
             userProfile = UserProfile.objects.get(user=request.user)
             bio = form.cleaned_data['bio']
+            if 'picture' in request.FILES:
+                picture = request.FILES['picture']
+                userProfile.picture = picture
+            studentID = form.cleaned_data['studentID']
+            video = form.cleaned_data['video']
+            begintime = form.cleaned_data['begin_time']
+            endtime = form.cleaned_data['end_time']
+
             userProfile.bio = bio
+            userProfile.studentID = studentID
+            userProfile.video = video
+            userProfile.begin_time = begintime
+            userProfile.end_time = endtime
             userProfile.save()
             return redirect('/user/profile/' + str(userProfile.id))
     else:
