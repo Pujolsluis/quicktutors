@@ -25,7 +25,7 @@ h1{
 
 /*Base Member*/
 .avatar_header {
-	background-color: #1a97c9;
+	background-color: #303F9F;
 	height: 25%;
 }
 
@@ -40,6 +40,8 @@ h1{
 .avatar-name{
     color: #ffffff;
 }
+
+
 
 .mdl-navigation__link {
   display: -webkit-flex !important;
