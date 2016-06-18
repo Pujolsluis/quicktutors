@@ -10,7 +10,7 @@
     </div>
     <label>Picture:</label>
     <br>
-         <img src="{{ userProfile.picture.url }}" class="img-circle">
+         <img src="{{ userProfile.picture.url }}" class="img-rounded" width="240" height="240">
     <br>
     <label>Video de introduccion:</label>
     <br>
@@ -24,10 +24,10 @@
     <br>
         {% for subject in userProfile.subjects.all %}
         {{ subject }}
+            <br>
         {% endfor %}
     <br>
     <label>Tiempo en servicio:</label>
     {{ userProfile.begin_time }} - {{ userProfile.end_time }}
     <br>
-
 {% endblock %}
