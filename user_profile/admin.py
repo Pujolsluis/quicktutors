@@ -5,26 +5,30 @@ class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('user', )
     search_fields = ['user']
 
+
 class AreaAdmin(admin.ModelAdmin):
     list_display = ('name', )
     search_fields = ['name']
+
 
 class UniversityAdmin(admin.ModelAdmin):
     list_display = ('name', )
     search_fields = ['name']
 
+
 class ReunionAdmin(admin.ModelAdmin):
     list_display = ('name', )
     search_fields = ['name']
+
 
 class CareerAdmin(admin.ModelAdmin):
     list_display = ('name', )
     search_fields = ['name']
 
+
 class SubjectAdmin(admin.ModelAdmin):
     list_display = ('name', )
     search_fields = ['name']
-
 
 
 admin.site.register(UserProfile, UserProfileAdmin)

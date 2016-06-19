@@ -57,7 +57,7 @@ class University(models.Model):
 
 class Subject(models.Model):
     name = models.CharField(max_length=100)
-    area = models.ForeignKey(Area, default='')
+    area = models.ForeignKey(Area, null=True)
     description = models.TextField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
@@ -81,10 +81,14 @@ class UserProfile(models.Model):
     end_time = models.TimeField(blank=True, default=timezone.now)
 
     def __unicode__(self):
-        return self.user.username
+        if self.user:
+            return self.user.username
+        return ''
 
     def __str__(self):
-        return self.user.username
+        if self.user:
+            return self.user.username
+        return ''
 
 from django.db.models.signals import post_save
 from django.dispatch import receiver
