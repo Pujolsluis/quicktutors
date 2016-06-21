@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'quicktutorsApp',
     'user_profile',
+    'postman',
 ]
 
 MIDDLEWARE_CLASSES = [
