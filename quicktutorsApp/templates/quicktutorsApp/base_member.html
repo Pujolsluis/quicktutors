@@ -61,8 +61,17 @@
 				</div>
 				<main class="mdl-layout__content">
 					<div class="container-fluid">
-						{% block content %}
-						{% endblock %}
+                        <div class="row">
+{#                            <div class="col-xs-2">#}
+{#                                {%  block postman_menu %}#}
+{#                                {% endblock %}#}
+{#                            </div>#}
+                            <div class="col-xs-12">
+                                {% block content %}
+                                {% endblock %}
+                            </div>
+                        </div>
+
 					</div>
 				</main>
 			</div>
