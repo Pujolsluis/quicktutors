@@ -117,12 +117,12 @@ in the INSTALLED_APPS setting.
                         {% block pm_recipient_cell %}
 
                             <td>
-
+                                <h6>
                                 {{ message.obfuscated_recipient|or_me:user }}
                                 {% if message.count %}
                                     <span class="badge">{{ message.count }}</span>
                                 {% endif %}
-
+                                </h6>
                             </td>
 
                         {% endblock %}
