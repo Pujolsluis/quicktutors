@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'user_profile',
     'postman',
     'ajax_select',
+    'monitorias',
 ]
 
 MIDDLEWARE_CLASSES = [
