@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = '/user/profile/0'
+LOGIN_REDIRECT_URL = '/user/profile/'
 
 # Application definition
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'quicktutorsApp',
     'user_profile',
     'postman',
+    'ajax_select',
 ]
 
 MIDDLEWARE_CLASSES = [

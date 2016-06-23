@@ -27,39 +27,48 @@ in the INSTALLED_APPS setting.
             {% if pm_messages %}
 
             {% block pm_by_modes %}
-
+                <p>
                 <div id="pm_by_modes">
 
                     <span class="pm_by_mode">{% if by_message %}<a href="{{ by_conversation_url }}">{% endif %}{% trans "by conversation" %}{% if by_message %}</a>{% endif %}</span>
                     <span class="pm_by_mode">{% if by_conversation %}<a href="{{ by_message_url }}">{% endif %}{% trans "by message" %}{% if by_conversation %}</a>{% endif %}</span>
 
                 </div>
+                </p>
 
             {% endblock pm_by_modes %}
 
             <form action="{% block pm_form_action %}{% endblock %}" method="post">{% csrf_token %}
+                <div class="row">
+                    <div class="col-xs-12 text-left" >
+                        <div class="btn-group btn-sm">
+                        {% block pm_form_buttons %}
 
-                {% block pm_form_buttons %}
+                            <span id="pm_buttons">
 
-                    <span id="pm_buttons">
+                                {% block pm_delete_button %}
+                                    <button type="submit" onclick="this.form.action='{% url 'postman:delete' %}'"
+{#                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"#}>{% trans "Delete" %}</button>
+                                {% endblock %}
 
-                        {% block pm_delete_button %}
-                            <button type="submit" onclick="this.form.action='{% url 'postman:delete' %}'">{% trans "Delete" %}</button>
-                        {% endblock %}
+                                {% block pm_archive_button %}
+                                    <button type="submit" onclick="this.form.action='{% url 'postman:archive' %}'"
+{#                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"#}>{% trans "Archive" %}</button>
+                                {% endblock %}
 
-                        {% block pm_archive_button %}
-                            <button type="submit" onclick="this.form.action='{% url 'postman:archive' %}'">{% trans "Archive" %}</button>
-                        {% endblock %}
+                                {% block pm_undelete_button %}
+                                    <button type="submit" onclick="this.form.action='{% url 'postman:undelete' %}'"
+{#                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"#}>{% trans "Undelete" %}</button>
+                                {% endblock %}
 
-                        {% block pm_undelete_button %}
-                            <button type="submit" onclick="this.form.action='{% url 'postman:undelete' %}'">{% trans "Undelete" %}</button>
-                        {% endblock %}
+                            </span>
 
-                    </span>
+                         {% endblock %}
+                        </div>
+                    </div>
+                </div>
 
-                {% endblock %}
-
-            <table id="pm_messages">
+            <table id="pm_messages" class="table table-striped table-hover table-responsive" >
 
                 <thead>
 
@@ -87,18 +96,20 @@ in the INSTALLED_APPS setting.
                  <tbody>
                     {% for message in pm_messages %}
                         <tr>
-                           <td>
-                               <input type="checkbox" {% if by_conversation and message.thread_id %}name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %} />
-                           </td>
+                            <h6>
+                               <td>
+                                   <input type="checkbox" {% if by_conversation and message.thread_id %}name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %} />
+                               </td>
+                            </h6>
 
                             {% block pm_sender_cell %}
                                 <td>
-
+                                    <h6>
                                     {{ message.obfuscated_sender|or_me:user }}
                                         {% if message.count %}
                                             ({{ message.count }})
                                         {% endif %}
-
+                                    </h6>
                                 </td>
                             {% endblock %}
 
@@ -125,9 +136,9 @@ in the INSTALLED_APPS setting.
                                    <em>
                                {% endif %}
                         {% block pm_subject %}
-                            <a href="{% if by_conversation and message.thread_id %}{% url 'postman:view_conversation' message.thread_id %}{% else %}{% url 'postman:view' message.pk %}{% endif %}?next={{ current_url|urlencode }}">
+                            <h6><a href="{% if by_conversation and message.thread_id %}{% url 'postman:view_conversation' message.thread_id %}{% else %}{% url 'postman:view' message.pk %}{% endif %}?next={{ current_url|urlencode }}">
                             {% include "postman/inc_subject_ex.html" %}
-                            </a>
+                            </a></h6>
                         {% endblock %}
                            {% if message.is_replied %}
                                </em>
@@ -139,7 +150,9 @@ in the INSTALLED_APPS setting.
                            </td>
 
                            <td>
+                               <h6>
                                {{ message.sent_at|compact_date:_("g:i A,M j,n/j/y") }}
+                               </h6>
                            </td>
 
                       </tr>
