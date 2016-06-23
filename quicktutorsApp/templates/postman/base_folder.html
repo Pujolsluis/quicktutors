@@ -107,7 +107,7 @@ in the INSTALLED_APPS setting.
                                     <h6>
                                     {{ message.obfuscated_sender|or_me:user }}
                                         {% if message.count %}
-                                            ({{ message.count }})
+                                           <span class="badge">{{ message.count }}</span>
                                         {% endif %}
                                     </h6>
                                 </td>
@@ -120,7 +120,7 @@ in the INSTALLED_APPS setting.
 
                                 {{ message.obfuscated_recipient|or_me:user }}
                                 {% if message.count %}
-                                    ({{ message.count }})
+                                    <span class="badge">{{ message.count }}</span>
                                 {% endif %}
 
                             </td>
