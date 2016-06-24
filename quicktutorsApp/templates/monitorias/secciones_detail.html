@@ -1,0 +1,18 @@
+{% extends 'quicktutorsApp/base_member.html' %}
+{% block title %}
+    Detalles de Sección
+{% endblock %}
+{% block content %}
+    <h1>Detalles de Sección:</h1>
+    <div class="container-fluid">
+        <div class="well well-sm">
+        <label>Estudiante:</label><p> {{ seccion.estudiante.get_full_name }}</p>
+        <label>Tutor:</label><p> {{ seccion.tutor.get_full_name }}</p>
+        <label>Universidad:</label><p>{{ seccion.university }}</p>
+        <label>Punto de Reunion:</label><p>{{ seccion.reunionsite }}</p>
+        <label>Materia:</label><p> {{ seccion.subject }}</p>
+        <label>Description:</label><p> {{ seccion.description }}</p>
+        <label>Time interval</label><p>{{ seccion.begin_timeDay }} - {{ seccion.end_timeDay }}</p>
+        </div>
+    </div>
+{% endblock %}

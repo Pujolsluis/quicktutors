@@ -5,9 +5,8 @@
 {% block content %}
     <h1>Hello Secciones de monitorias :3</h1>
     {% for seccion in secciones %}
-        <div class="well well-sm"><label>Estudiante:</label><p> {{ seccion.estudiante.get_full_name }}</p>
-        <label>Tutor:</label><p> {{ seccion.tutor.get_full_name }}</p>
-        <label>Materia:</label><p> {{ seccion.subject }}</p>
+        <div class="well well-sm">
+        <a href="{% url 'secciones_detail' pk=seccion.pk %}"> {{ post.title }}<p><strong>Seccion: Estudiante:</strong> {{ seccion.estudiante }} / <strong>Tutor:</strong> {{ seccion.tutor }} <strong>({{ seccion.begin_timeDay }} - {{ seccion.end_timeDay }})</strong> </p></a>
         </div>
     {% endfor %}
 {% endblock %}
