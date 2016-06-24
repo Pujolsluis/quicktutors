@@ -5,8 +5,8 @@
 {% block content %}
     <h1>Hello Secciones de monitorias :3</h1>
     {% for seccion in secciones %}
-        <div class="well well-sm"><label>Estudiante:</label><p> {{ seccion.estudiante }}</p>
-        <label>Tutor:</label><p> {{ seccion.estudiante }}</p>
+        <div class="well well-sm"><label>Estudiante:</label><p> {{ seccion.estudiante.get_full_name }}</p>
+        <label>Tutor:</label><p> {{ seccion.tutor.get_full_name }}</p>
         <label>Materia:</label><p> {{ seccion.subject }}</p>
         </div>
     {% endfor %}

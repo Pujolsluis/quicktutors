@@ -11,7 +11,7 @@ class SeccionMonitoria(models.Model):
     university = models.ForeignKey(University)
     reunionsite = models.ForeignKey(ReunionSite)
     subject = models.ForeignKey(Subject)
-    description = models.TextField
+    description = models.TextField(default='')
     begin_timeDay = models.DateTimeField(default=timezone.now)
     end_timeDay = models.DateTimeField(null=True)
 
