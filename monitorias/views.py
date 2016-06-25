@@ -11,8 +11,12 @@ def secciones_list(request):
     # integrales = SeccionMonitoria.objects.filter(subject__name="Calculo Integral")
     # integralesSubject = integrales[0].subject
     for i in SeccionMonitoria.objects.all():
-        if i.estudiante == request.user or i.tutor == request.user:
-            secciones.add(i)
+        if request.user.userprofile.isTutor:
+            if i.estudiante == request.user or i.tutor == request.user:
+                    secciones.add(i)
+        else:
+            if i.estudiante == request.user:
+                secciones.add(i)
 
     return render(request, 'monitorias/secciones_list.html', {'secciones': secciones})
 
