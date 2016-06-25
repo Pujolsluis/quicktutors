@@ -6,6 +6,22 @@ from django.utils import timezone
 
 
 class SeccionMonitoria(models.Model):
+    ACEPTADA = 'aceptada'
+    PENDIENTE = 'pendiente'
+    RECHAZADA = 'rechazada'
+
+    ESTADO_SECCION_MONITORIA = (
+        (ACEPTADA, 'Aceptada'),
+        (PENDIENTE, 'Pendiente'),
+        (RECHAZADA, 'Rechazada'),
+
+    )
+    status = models.CharField(
+        max_length=10,
+        choices=ESTADO_SECCION_MONITORIA,
+        default=PENDIENTE,
+
+    )
     estudiante = models.ForeignKey(User, related_name='seccionmonitoria_estudiante')
     tutor = models.ForeignKey(User, related_name='seccionmonitoria_tutor')
     university = models.ForeignKey(University)

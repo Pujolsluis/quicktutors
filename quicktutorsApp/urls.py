@@ -2,11 +2,13 @@ from django.conf.urls import url
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+# from user_profile import views
 
 urlpatterns = [
     url(r'^$', views.undercons_page, name='undercons_page'),
     url(r'^home/$', views.home_page, name='home_page'),
-    url(r'^search/$', views.search_page, name='search_page'),
+
+
 ]
 
 if settings.DEBUG:

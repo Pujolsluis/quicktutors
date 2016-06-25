@@ -8,6 +8,9 @@ def secciones_list(request):
     # import ipdb
     # ipdb.set_trace()
     secciones = set()
+    pendiente = "pendiente"
+    aceptada = "aceptada"
+    rechazada = "rechazada"
     # integrales = SeccionMonitoria.objects.filter(subject__name="Calculo Integral")
     # integralesSubject = integrales[0].subject
     for i in SeccionMonitoria.objects.all():
@@ -18,8 +21,38 @@ def secciones_list(request):
             if i.estudiante == request.user:
                 secciones.add(i)
 
-    return render(request, 'monitorias/secciones_list.html', {'secciones': secciones})
+    return render(request, 'monitorias/secciones_list.html', {'secciones': secciones, 'pendiente': pendiente, 'aceptada': aceptada, 'rechazada': rechazada})
 
+# Funcion para filtrar lista de secciones de monitorias agendadas
+
+def secciones_list_estado(request, estado):
+
+    secciones = set()
+
+    for i in SeccionMonitoria.objects.all():
+        if request.user.userprofile.isTutor:
+            if (i.estudiante == request.user or i.tutor == request.user) and \
+                    (i.status == "pendiente" and estado == "1"):
+                secciones.add(i)
+
+            if (i.estudiante == request.user or i.tutor == request.user) and \
+                    (i.status == "aceptada" and estado == "2"):
+                secciones.add(i)
+
+            if (i.estudiante == request.user or i.tutor == request.user) and \
+                    (i.status == "rechazada" and estado == "3"):
+                secciones.add(i)
+        else:
+            if (i.estudiante == request.user) and (i.status == "pendiente" and estado == "1"):
+                secciones.add(i)
+
+            if (i.estudiante == request.user) and (i.status == "aceptada" and estado == "2"):
+                secciones.add(i)
+
+            if (i.estudiante == request.user) and (i.status == "rechazada" and estado == "3"):
+                secciones.add(i)
+
+    return render(request, 'monitorias/secciones_list.html', {'secciones': secciones})
 
 
 def secciones_detail(request,pk):
