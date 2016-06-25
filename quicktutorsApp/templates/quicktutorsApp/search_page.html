@@ -45,7 +45,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h4><span class="glyphicon glyphicon-user"></span> {{ userProfile.user.get_full_name }}</h4>
+                        <h4><span class="glyphicon glyphicon-user"></span><a href="{% url 'tutor_profile' profile_id=userProfile.id %}" >{{ userProfile.user.get_full_name }}</a></h4>
                         <ul>Datos Personales
                             <li>{{ userProfile.user.email }}</li>
                         </ul>
