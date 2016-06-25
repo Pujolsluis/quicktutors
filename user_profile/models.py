@@ -70,6 +70,7 @@ class Subject(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
+    isTutor = models.BooleanField(default=False)
     bio = models.TextField(max_length=500, null=True, blank=True)
     studentID = models.CharField(max_length=10)
     picture = models.ImageField(upload_to=user_directory_path, default='quicktutorsApp/media/user-character.png')

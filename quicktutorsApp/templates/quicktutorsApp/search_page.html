@@ -1,6 +1,7 @@
 {% extends 'quicktutorsApp/base_member.html' %}
     {% block content %}
         {% for user in users %}
+            {% if user.userprofile.isTutor %}
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -11,5 +12,6 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
     {% endblock %}
