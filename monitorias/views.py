@@ -20,6 +20,8 @@ def secciones_list(request):
 
     return render(request, 'monitorias/secciones_list.html', {'secciones': secciones})
 
+
+
 def secciones_detail(request,pk):
     seccion = get_object_or_404(SeccionMonitoria, pk=pk)
     return render(request, 'monitorias/secciones_detail.html', {'seccion': seccion})

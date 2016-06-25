@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load i18n postman_tags %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -39,10 +40,16 @@
 				<div class="mdl-layout__header-row">
 		        	<span class="mdl-layout-title"><a href="/user/profile">QuickTutors</a></span>
 		        	<div class="mdl-layout-spacer"></div>
-		        	  <a href="{% url 'logout' %}" class="mdl-button mdl-js-button mdl-button--icon"
-			               for="fixed-header-drawer-exp">
-			          <i class="material-icons">exit_to_app</i>
-			        </a>
+                        <a href="{% url 'postman:inbox' %}" class="mdl-button mdl-js-button mdl-button--icon">
+                        <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="{% postman_unread %}">mail_outline</div>
+                        </a>
+                        <a href="{% url 'logout' %}" class="mdl-button mdl-js-button mdl-button--icon"
+                               for="fixed-header-drawer-exp">
+                        <i id="ttlogout" class="material-icons">exit_to_app</i>
+                        <div class="mdl-tooltip" for="ttlogout">
+                            Logout
+                        </div>
+                        </a>
 		      	</div>
 			</header>
 
@@ -55,8 +62,8 @@
 
 
 					<nav class="mdl-navigation">
-						<a class="mdl-navigation__link" href=""><i class="material-icons">home</i>Inicio</a>
-						<a class="mdl-navigation__link" href=""><i class="material-icons">search</i>Buscar Tutor</a>
+						<a class="mdl-navigation__link" href="{% url 'profile' %}"><i class="material-icons">home</i>Inicio</a>
+						<a class="mdl-navigation__link" href="{% url 'search_page' %}"><i class="material-icons">search</i>Buscar Tutor</a>
 						<a class="mdl-navigation__link" href=""><i class="material-icons">forum</i>QuickFire</a>
 						<a class="mdl-navigation__link" href=""><i class="material-icons">inbox</i>Recursos</a>
 					</nav>

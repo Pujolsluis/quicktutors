@@ -1,6 +1,11 @@
 from user_profile.models import UserProfile
+from django.contrib.auth.decorators import login_required
+
 
 
 def quicktutorsApp(request):
-    userProfile = UserProfile.objects.get(user=request.user)
-    return {'USER_PROFILE': userProfile}
+    if request.user.is_authenticated():
+        userProfile = UserProfile.objects.get(user=request.user)
+        return {'USER_PROFILE': userProfile}
+    else:
+        return {'USER_PROFILE': "None"}
