@@ -71,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'postman.context_processors.inbox',
+                'quicktutorsApp.context_processors.quicktutorsApp',
             ],
         },
     },
