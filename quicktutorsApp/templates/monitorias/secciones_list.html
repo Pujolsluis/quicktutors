@@ -3,10 +3,27 @@
     Secciones de Monitorias
 {% endblock %}
 {% block content %}
-    <h1>Hello Secciones de monitorias :3</h1>
+    <div class="container-fluid">
+    <h1>Secciones de monitoria agendadas</h1>
+            <div class="row">
+                <div class="col-xs-1">
+                   <label><i class="material-icons">filter_list</i>
+                </div>
+                <div class="col-xs-11">
+                    <div class="btn-group">
+                        <a href="" class="btn btn-default">Pendientes</a>
+                        <a href="" class="btn btn-default">Rechazadas</a>
+                        <a href="" class="btn btn-default">Aceptadas</a>
+                    </div>
+                 </div>
+            </div>
+
+    <hr>
     {% for seccion in secciones %}
         <div class="well well-sm">
         <a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}"> {{ post.title }}<p><strong>Seccion: Estudiante:</strong> {{ seccion.estudiante }} / <strong>Tutor:</strong> {{ seccion.tutor }} <strong>({{ seccion.begin_timeDay }} - {{ seccion.end_timeDay }})</strong> </p></a>
         </div>
     {% endfor %}
+    </div>
 {% endblock %}
+
