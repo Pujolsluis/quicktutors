@@ -27,6 +27,6 @@ urlpatterns = [
     url(r'^user/', include('user_profile.urls')),
     url(r'^messages/', include('postman.urls', namespace='postman', app_name='postman')),
     url(r'^ajax_select/', include('ajax_select.urls')),
-    url(r'^secciones/', include('monitorias.urls')),
+    url(r'^secciones/', include('monitorias.urls', namespace='monitorias', app_name='monitorias')),
 
 ]

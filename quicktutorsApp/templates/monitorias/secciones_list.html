@@ -6,7 +6,7 @@
     <h1>Hello Secciones de monitorias :3</h1>
     {% for seccion in secciones %}
         <div class="well well-sm">
-        <a href="{% url 'secciones_detail' pk=seccion.pk %}"> {{ post.title }}<p><strong>Seccion: Estudiante:</strong> {{ seccion.estudiante }} / <strong>Tutor:</strong> {{ seccion.tutor }} <strong>({{ seccion.begin_timeDay }} - {{ seccion.end_timeDay }})</strong> </p></a>
+        <a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}"> {{ post.title }}<p><strong>Seccion: Estudiante:</strong> {{ seccion.estudiante }} / <strong>Tutor:</strong> {{ seccion.tutor }} <strong>({{ seccion.begin_timeDay }} - {{ seccion.end_timeDay }})</strong> </p></a>
         </div>
     {% endfor %}
 {% endblock %}
