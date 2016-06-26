@@ -8,7 +8,7 @@
         <a href="{% url 'update_profile' %}" class="glyphicon glyphicon-edit"></a>
         {% endif %}
     </h1>
-    {% if user.id != userProfile.user.id %}
+    {% if user.id != userProfile.user.id and userProfile.isTutor == True %}
             <a class="btn btn-default" href="{% url 'monitorias:secciones_new' tutorpk=userProfile.user.pk%}">
             Solicitar Monitoria
             </a>
