@@ -1,13 +1,53 @@
-{% extends 'quicktutorsApp/base.html' %}
+{% extends 'quicktutorsApp/base_member.html' %}
     {% block content %}
-        {% for user in users %}
+        <h1>Buscar un Tutor</h1>
+        <div class="row">
+                <div class="col-xs-12">
+                    <label><i class="material-icons">filter_list</i></label> <strong>Filter By</strong>
+                    <div class="btn-group">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            Ciencias Basicas y Medio Ambientales <span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu">
+                            <div class="dropdown-header"><strong>Matematicas</strong></div>
+                                  <li><a href="{% url 'search_page_filter' subject='Algebra y Geometria Analitica' %}">Algebra y Geometria Analitica</a></li>
+                                  <li><a href="{% url 'search_page_filter' subject='Calculo Diferencial' %}">Calculo Diferencial</a></li>
+                                  <li><a href="{% url 'search_page_filter' subject='Calculo Integral' %}">Calculo Integral</a></li>
+                                  <li><a href="{% url 'search_page_filter' subject='Calculo Vectorial' %}">Calculo Vectorial</a></li>
+                                  <li><a href="{% url 'search_page_filter' subject='Ecuaciones Diferenciales' %}">Ecuaciones Diferenciales</a></li>
+                                  <li><a href="{% url 'search_page_filter' subject='Algebra Lineal' %}">Algebra Lineal</a></li>
+                                  <li><a href="{% url 'search_page_filter' subject='Analisis Numerico' %}">Analisis Numerico</a></li>
+                                  <li><a href="{% url 'search_page_filter' subject='Discreta I' %}">Discreta I</a></li>
+                                  <li><a href="{% url 'search_page_filter' subject='Discreta II' %}">Discreta II</a></li>
+                                  <li role="separator" class="divider"></li>
+                            <div class="dropdown-header"><strong>Fisicas</strong></div>
+                                  <li><a href="{% url 'search_page_filter' subject='Fisica I' %}">Fisica I</a></li>
+                                  <li><a href="{% url 'search_page_filter' subject='Fisica II' %}">Fisica II</a></li>
+                                  <li><a href="{% url 'search_page_filter' subject='Fisica III' %}">Fisica III</a></li>
+                                  <li><a href="{% url 'search_page_filter' subject='Fisica IV' %}">Fisica IV</a></li>
+                            </ul>
+                          </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            Ingenierias <span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu">
+                            <div class="dropdown-header"><strong>Ingenierias</strong></div>
+                              <li><a href="{% url 'search_page_filter' subject='Fundamentos de Programacion' %}">Fundamentos de Programación</a></li>
+                              <li><a href="{% url 'search_page_filter' subject='Logica de Programacion' %}">Logica de Programación</a></li>
+                              <li><a href="{% url 'search_page_filter' subject='Algoritmos y Estructuras de Datos' %}">Algoritmos y Estructuras de Datos</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        {% for userProfile in userProfiles %}
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-
-                        <h4><span class="glyphicon glyphicon-user"></span> {{ user.get_full_name }}</h4>
+                        <h4><span class="glyphicon glyphicon-user"></span><a href="{% url 'tutor_profile' profile_id=userProfile.id %}" >{{ userProfile.user.get_full_name }}</a></h4>
                         <ul>Datos Personales
-                            <li>{{ user.email }}</li>
+                            <li>{{ userProfile.user.email }}</li>
                         </ul>
                     </div>
                 </div>

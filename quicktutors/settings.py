@@ -42,7 +42,12 @@ INSTALLED_APPS = [
     'user_profile',
     'postman',
     'ajax_select',
+    'monitorias',
+    'django.contrib.sites',
 ]
+
+SITE_ID = 1
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,6 +75,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'postman.context_processors.inbox',
+                'quicktutorsApp.context_processors.quicktutorsApp',
             ],
         },
     },

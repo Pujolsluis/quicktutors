@@ -1,0 +1,31 @@
+{% extends 'quicktutorsApp/base_member.html' %}
+{% block title %}
+    Secciones de Monitorias
+{% endblock %}
+{% block content %}
+
+    <div class="container-fluid">
+    <h1>Secciones de monitoria agendadas</h1>
+            <div class="row">
+                <div class="col-xs-1">
+                   <label><i class="material-icons">filter_list</i>
+                </div>
+                <div class="col-xs-11">
+                    <div class="btn-group">
+                        <a href="{% url 'monitorias:secciones_list_estado' estado=1 %}" class="btn btn-default">Pendientes</a>
+                        <a href="{% url 'monitorias:secciones_list_estado' estado=2 %}"class="btn btn-default">Aceptadas</a>
+                        <a href="{% url 'monitorias:secciones_list_estado' estado=3 %}" class="btn btn-default">Rechazadas</a>
+                       <a href="{% url 'monitorias:secciones_list' %}" class="btn btn-default">Todas</a>
+                    </div>
+                 </div>
+            </div>
+
+    <hr>
+    {% for seccion in secciones %}
+        <div class="well well-sm">
+        <a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}"> {{ post.title }}<p><strong>Seccion: Estudiante:</strong> {{ seccion.estudiante }} / <strong>Tutor:</strong> {{ seccion.tutor }} <strong>({{ seccion.begin_timeDay }} - {{ seccion.end_timeDay }})</strong> </p></a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
+
