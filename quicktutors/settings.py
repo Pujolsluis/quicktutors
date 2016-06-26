@@ -43,7 +43,10 @@ INSTALLED_APPS = [
     'postman',
     'ajax_select',
     'monitorias',
+    'django.contrib.sites',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

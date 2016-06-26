@@ -3,6 +3,7 @@ from monitorias.models import SeccionMonitoria
 from monitorias.forms import SeccionMonitoriaForm
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
+from postman.api import pm_write
 # Create your views here.
 
 def secciones_list(request):
@@ -74,14 +75,36 @@ def secciones_new(request, tutorpk):
         form = SeccionMonitoriaForm()
     return render(request, 'monitorias/secciones_new.html', {'form': form, 'tutor': tutor})
 
+# view para que un tutor pueda aceptar una seccion de monitoria
 def secciones_aceptar(request, pk):
     seccion = SeccionMonitoria.objects.get(pk=pk)
     seccion.status = "aceptada"
     seccion.save()
+    # Enviar mensaje al estudiante con el mensaje de que ha sido rechazada la solicitud
+    pm_write(seccion.tutor, seccion.estudiante,
+             "Tu seccion de monitoria para la materia " + seccion.subject.name + "ha sido aceptada.",
+             "Hola " + seccion.estudiante.get_short_name() + ",\n\n Me complace informarte que estoy disponible"
+                                                             " para impartire tu seccion de monitoria, y me parece bien"
+                                                             " el horario seleccionado y lugar de encuentro, estaremos en"
+                                                             " contacto por esta via para una futura confirmacion de la"
+                                                             " cita.\n\n" \
+                                                             "Gracias por utilizar nuestro servicio,\n\n" \
+                                                             "-" + seccion.tutor.get_short_name())
     return redirect('/secciones/')
 
+# view para que un tutor pueda rechazar una seccion de monitoria
 def secciones_rechazar(request, pk):
     seccion = SeccionMonitoria.objects.get(pk=pk)
     seccion.status = "rechazada"
     seccion.save()
+    # Enviar mensaje al estudiante con el mensaje de que ha sido rechazada la solicitud
+    pm_write(seccion.tutor, seccion.estudiante,
+             "Tu seccion de monitoria para la materia " + seccion.subject.name + "ha sido rechazada.",
+             "Hola " + seccion.estudiante.get_short_name() +",\n\n Lamento informarte que no podre impartirte" \
+                                                           "la seccion de monitoria solicitada ya que no estare" \
+                                                           " disponible en ese horario. pero espero que en un futuro" \
+                                                           " podamos estudiar juntos!\n\n" \
+                                                           "Gracias por utilizar nuestro servicio,\n\n" \
+                                                           "-" + seccion.tutor.get_short_name())
+
     return redirect('/secciones/')
