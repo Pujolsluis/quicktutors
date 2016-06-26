@@ -6,6 +6,18 @@
     <h1>Detalles de Sección:</h1>
     <div class="container-fluid">
         <div class="well well-sm">
+
+            {% if USER_PROFILE.isTutor == True and seccion.tutor.id == USER_PROFILE.user.id and seccion.status == "pendiente" %}
+                <div class="row">
+                 <div class="col-xs-12 text-right">
+                        <div class="btn-group">
+                            <a href="{% url 'monitorias:secciones_aceptar' pk=seccion.pk %}" class="btn btn-default">Aceptar</a>
+                            <a href="{% url 'monitorias:secciones_rechazar' pk=seccion.pk %}"class="btn btn-default">Rechazar</a>
+                        </div>
+                     </div>
+                    </div>
+            {% endif %}
+        
         <label>Estatus:</label><p> {{ seccion.status }}</p>
         <label>Estudiante:</label><p> {{ seccion.estudiante.get_full_name }}</p>
         <label>Tutor:</label><p> {{ seccion.tutor.get_full_name }}</p>

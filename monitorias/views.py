@@ -73,3 +73,15 @@ def secciones_new(request, tutorpk):
     else:
         form = SeccionMonitoriaForm()
     return render(request, 'monitorias/secciones_new.html', {'form': form, 'tutor': tutor})
+
+def secciones_aceptar(request, pk):
+    seccion = SeccionMonitoria.objects.get(pk=pk)
+    seccion.status = "aceptada"
+    seccion.save()
+    return redirect('/secciones/')
+
+def secciones_rechazar(request, pk):
+    seccion = SeccionMonitoria.objects.get(pk=pk)
+    seccion.status = "rechazada"
+    seccion.save()
+    return redirect('/secciones/')
