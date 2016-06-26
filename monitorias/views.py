@@ -63,6 +63,7 @@ def secciones_detail(request,pk):
 
 def secciones_new(request, tutorpk):
     tutor = User.objects.get(pk=tutorpk)
+    admin = User.objects.get(username="quicktutors")
     if request.method == "POST":
         form = SeccionMonitoriaForm(request.POST)
         if form.is_valid():
@@ -70,6 +71,12 @@ def secciones_new(request, tutorpk):
             seccion.estudiante = request.user
             seccion.tutor = tutor
             seccion.save()
+            pm_write(admin, tutor, "Nueva Solicitud de monitoria.", "Hola " + tutor.get_short_name() + ",\n\n Tienes una"
+                                                                                                       " nueva solicitud"
+                                                                                                       " pendiente en tu lista"
+                                                                                                       " de monitorias.\n\n"
+                                                                                                       "Estudiante: " +
+                     seccion.estudiante.get_full_name() + "\nMateria: " + seccion.subject.name + "\n\n-Quicktutors Staff.")
             return redirect('/secciones/')
     else:
         form = SeccionMonitoriaForm()
