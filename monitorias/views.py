@@ -91,8 +91,8 @@ def secciones_aceptar(request, pk):
     pm_write(seccion.tutor, seccion.estudiante,
              "Tu seccion de monitoria para la materia " + seccion.subject.name + "ha sido aceptada.",
              "Hola " + seccion.estudiante.get_short_name() + ",\n\n Me complace informarte que estoy disponible"
-                                                             " para impartire tu seccion de monitoria, y me parece bien"
-                                                             " el horario seleccionado y lugar de encuentro, estaremos en"
+                                                             " para impartirte tu seccion de monitoria, y me parece bien"
+                                                             " el horario seleccionado, asi como lugar de encuentro, estaremos en"
                                                              " contacto por esta via para una futura confirmacion de la"
                                                              " cita.\n\n" \
                                                              "Gracias por utilizar nuestro servicio,\n\n" \
@@ -108,7 +108,7 @@ def secciones_rechazar(request, pk):
     pm_write(seccion.tutor, seccion.estudiante,
              "Tu seccion de monitoria para la materia " + seccion.subject.name + "ha sido rechazada.",
              "Hola " + seccion.estudiante.get_short_name() +",\n\n Lamento informarte que no podre impartirte" \
-                                                           "la seccion de monitoria solicitada ya que no estare" \
+                                                           " la seccion de monitoria solicitada ya que no estare" \
                                                            " disponible en ese horario. pero espero que en un futuro" \
                                                            " podamos estudiar juntos!\n\n" \
                                                            "Gracias por utilizar nuestro servicio,\n\n" \
