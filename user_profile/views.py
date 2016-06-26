@@ -31,6 +31,7 @@ def personal_profile(request):
         userProfile = UserProfile.objects.get(user=request.user)
     return render(request, 'user_profile/profile.html', {'userProfile': userProfile})
 
+@login_required
 def profile(request, profile_id):
     if profile_id == "0" or profile_id == '':
         if request.user.is_authenticated:
@@ -58,11 +59,12 @@ def send_update_profile(request):
 
     return redirect('/user/update_profile/')
 
-@login_required()
+@login_required
 def profile_search_page(request):
     userProfiles = UserProfile.objects.all().filter(isTutor=True)
     return render(request, 'quicktutorsApp/search_page.html', {'userProfiles': userProfiles})
 
+@login_required
 def profile_filter_subject(request, subject):
     userProfiles = UserProfile.objects.all().filter(isTutor=True).filter(subjects__name=subject)
     return render(request, 'quicktutorsApp/search_page.html', {'userProfiles': userProfiles})

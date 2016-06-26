@@ -8,7 +8,6 @@ class SeccionMonitoriaForm(forms.ModelForm):
         model = SeccionMonitoria
 
         fields = [
-            'tutor',
             'university',
             'reunionsite',
             'subject',

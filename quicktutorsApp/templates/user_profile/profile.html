@@ -6,9 +6,16 @@
     <h1>Welcome to {{ userProfile.user.get_full_name }} Profile
         {% if user.id == userProfile.user.id or user.is_staff == True %}
         <a href="{% url 'update_profile' %}" class="glyphicon glyphicon-edit"></a>
-
         {% endif %}
     </h1>
+    {% if user.id != userProfile.user.id %}
+            <a class="btn btn-default" href="{% url 'monitorias:secciones_new' tutorpk=userProfile.user.pk%}">
+            Solicitar Monitoria
+            </a>
+
+    {% endif %}
+    <hr>
+
     <label>Bio:</label>
     <div>
         <p>{{ userProfile.bio }}</p>
