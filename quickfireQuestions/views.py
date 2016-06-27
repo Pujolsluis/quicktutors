@@ -14,6 +14,7 @@ def questions_detail(request, pk):
     question = get_object_or_404(Question, pk=pk)
     return render(request, 'quickfireQuestions/questions_detail.html', {'question': question})
 
+
 def questions_new(request):
     if request.method == "POST":
         form = QuestionForm(request.POST)
@@ -26,6 +27,7 @@ def questions_new(request):
     else:
         form = QuestionForm()
     return render(request, 'quickfireQuestions/question_edit.html', {'form': form})
+
 
 def questions_edit(request,pk):
     question = get_object_or_404(Question, pk=pk)
