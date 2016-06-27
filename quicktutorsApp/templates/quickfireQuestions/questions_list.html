@@ -1,0 +1,19 @@
+{% extends 'quicktutorsApp/base_member.html' %}
+{% block title %}
+    QuickFire Questions
+{% endblock %}
+{% block content %}
+    <h1>QuickFire Questions</h1>
+    {% for question in questionsList %}
+        <div class="well well-sm">
+            <h6><strong>{{ question.title }}</strong></h6>
+            <label>Autor:</label>
+            <br>
+            {{ question.author.get_full_name }}
+            <br>
+            <label>Materia:</label>
+            <br>
+            {{ question.subject }}
+        </div>
+    {% endfor %}
+{% endblock %}
