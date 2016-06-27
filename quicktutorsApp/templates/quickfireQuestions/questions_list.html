@@ -3,7 +3,7 @@
     QuickFire Questions
 {% endblock %}
 {% block content %}
-    <h1>QuickFire Questions</h1>
+    <h1>QuickFire Questions <a href="{% url 'quickfireQuestions:questions_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a></h1>
     {% for question in questionsList %}
         <div class="well well-sm">
             <h6><a href="{% url 'quickfireQuestions:questions_detail' pk=question.pk %}">
