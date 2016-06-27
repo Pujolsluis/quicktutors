@@ -1,0 +1,15 @@
+{% extends 'quicktutorsApp/base_member.html' %}
+{% block title %}
+    {{ question.title }}
+{% endblock %}
+{% block content %}
+    <h1>{{ question.title }}</h1>
+    <div class="well">
+        {% if question.published_date %}
+            <div class="date">
+                {{ question.published_date }}
+            </div>
+        {% endif %}
+        <p>{{ question.text|linebreaksbr }}</p>
+    </div>
+{% endblock %}
