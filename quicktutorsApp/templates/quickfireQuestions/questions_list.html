@@ -6,7 +6,7 @@
     <h1>QuickFire Questions</h1>
     {% for question in questionsList %}
         <div class="well well-sm">
-            <h6><a href="{% url 'quickfireQuestions:questions_detail' pk=question.pk %}"> <strong>{{ question.title }}</strong></a></h6>
+            <h6><a href="{% url 'quickfireQuestions:questions_detail' pk=question.pk %}"><strong>{{ question.title }} Comments: {{ question.comments.count }}</strong></a></h6>
             <label>Autor:</label>
             <br>
             {{ question.author.get_full_name }}
