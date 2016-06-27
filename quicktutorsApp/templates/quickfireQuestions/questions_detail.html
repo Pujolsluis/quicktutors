@@ -10,6 +10,11 @@
                 {{ question.published_date }}
             </div>
         {% endif %}
+        {% if user.id == question.author.id or user.is_staff == True %}
+            <div class="text-right">
+            <a class="btn btn-default" href="{% url 'quickfireQuestions:questions_edit' pk=question.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            </div>
+        {% endif %}
         <p>{{ question.text|linebreaksbr }}</p>
     </div>
 {% endblock %}

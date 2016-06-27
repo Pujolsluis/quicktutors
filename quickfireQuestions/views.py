@@ -26,3 +26,17 @@ def questions_new(request):
     else:
         form = QuestionForm()
     return render(request, 'quickfireQuestions/question_edit.html', {'form': form})
+
+def questions_edit(request,pk):
+    question = get_object_or_404(Question, pk=pk)
+    if request.method == "POST":
+        form = QuestionForm(request.POST, instance=question)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('quickfireQuestions:questions_detail', pk=post.pk)
+    else:
+        form = QuestionForm(instance=question)
+    return render(request, 'quickfireQuestions/question_edit.html', {'form': form})
