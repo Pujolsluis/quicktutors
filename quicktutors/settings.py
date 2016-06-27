@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'ajax_select',
     'monitorias',
     'django.contrib.sites',
+    'quickfireQuestions',
 ]
 
 SITE_ID = 1
