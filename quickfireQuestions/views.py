@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Question
-from .forms import QuestionForm
+from .models import Question, Comment
+from .forms import QuestionForm, CommentForm
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -42,3 +43,30 @@ def questions_edit(request,pk):
     else:
         form = QuestionForm(instance=question)
     return render(request, 'quickfireQuestions/question_edit.html', {'form': form})
+
+def add_comment_to_questions(request, pk):
+    question = get_object_or_404(Question, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.question = question
+            comment.author = request.user
+            comment.save()
+            return redirect('quickfireQuestions:questions_detail', pk=question.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'quickfireQuestions/add_comment_to_post.html', {'form': form})
+
+@login_required
+def comment_approve(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.approve()
+    return redirect('quickfireQuestions:questions_detail', pk=comment.question.pk)
+
+@login_required
+def comment_remove(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    question_pk = comment.question.pk
+    comment.delete()
+    return redirect('quickfireQuestions:questions_detail', pk=question_pk)

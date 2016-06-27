@@ -17,9 +17,16 @@
         {% endif %}
         <p>{{ question.text|linebreaksbr }}</p>
         <hr>
+        <a class="btn btn-default" href="{% url 'quickfireQuestions:add_comment_to_questions' pk=question.pk %}">Add comment</a>
         {% for comment in question.comments.all %}
             <div class="comment">
-                <div class="date text-right">{{ comment.created_date }}</div>
+                <div class="date text-right">
+                    {{ comment.created_date }}
+                    {% if not comment.approved_comment %}
+                    <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                    {% endif %}
+                </div>
                 <strong>{{ comment.author }}</strong>
                 <p>{{ comment.text|linebreaks }}</p>
             </div>
