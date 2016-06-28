@@ -25,20 +25,26 @@
         {% for comment in question.comments.all %}
             <div class="comment">
                 <div class="date text-right">
+                    {% if comment.approved_comment or user.id == question.author.id or user.is_staff %}
                     {{ comment.created_date }}
-                    {% if comment.approved_comment and question.isAnswered == False %}
+                    {% endif %}
+
+                    {% if comment.approved_comment and user.id == question.author.id or user.is_staff == True and question.isAnswered == False %}
                         <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_correct_answer' pk=comment.pk %}"><span class="glyphicon glyphicon-star"></span><strong> Correct</strong></a>
                     {% endif %}
-                    {% if not comment.approved_comment and user.id == question.author.id or user.is_staff == True %}
+                    {% if not comment.approved_comment and user.id == question.author.id or not comment.approved_comment and  user.is_staff == True  %}
                         <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                         <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
                     {% endif %}
                     {% if comment.approved_comment and question.isAnswered == True and comment.isCorrectAnswer %}
                         <span class="glyphicon glyphicon-star"></span><strong> Correct</strong>
                     {% endif %}
+
                 </div>
+                {% if comment.approved_comment or user.id == question.author.id or user.is_staff %}
                 <strong>{{ comment.author.get_full_name }}</strong>
                 <p>{{ comment.text|linebreaks }}</p>
+                {% endif %}
             </div>
         {% empty %}
             <p>No comments here yet :(</p>
