@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 defaultSubject = Subject.objects.get(name="Algebra y Geometria Analitica")
 
 class Question(models.Model):
+    isAnswered = models.BooleanField(default=False)
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     subject = models.ForeignKey(Subject, null=True)
@@ -29,6 +30,7 @@ class Comment(models.Model):
     question = models.ForeignKey('quickfireQuestions.Question', related_name='comments')
     author = models.ForeignKey(User)
     text = models.TextField()
+    isCorrectAnswer = models.BooleanField(default=False)
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 

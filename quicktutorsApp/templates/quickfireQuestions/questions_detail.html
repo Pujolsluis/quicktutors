@@ -11,20 +11,30 @@
             </div>
         {% endif %}
         {% if user.id == question.author.id or user.is_staff == True %}
+            {% if question.isAnswered == False %}
             <div class="text-right">
             <a class="btn btn-default" href="{% url 'quickfireQuestions:questions_edit' pk=question.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
             </div>
+                {% endif %}
         {% endif %}
         <p>{{ question.text|linebreaksbr }}</p>
         <hr>
+        {% if question.isAnswered == False %}
         <a class="btn btn-default" href="{% url 'quickfireQuestions:add_comment_to_questions' pk=question.pk %}">Add comment</a>
+        {% endif %}
         {% for comment in question.comments.all %}
             <div class="comment">
                 <div class="date text-right">
                     {{ comment.created_date }}
+                    {% if comment.approved_comment and question.isAnswered == False %}
+                        <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_correct_answer' pk=comment.pk %}"><span class="glyphicon glyphicon-star"></span><strong> Correct</strong></a>
+                    {% endif %}
                     {% if not comment.approved_comment %}
-                    <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-                    <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                        <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                        <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                    {% endif %}
+                    {% if comment.approved_comment and question.isAnswered == True and comment.isCorrectAnswer %}
+                        <span class="glyphicon glyphicon-star"></span><strong> Correct</strong>
                     {% endif %}
                 </div>
                 <strong>{{ comment.author }}</strong>

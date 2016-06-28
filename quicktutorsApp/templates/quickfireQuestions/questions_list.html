@@ -8,7 +8,16 @@
         <div class="well well-sm">
             <h6><a href="{% url 'quickfireQuestions:questions_detail' pk=question.pk %}">
                 <strong>{{ question.title }} Comments: {{ question.approved_comments.count }}</strong>
-            </a></h6>
+            </a>
+
+            <div class="text-right">
+            {% if question.isAnswered == True %}
+                <span class="btn btn-default btn-lg glyphicon glyphicon-lock">Closed</span>
+                {% else %}
+                <span class="btn btn-default btn-lg glyphicon glyphicon-fire">Open</span>
+            {% endif %}
+            </div>
+            </h6>
             <label>Autor:</label>
             <br>
             {{ question.author.get_full_name }}

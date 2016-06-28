@@ -70,3 +70,14 @@ def comment_remove(request, pk):
     question_pk = comment.question.pk
     comment.delete()
     return redirect('quickfireQuestions:questions_detail', pk=question_pk)
+
+@login_required
+def comment_correct_answer(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.isCorrectAnswer = True
+    question_pk = comment.question.pk
+    question = Question.objects.get(pk=question_pk)
+    question.isAnswered = True
+    question.save()
+    comment.save()
+    return redirect('quickfireQuestions:questions_detail', pk=question_pk)
