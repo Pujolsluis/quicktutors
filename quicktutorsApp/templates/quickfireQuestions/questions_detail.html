@@ -29,7 +29,7 @@
                     {% if comment.approved_comment and question.isAnswered == False %}
                         <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_correct_answer' pk=comment.pk %}"><span class="glyphicon glyphicon-star"></span><strong> Correct</strong></a>
                     {% endif %}
-                    {% if not comment.approved_comment %}
+                    {% if not comment.approved_comment and user.id == question.author.id or user.is_staff == True %}
                         <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                         <a class="btn btn-default" href="{% url 'quickfireQuestions:comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
                     {% endif %}
