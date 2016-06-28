@@ -37,7 +37,7 @@
                         <span class="glyphicon glyphicon-star"></span><strong> Correct</strong>
                     {% endif %}
                 </div>
-                <strong>{{ comment.author }}</strong>
+                <strong>{{ comment.author.get_full_name }}</strong>
                 <p>{{ comment.text|linebreaks }}</p>
             </div>
         {% empty %}
