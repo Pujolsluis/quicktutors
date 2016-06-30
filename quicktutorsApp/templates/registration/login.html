@@ -11,7 +11,7 @@
                         <p>Your username and password didn't match. Please try again.</p>
                         {% endif %}
 
-                        <form method="post" action=".">
+                        <form method="post" action="." class="form-horizontal" role="form">
                         {% csrf_token %}
 {##}
 {#                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">#}
@@ -23,16 +23,17 @@
 {#                            <input class="mdl-textfield__input" type="password" id="password">#}
 {#                            <label class="mdl-textfield__label" for="password">Password</label>#}
 {#                            </div>#}
-                        <table class="table">
-                        <tr>
-                            <td>{{ form.username.label_tag }}</td>
-                            <td>{{ form.username }}</td>
-                        </tr>
-                        <tr>
-                            <td>{{ form.password.label_tag }}</td>
-                            <td>{{ form.password }}</td>
-                        </tr>
-                        </table>
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <label class ="mdl-textfield__label" for="{{ form.username.id }}">{{ form.username.label }}</label>
+                            <input class= "mdl-textfield__input" id="{{ form.username.id }}" maxlength="254" name="username" type="text">{{ form.username.id }}
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <label class ="mdl-textfield__label" for="{{ form.password.id }}">{{ form.password.label }}</label>
+                            <input class= "mdl-textfield__input" id="{{ form.password.id }}" name="password" type="password">
+                            </div>
+{#                            <td>{{ form.password.label_tag }}</td>#}
+{#                            <td>{{ form.password }}</td>#}
                         <br>
                         <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="login" />
                         <input type="hidden" name="next" value="{{ next }}" />
