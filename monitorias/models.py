@@ -30,6 +30,7 @@ class SeccionMonitoria(models.Model):
     description = models.TextField(default='')
     begin_timeDay = models.DateTimeField(default=timezone.now)
     end_timeDay = models.DateTimeField(null=True)
+    hours_wanted = models.IntegerField(default='2')
     publish_date = models.DateTimeField(default=timezone.now)
     def __unicode__(self):
         return "Sección: " + self.estudiante.get_short_name() + " / " + self.tutor.get_short_name() + " de " + self.subject.name + " - " + self.begin_timeDay.__str__()
