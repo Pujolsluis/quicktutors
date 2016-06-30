@@ -1,21 +1,9 @@
-<p>{% extends 'quicktutorsApp/base.html' %}
-    {% block content %}
-	<style>
-		.floating {
-		float: left;
-		margin: 0px;
-		padding: 0px;
-		max-width: 200%;
-		overflow-x: hidden;
-		height: 100%;
-		border: 0px;
-		position: fixed;
-		align: left;
-		} 
-	</style>
+{% extends 'quicktutorsApp/base.html' %}
 
-		
-		
+{% block title %}
+    Home
+{% endblock %}
+
+    {% block content %}
+        <h1>Hello Homepage :3</h1>
     {% endblock %}
-</p>
-<img src='img/home.png' class="floating">

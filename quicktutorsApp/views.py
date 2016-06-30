@@ -10,4 +10,6 @@ def undercons_page(request):
 def home_page(request):
     return render(request, 'quicktutorsApp/home_page.html')
 
+def dashboard(request):
+    return render(request, 'quicktutorsApp/dashboard.html')
 
