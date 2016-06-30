@@ -13,6 +13,6 @@ class SeccionMonitoriaForm(forms.ModelForm):
             'subject',
             'description',
             'begin_timeDay',
-            'end_timeDay',
+            'hours_wanted',
         ]
 
