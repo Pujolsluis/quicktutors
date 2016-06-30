@@ -39,6 +39,7 @@ def profile(request, profile_id):
     else:
         userProfile = UserProfile.objects.get(pk=profile_id)
 
+
     return render(request, 'user_profile/profile.html', {'userProfile': userProfile})
 
 

@@ -4,7 +4,7 @@ from user_profile.models import Subject
 from django.contrib.auth.models import User
 # Create your models here.
 
-defaultSubject = Subject.objects.get(name="Algebra y Geometria Analitica")
+
 
 class Question(models.Model):
     isAnswered = models.BooleanField(default=False)
