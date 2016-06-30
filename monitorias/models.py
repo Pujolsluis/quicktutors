@@ -32,6 +32,21 @@ class SeccionMonitoria(models.Model):
     end_timeDay = models.DateTimeField(null=True)
     hours_wanted = models.IntegerField(default='2')
     publish_date = models.DateTimeField(default=timezone.now)
+
+    ONLINE = 'online'
+    EFECTIVO = 'efectivo'
+
+    FORMA_DE_PAGO = (
+        (ONLINE, 'online'),
+        (EFECTIVO, 'efectivo'),
+
+    )
+    payment_method = models.CharField(
+        max_length=10,
+        choices=FORMA_DE_PAGO,
+        default=ONLINE,
+    )
+
     def __unicode__(self):
         return "Sección: " + self.estudiante.get_short_name() + " / " + self.tutor.get_short_name() + " de " + self.subject.name + " - " + self.begin_timeDay.__str__()
 
