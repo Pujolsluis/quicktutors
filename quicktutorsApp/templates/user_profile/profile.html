@@ -5,11 +5,11 @@
 {% endblock %}
 {% block content %}
 
-    <h1>Welcome to {{ userProfile.user.get_full_name }} Profile
+    <h3>Perfil de {{ userProfile.user.get_full_name }}
         {% if user.id == userProfile.user.id or user.is_staff == True %}
         <a href="{% url 'update_profile' %}" class="glyphicon glyphicon-edit"></a>
         {% endif %}
-    </h1>
+    </h3>
     {% if user.id != userProfile.user.id and userProfile.isTutor == True %}
             <a class="btn btn-default" href="{% url 'monitorias:secciones_new' tutorpk=userProfile.user.pk%}">
             Solicitar Monitoria
@@ -18,34 +18,107 @@
     {% endif %}
     <hr>
 
-    <label>Bio:</label>
-    <div>
-        <p>{{ userProfile.bio }}</p>
+    <div class="row">
+    <div class="col-xs-6">
+        <div class="row">
+
+            <div class="col-xs-6">
+                <label>University</label>
+                <br>
+                {{ userProfile.university }}
+            </div>
+
+            <div class="col-xs-6">
+                <label>Carrera</label>
+                <br>
+                {{ userProfile.career }}
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-6">
+                <label>Materias que Domina</label>
+                <br>
+                {% for subject in userProfile.subjects.all %}
+                {{ subject }}
+                <br>
+                {% endfor %}
+            </div>
+
+            <div class="col-xs-6">
+                <label>Tiempo en servicio</label>
+                <br>
+                {{ userProfile.begin_time }} - {{ userProfile.end_time }}
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <label>Bio</label>
+                <br>
+                <p>{{ userProfile.bio }}</p>
+            </div>
+        </div>
+
     </div>
-    <label>Picture:</label>
-    <br>
-         <img src="{{ userProfile.picture.url }}" class="img-rounded" width="240" height="240">
-    <br>
-    <label>Video de introduccion:</label>
-    <br>
-        {{ userProfile.video }}
-    <br>
-    <label>Carrera:</label>
-    <br>
-        {{ userProfile.career }}
-    <br>
-    <label>University:</label>
-    <br>
-        {{ userProfile.university }}
-    <br>
-    <label>Materias que Domina:</label>
-    <br>
-        {% for subject in userProfile.subjects.all %}
-        {{ subject }}
-            <br>
-        {% endfor %}
-    <br>
-    <label>Tiempo en servicio:</label>
-    {{ userProfile.begin_time }} - {{ userProfile.end_time }}
-    <br>
+
+    <div class="col-xs-6 profileMedia">
+        <img src="{{ userProfile.picture.url }}" class="img-rounded" width="240" height="240">
+        <br>
+        <a href="{{ userProfile.video }}">
+            <button class="mdl-button mdl-js-button mdl-button--primary">
+                <label>Video de introduccion</label>    
+            </button>
+        </a>
+    </div>
+</div>
+
+
 {% endblock %}
+
+
+<div class="row">
+    <div class="col-xs-6">
+        <div class="row">
+
+            <div class="col-xs-6">
+                <label>University</label>
+                <br>
+                {{ userProfile.university }}
+            </div>
+
+            <div class="col-xs-6">
+                <label>Carrera</label>
+                <br>
+                {{ userProfile.career }}
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-6">
+                <label>Materias que Domina</label>
+                <br>
+                {% for subject in userProfile.subjects.all %}
+                {{ subject }}
+                <br>
+                {% endfor %}
+            </div>
+
+            <div class="col-xs-6">
+                <label>Tiempo en servicio</label>
+                <br>
+                {{ userProfile.begin_time }} - {{ userProfile.end_time }}
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-6">
+
+    </div>
+</div>
+
