@@ -19,6 +19,7 @@
 .logincontainer{
     padding-top: 60px;
 }
+
 h1{
     font-family: 'Lobster', cursive;
 }
@@ -41,8 +42,6 @@ h1{
     color: #ffffff;
 }
 
-
-
 .mdl-navigation__link {
   display: -webkit-flex !important;
   display: -ms-flexbox !important;
@@ -60,13 +59,23 @@ h1{
 .mdl-navigation__link .material-icons {
   font-size: 24px;
   margin-right: 32px;
+  overflow-y: hidden;
   /*color: rgba(255, 255, 255, 0.56);*/
 }
 
 body{
-    overflow-y: hidden;
+  padding-right:0px;
+  overflow-y: hidden;
 }
 
 .comment {
     margin: 20px 0px 20px 20px;
+}
+
+.row{
+  margin-bottom: 15px;
+}
+
+.profileMedia{
+  text-align: center;
 }
