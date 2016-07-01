@@ -115,3 +115,19 @@ def secciones_rechazar(request, pk):
                                                            "-" + seccion.tutor.get_short_name())
 
     return redirect('/secciones/')
+
+
+def secciones_new_accepted(request):
+    return render(request, 'monitorias/accepted.html')
+
+
+def secciones_new_cancelled(request):
+    return render(request, 'monitorias/cancelled.html')
+
+
+def secciones_online_payment(request):
+    return render(request, 'monitorias/online_payment_page.html')
+
+
+def secciones_onsite_payment(request):
+    return render(request, 'monitorias/onsite_payment_page.html')
