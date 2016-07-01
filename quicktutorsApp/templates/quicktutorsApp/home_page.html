@@ -1,9 +1,15 @@
 {% extends 'quicktutorsApp/base.html' %}
-
+{%load staticfiles %}
 {% block title %}
     Home
 {% endblock %}
 
     {% block content %}
-        <h1>Hello Homepage :3</h1>
+    <style>
+		.floating {
+		    width: 100%;
+    		height: auto;
+		}
+	</style>
+        <img src="{% static 'media/homepage/home.png' %}" class="floating">
     {% endblock %}

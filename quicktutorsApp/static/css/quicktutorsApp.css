@@ -66,6 +66,9 @@ h1{
 body{
   padding-right:0px;
   overflow-y: hidden;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .comment {
@@ -79,3 +82,7 @@ body{
 .profileMedia{
   text-align: center;
 }
+
+  main {
+    flex: 1 0 auto;
+  }

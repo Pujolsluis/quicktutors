@@ -2,27 +2,104 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+
+        <!--Import Google Icon Font-->
+         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+         <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("#mobile-demo").click(function(){
+                $(this).fadeIn();
+                $(this).fadeOut();
+            });
+        });
+        </script>
+
         <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>QuickTutors | {% block title %}{% endblock %}</title>
 	</head>
 
-	<body>
+        <body>
+        <!--Import jQuery before materialize.js-->
+              <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+              <script type="text/javascript" src="js/materialize.min.js"></script>
 
-    {#                  Base Menu                                   #}
+        {#                  Base Menu                                   #}
+          <nav>
+            <div class="nav-wrapper">
+              <a href="#!" class="brand-logo">QuickTutors</a>
+              <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="#">Precios</a></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Contactenos</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+              </ul>
+              <ul class="side-nav" id="mobile-demo">
+                <li><a href="#">Precios</a></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Contactenos</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+              </ul>
+            </div>
+          </nav>
+        {#                  Base Content                                   #}
+            <div class="page-content">
 
+                {% block content %}
+                {% endblock %}
 
-    {#                  Base Content                                   #}
-        <div class="page-content">
+            </div>
 
-            {% block content %}
-            {% endblock %}
+        {#                  Base Footer                                  #}
+          <div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons" id="floatbutton" >search</i>
+            </a>
+            <ul>
+              <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+              <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+              <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+              <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+            </ul>
+          </div>
 
-        </div>
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">QuickTutors 2016</h5>
+                <p class="grey-text text-lighten-4">La aplicación que te permitira cambiar la forma en que manejas tus estudios.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">QuickTutors</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Precios</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Sobre Nosotros</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Contactenos</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Preguntas Frecuentes</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 Copyright &reg; QuickSolutions
+            <a class="grey-text text-lighten-4 right" href="#!">Accesar a su cuenta</a>
+            </div>
+          </div>
+        </footer>
 
-    {#                  Base Footer                                  #}
-    <footer>
-
-    </footer>
     </body>
 </html>
