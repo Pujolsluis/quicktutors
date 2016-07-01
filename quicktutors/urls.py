@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 import django.contrib.auth.views
 from django.contrib import admin
+from . import settings
 
 admin.autodiscover()
 
