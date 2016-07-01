@@ -2,85 +2,27 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
+        <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
-		<!-- Latest compiled JavaScript -->
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-		<!-- Lobster Font-->
-		<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-		<!-- Application CSS File-->
-		<link rel="stylesheet" href="{% static 'css/quicktutorsApp.css'%}">
-
-		<!-- Material Design Files -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-		<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-
-		<title>QuickTutors | {% block title %}{% endblock %}</title>
+        <title>QuickTutors | {% block title %}{% endblock %}</title>
 	</head>
 
 	<body>
 
-
     {#                  Base Menu                                   #}
-		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-			<header class="mdl-layout__header">
-				<div class="mdl-layout__header-row">
-
-					<span class="mdl-layout-title">QuickTutors</span>
-
-					<div class="mdl-layout-spacer"></div>
-
-					<nav class="mdl-navigation mdl-layout--large-screen-only">
-						<a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Precios</a>
-						<a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Sobre nosotros</a>
-						<a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Contactos</a>
-						<a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Preguntas Frecuentes</a>
-					</nav>
-				</div>
-			</header>
-
-			<div class="mdl-layout__drawer mdl-layout--small-screen-only">
-				<span class="mdl-layout-title">Quicktutors</span>
-				<nav class="mdl-navigation">
-					<a class="mdl-navigation__link" href="">Precios</a>
-					<a class="mdl-navigation__link" href="">Sobre Nosotros</a>
-					<a class="mdl-navigation__link" href="">Contactos</a>
-					<a class="mdl-navigation__link" href="">Preguntas Frecuentes</a>
-				</nav>
-			</div>
 
 
-{#                  Base Content                                   #}
-			<main class="mdl-layout__content">
-				<div class="page-content">
+    {#                  Base Content                                   #}
+        <div class="page-content">
 
-					{% block content %}
-					{% endblock %}
+            {% block content %}
+            {% endblock %}
 
-                </div>
-			</main>
+        </div>
 
+    {#                  Base Footer                                  #}
+    <footer>
 
-        {#                  Base Footer                                  #}
-			<footer class="mdl-mini-footer">
-				<div class="mdl-mini-footer__middle-section">
-					<div class="mdl-mini-footer__middle-section">
-					<div class="mdl-logo">QuickTutors</div>
-					<ul class="mdl-mini-footer__link-list">
-						<li><a href="#">Copyright&reg; by QuickSolutions</a></li>
-					</ul>
-				</div>
-			</footer>
-		</div>
-	</body>
+    </footer>
+    </body>
 </html>
