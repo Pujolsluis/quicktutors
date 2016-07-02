@@ -12,6 +12,9 @@ def affiliate_company_directory(self,filename):
 def recommended_tools_directory(self,filename):
     return 'quicktutorsApp/media/recommended_tool/{0}'.format(filename)
 
+def publicity_directory(self,filename):
+    return 'quicktutorsApp/media/publicity/{0}'.format(filename)
+
 
 class SeccionMonitoria(models.Model):
     ACEPTADA = 'aceptada'
@@ -82,6 +85,21 @@ class RecommendedTools(models.Model):
 
     class Meta:
         verbose_name_plural = "recommended Tools"
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        return self.name
+
+
+class Publicity(models.Model):
+    name = models.CharField(max_length=100)
+    picture = models.ImageField(upload_to=publicity_directory, default='reunion_site_directory/no-image.jpg')
+    website = models.URLField(blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "publicity Campaigns"
 
     def __unicode__(self):
         return self.name
