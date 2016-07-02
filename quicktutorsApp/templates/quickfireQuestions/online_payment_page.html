@@ -7,23 +7,27 @@
 
     <div class="container">
 
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" role="form">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="F9N5YAAVCF4Z2">
-        <input type="hidden" name="on0" value="Horas de monitoria">
-            <label class="form">Horas de monitoria a pagar:</label>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" role="form">
+
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="4TBKMSYY7AVBA">
+            <input type="hidden" name="on0" value="Paquetes de preguntas.">
+            <label class="form">Paquetes de preguntas.</label>
             <br>
-            <select name="os0" class="form-control">
-                <option value="1 Hora de monitoria">1 Hora de monitoria $10.87 USD</option>
-                <option value="2 Horas de monitoria">2 Horas de monitoria $21.74 USD</option>
-                <option value="3 Horas de monitoria">3 Horas de monitoria $32.61 USD</option>
-                <option value="4 Horas de monitoria">4 Horas de monitoria $43.78 USD</option>
-            </select>
+                <select name="os0" class="form-control">
+                    <option value="3 Quickfire Questions">3 Quickfire Questions $2.00 USD</option>
+                    <option value="6 Quickfire Questions">6 Quickfire Questions $4.00 USD</option>
+                    <option value="12 Quickfire Questions">12 Quickfire Questions $8.00 USD</option>
+                </select>
             <br>
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="submit" class="btn btn-success" value="Comprar ahora">
-    </form>
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="submit" class="btn btn-success" value="Comprar ahora">
+
+        </form>
     
     </div>
+
+
+
 
 {% endblock %}
