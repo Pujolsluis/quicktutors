@@ -102,4 +102,10 @@ def quickfire_pay(request, option):
         affiliates_list = AffiliateCompany.objects.all()
         return render(request, 'quickfireQuestions/onsite_payment_page.html', {'affiliates_list': affiliates_list})
 
+@login_required
+def questions_pay_accepted(request):
+    return render(request, 'quickfireQuestions/accepted.html')
 
+@login_required
+def questions_pay_cancelled(request):
+    return render(request, 'quickfireQuestions/cancelled.html')
