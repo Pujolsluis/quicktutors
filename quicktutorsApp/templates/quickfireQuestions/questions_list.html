@@ -3,7 +3,32 @@
     QuickFire Questions
 {% endblock %}
 {% block content %}
-    <h1>QuickFire Questions <a href="{% url 'quickfireQuestions:questions_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a></h1>
+
+    <h1>QuickFire Questions
+        {% if USER_PROFILE.quickfirequestions_available > 0 %}
+        <a href="{% url 'quickfireQuestions:questions_new' %}" class="top-menu">
+            <span class="glyphicon glyphicon-plus">
+        </span></a>
+            {% else %}
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Recarga de Quickfire Questions<span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu">
+            <div class="dropdown-header"><strong>Formas de Pago</strong></div>
+                  <li><a href="{% url 'quickfireQuestions:quickfire_pay' option='online' %}">Pago online</a></li>
+                  <li><a href="{% url 'quickfireQuestions:quickfire_pay' option='onsite' %}">Pago con efectivo</a></li>
+            </ul>
+          </div>
+        {% endif %}
+
+            <div class="material-icons mdl-badge mdl-badge--overlap text-right" data-badge="{{  USER_PROFILE.quickfirequestions_available }}">whatshot</div>
+
+
+    </h1>
+
+
+
+
     {% for question in questionsList %}
         <div class="well well-sm">
             <h6><a href="{% url 'quickfireQuestions:questions_detail' pk=question.pk %}">

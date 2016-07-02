@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
     url(r'^comment/(?P<pk>\d+)/correctanswer/$', views.comment_correct_answer, name='comment_correct_answer'),
+    url(r'^quickfire/(?P<option>[\w\s]+)/$', views.quickfire_pay, name='quickfire_pay'),
+
 ]

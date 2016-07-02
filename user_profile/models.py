@@ -80,6 +80,7 @@ class UserProfile(models.Model):
     video = models.URLField(null=True, blank=True)
     begin_time = models.TimeField(blank=True, default=timezone.now)
     end_time = models.TimeField(blank=True, default=timezone.now)
+    quickfirequestions_available = models.IntegerField(default=0)
 
     def __unicode__(self):
         if self.user:

@@ -141,4 +141,4 @@ def secciones_online_payment(request):
 
 def secciones_onsite_payment(request):
     affiliates_list = AffiliateCompany.objects.all()
-    return render(request, 'monitorias/onsite_payment_page.html', {'affialites_list': affiliates_list})
+    return render(request, 'monitorias/onsite_payment_page.html', {'affiliates_list': affiliates_list})
