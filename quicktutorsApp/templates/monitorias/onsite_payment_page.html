@@ -1,4 +1,5 @@
 {% extends 'quicktutorsApp/base_member.html' %}
+{% load staticfiles %}
 {% block title %}
     Thank you!
 {% endblock %}
@@ -6,4 +7,11 @@
     <h1>Negocios Afiliados para pagos en efectivo.</h1>
     <p>Puedes visitar cualquiera de nuestros negocios afiliados para validar tu orden, y terminar el proceso de solicitud
     de tu seccion de monitoria.</p>
+    <div class="container text-center">
+        {% for affiliate in affialites_list %}
+        <h6>{{ affiliate.name }}</h6>
+             <img src="{{ affiliate.picture.url }}" class="img-rounded" width="140" height="140">
+            <p>{{ affiliate.address }}</p>
+        {% endfor%}
+    </div>
 {% endblock %}

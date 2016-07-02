@@ -14,5 +14,6 @@ class SeccionMonitoriaForm(forms.ModelForm):
             'description',
             'begin_timeDay',
             'hours_wanted',
+            'payment_method',
         ]
 

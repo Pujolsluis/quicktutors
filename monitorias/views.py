@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from monitorias.models import SeccionMonitoria
+from monitorias.models import SeccionMonitoria, AffiliateCompany
 from monitorias.forms import SeccionMonitoriaForm
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
@@ -70,14 +70,24 @@ def secciones_new(request, tutorpk):
             seccion = form.save(commit=False)
             seccion.estudiante = request.user
             seccion.tutor = tutor
-            seccion.save()
-            pm_write(admin, tutor, "Nueva Solicitud de monitoria.", "Hola " + tutor.get_short_name() + ",\n\n Tienes una"
-                                                                                                       " nueva solicitud"
-                                                                                                       " pendiente en tu lista"
-                                                                                                       " de monitorias.\n\n"
-                                                                                                       "Estudiante: " +
+
+            pm_write(admin, tutor, "Nueva Solicitud de monitoria.",
+                     "Hola " + tutor.get_short_name() + ",\n\n Tienes una"
+                                                        " nueva solicitud"
+                                                        " pendiente en tu lista"
+                                                        " de monitorias.\n\n"
+                                                        "Estudiante: " +
                      seccion.estudiante.get_full_name() + "\nMateria: " + seccion.subject.name + "\n\n-Quicktutors Staff.")
-            return redirect('/secciones/')
+
+            if seccion.payment_method == "online":
+                seccion.seccion_payed = True
+                seccion.save()
+                return redirect('/secciones/online_payment/')
+            else:
+                seccion.seccion_payed = False
+                seccion.save()
+                return redirect('/secciones/onsite_payment')
+
     else:
         form = SeccionMonitoriaForm()
     return render(request, 'monitorias/secciones_new.html', {'form': form, 'tutor': tutor})
@@ -130,4 +140,5 @@ def secciones_online_payment(request):
 
 
 def secciones_onsite_payment(request):
-    return render(request, 'monitorias/onsite_payment_page.html')
+    affiliates_list = AffiliateCompany.objects.all()
+    return render(request, 'monitorias/onsite_payment_page.html', {'affialites_list': affiliates_list})
