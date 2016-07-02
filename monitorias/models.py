@@ -4,8 +4,13 @@ from user_profile.models import University, ReunionSite, Subject
 from django.utils import timezone
 # Create your models here.
 
+
 def affiliate_company_directory(self,filename):
     return 'quicktutorsApp/media/affiliate_company/{0}'.format(filename)
+
+
+def recommended_tools_directory(self,filename):
+    return 'quicktutorsApp/media/recommended_tool/{0}'.format(filename)
 
 
 class SeccionMonitoria(models.Model):
@@ -61,6 +66,22 @@ class AffiliateCompany(models.Model):
     name = models.CharField(max_length=100)
     picture = models.ImageField(upload_to=affiliate_company_directory, default='reunion_site_directory/no-image.jpg')
     address = models.TextField(max_length=200, null=True, blank=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        return self.name
+
+
+class RecommendedTools(models.Model):
+    name = models.CharField(max_length=100)
+    picture = models.ImageField(upload_to=recommended_tools_directory, default='reunion_site_directory/no-image.jpg')
+    description = models.TextField(max_length=200, null=True, blank=True)
+    website = models.URLField(blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "recommended Tools"
 
     def __unicode__(self):
         return self.name

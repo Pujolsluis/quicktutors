@@ -1,0 +1,16 @@
+{% extends 'quicktutorsApp/base_member.html' %}
+{% block title %}
+    Recommended Tools
+{% endblock %}
+{% block content %}
+    <h1>Herramientas Recomendadas para Monitorias</h1>
+    {% for tool in tools_list %}
+        <div class="container text-center">
+        <label>{{ tool.name }}</label>
+        <br>
+        <img src="{{ tool.picture.url }}" class="img-rounded" width="140" height="140">
+        <p>{{ tool.description }}</p>
+        <a href="{{ tool.website }}"></a>
+        </div>
+    {% endfor %}
+{% endblock %}

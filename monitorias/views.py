@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from monitorias.models import SeccionMonitoria, AffiliateCompany
+from monitorias.models import SeccionMonitoria, AffiliateCompany, RecommendedTools
 from monitorias.forms import SeccionMonitoriaForm
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
@@ -142,3 +142,7 @@ def secciones_online_payment(request):
 def secciones_onsite_payment(request):
     affiliates_list = AffiliateCompany.objects.all()
     return render(request, 'monitorias/onsite_payment_page.html', {'affiliates_list': affiliates_list})
+
+def secciones_recommended_tools(request):
+    tools_list = RecommendedTools.objects.all()
+    return render(request, 'monitorias/recommended_tools_page.html', {'tools_list': tools_list})
