@@ -6,10 +6,74 @@
 
     {% block content %}
     <style>
-		.floating {
-		    width: 100%;
-    		height: auto;
-		}
+        body {
+            position: relative;
+            scroll-y: none;
+        }
+          #section1 {padding-top:50px; height:700px; color: #fff; background-color: #673ab7; background-image: URL("{% static 'media/homepage/home.png' %}"); background-repeat: no-repeat; background-size: 100%; background-position: center;}
+          #section2 {padding-top:50px; height:800px; color: #fff; background-color: #673ab7;}
+          #section3 {padding-top:50px; height:800px; color: #fff; background-color: #ff9800;}
+          #section4 {padding-top:50px; height:800px; color: #fff; background-color: #00bcd4;}
+          #section5 {padding-top:50px; height:800px; color: #fff; background-color: #009688;}
 	</style>
-        <img src="{% static 'media/homepage/home.png' %}" class="floating">
+        <div id="section1" class="container-fluid" >
+            <p> &nbsp </p>
+             <p> &nbsp </p>
+
+            <p><a class="waves-effect waves-light btn"><i class="material-icons left">queue</i>Registra una Cuenta</a> &nbsp&nbsp</p>
+            <p><a class="waves-effect waves-light btn"><i class="material-icons left">supervisor_account</i>Acceder a tu Cuenta</a></p>
+        </div>
+        <div id="section2" class="container-fluid">
+          <h1>Precios</h1>
+<ul class="collection">
+                <div>
+                  <div class="row">
+                    <div class="col s12 m4">
+                      <div class="card blue darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title">Card Title</span>
+                          <p>I am a very simple card. I am good at containing small bits of information.
+                          I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action">
+                          <a href="#">This is a link</a>
+                          <a href="#">This is a link</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="row">
+                        <div class="col s12 m4">
+                          <div class="card blue darken-1">
+                            <div class="card-content white-text">
+                              <span class="card-title">Card Title</span>
+                              <p>I am a very simple card. I am good at containing small bits of information.
+                              I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <div class="card-action">
+                              <a href="#">This is a link</a>
+                              <a href="#">This is a link</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+</ul>
+        </div>
+        <div id="section3" class="container-fluid">
+          <h1>Sobre Nosotros</h1>
+          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        </div>
+        <div id="section4" class="container-fluid">
+          <h1>Contectenos</h1>
+          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        </div>
+        <div id="section5" class="container-fluid">
+          <h1>Preguntas Frecuentes</h1>
+          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        </div>
     {% endblock %}
