@@ -79,3 +79,7 @@ body{
 .profileMedia{
   text-align: center;
 }
+
+.publicityCarousel{
+    height: 250px;
+}
