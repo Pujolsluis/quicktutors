@@ -3,220 +3,318 @@
 {% block title %}
     Home
 {% endblock %}
-
-    {% block content %}
+{% block extrastyle %}
     <style>
-        // Media Query Ranges
-            $small-screen-up: 601px !default9
-            $medium-screen-up: 993px !default;
-            $large-screen-up: 1201px !default;
-            $small-screen: 600px !default;
-            $medium-screen: 992px !default;
-            $large-screen: 1200px !default;
-
-        body {
-            position: relative;
-            scroll-y: none;
-        }
-          #section1 {padding-top:150px; height:500px; color: #fff; background-color: #009973;background-image:url('http://vermilion-river.com/mrws/photofolio/back-to-school4.jpg');
-        background-repeat: no-repeat;background-position: 50% 0;  width: 100%; height: 100%;   -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;}
-          #section2 {padding-top:50px; height:800px; color: #fff; background-color: #009973;}
-          #section3 {padding-top:50px; height:800px; color: #fff; background-color: #41aac4;}
-          #section4 {padding-top:50px; height:800px; color: #fff; background-color: #BDB69C;}
-          #section5 {padding-top:50px; height:800px; color: #fff; background-color: #80CEB9;}
+    // Media Query Ranges
+        $small-screen-up: 601px !default9
+        $medium-screen-up: 993px !default;
+        $large-screen-up: 1201px !default;
+        $small-screen: 600px !default;
+        $medium-screen: 992px !default;
+        $large-screen: 1200px !default;
 
 
-        .jumbotron {
-  background-color: #009973; /* Orange */
-  color: #ffffff;
-  opacity:1;
-  padding: 370px 255px;
-        }
+    body {
+        position: relative;
+        scroll-y: none;
+    }
+
+
+    #section1 {
+            padding-top:150px;
+            height:500px;
+            color: #fff;
+            background-color: #009973;
+            background-image:url('http://vermilion-river.com/mrws/photofolio/back-to-school4.jpg');
+            background-repeat: no-repeat;
+            background-position: 50% 0;
+            width: 100%; height: 100%;
+            -ms-background-size: cover;
+            -o-background-size: cover;
+            -moz-background-size: cover;
+            -webkit-background-size: cover;
+            background-size: cover;}
+
+
+    #section2 {
+        padding-top: 50px;
+        height: 800px;
+        color: #fff;
+        background-color: #009973;
+    }
+
+
+    #section3 {
+        padding-top:50px;
+        height:800px;
+        color: #fff;
+        background-color: #41aac4;
+    }
+
+
+    #section4 {
+        padding-top:50px;
+        height:800px;
+        color: #fff;
+        background-color: #BDB69C;
+    }
+
+
+    #section5 {
+        padding-top:50px;
+        height:800px;
+        color: #fff;
+        background-color: #80CEB9;
+    }
+
+
+    .jumbotron {
+        background-color: #009973; /* Orange */
+        color: #ffffff;
+        opacity:1;
+        padding: 370px 255px;
+    }
+
     .bg-grey {
-    background-color: #f6f6f6;
-    color:#000000;
-    padding:60px 50px;
-}
+        background-color: #f6f6f6;
+        color:#000000;
+        padding:60px 50px;
+    }
 
-.container-fluid {
-    padding: 60px 50px;
-}
-.panel {
-    border: 1px solid #1a75ff;
-    border-radius:0;
-    color:#000000;
-    transition: box-shadow 0.5s;
-}
 
-.panel:hover {
-    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-}
+    .container-fluid {
+        padding: 60px 50px;
+    }
 
-.panel-footer .btn:hover {
-    border: 1px solid #1a75ff;
-    background-color: #fff !important;
-    color: #f4511e;
-}
 
-.panel-heading {
-    color: #fff !important;
-    background-color: #1a75ff !important;
-    padding: 25px;
-    border-bottom: 1px solid transparent;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
+    .panel {
+        border: 1px solid #1a75ff;
+        border-radius:0;
+        color:#000000;
+        transition: box-shadow 0.5s;
+    }
 
-.panel-footer {
-    background-color: #fff !important;
-}
 
-.panel-footer h3 {
-    font-size: 32px;
-}
+    .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    }
 
-.panel-footer h4 {
-    color: #aaa;
-    font-size: 14px;
-}
 
-.panel-footer .btn {
-    margin: 15px 0;
-    background-color: #1a75ff;
-    color: #fff;
-}
-	</style>
-<div id="section1" class="jumbotron text-center">
+    .panel-footer .btn:hover {
+        border: 1px solid #1a75ff;
+        background-color: #fff !important;
+        color: #f4511e;
+    }
 
-          <h1>QuickTutors</h1>
-          <p>Innovando en monitorias</p>
-          <form class="form-inline">
+
+    .panel-heading {
+        color: #fff !important;
+        background-color: #1a75ff !important;
+        padding: 25px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+
+    .panel-footer {
+        background-color: #fff !important;
+    }
+
+
+    .panel-footer h3 {
+        font-size: 32px;
+    }
+
+
+    .panel-footer h4 {
+        color: #aaa;
+        font-size: 14px;
+    }
+
+
+    .panel-footer .btn {
+        margin: 15px 0;
+        background-color: #1a75ff;
+        color: #fff;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+    <div id="section1" class="jumbotron text-center">
+
+        <h1>QuickTutors</h1>
+        <p>Innovando en monitorias</p>
+
+        <form class="form-inline">
+
             <button type="button" class="btn btn-danger">Registrate</button>
-          </form>
-</div>
 
+        </form>
 
-
-          <!-- Container (Services Section) -->
-<div id="section2" class="container-fluid">
-          <div class="text-center">
-            <h1><strong>Precios</strong></h1>
-            <h4>Elige lo que necesites</h4>
-          </div>
-          <div class="row">
-   <div class="col-sm-6">
-     <div class="panel panel-default text-center">
-       <div class="panel-heading">
-         <h1>Sesiones de Monitoria</h1>
-       </div>
-       <div class="panel-body">
-         <p>Consigue cualquier tipo de monitor para la materia que necesites de forma rapida y sencilla</p>
-
-       </div>
-       <div class="panel-footer">
-         <h3>RD$500.00</h3>
-         <h4>por hora</h4>
-         <button class="btn btn-lg">Mas Informacion</button>
-       </div>
-     </div>
-   </div>
-   <div class="col-sm-6">
-     <div class="panel panel-default text-center">
-       <div class="panel-heading">
-         <h1>QuickFire Questions</h1>
-       </div>
-       <div class="panel-body">
-         <p>Necesitas responder una pregunta rapido? No te preocupes, con nuestras QuickFire Questions un monitor te respondera enseguida.</p>
-       </div>
-       <div class="panel-footer">
-         <h3>RD$30.00</h3>
-         <h4>Por pregunta</h4>
-         <button class="btn btn-lg">Mas informacion</button>
-       </div>
-     </div>
-   </div>
- </div>
-</div>
-        <br>
-<div id="section3" class="container-fluid">
-          <div class="container-fluid">
-            <h1>Sobre Nosotros</h1>
-            <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-      <h4>Vision</h4>
-
-      <p class = "flow-text">Diseñar, implementar y Mantener una aplicación que mejore el nivel académico de nuestros clientes con las sesiones de monitorias que tomen diariamente en esta, acercandose asi cada vez mas a sus metas académicas.</p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-      <h4>Mision</h4>
-  <p class = "flow-text">Ser la empresa de preferencia de los estudiantes universitarios a la hora de buscar, solicitar y obtener servicios de monitorias privadas en diferentes áreas académicas.</p>  </div>
-    <!-- When in sm mode the 3rd column jumps up below the 2nd column. To fix it put the following right before the column that messes up using the screen mode being sm that messes up. -->
-    <div class="clearfix visible-sm"></div>
 
 
 
-  </div>
-          </div>
+        <!-- Container (Services Section) -->
+        <div id="section2" class="container-fluid">
 
-          <div class="container-fluid bg-grey">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <h2>Nuestros Valores</h2>
-              <ol>
-                  <li>Responsabilidad </li>
-                  <li>Respeto </li>
-                  <li>Lealtad</li>
-                  <li>Integridad</li>
-              </ol>
+            <div class="text-center">
+
+                <h1><strong>Precios</strong></h1>
+                <h4>Elige lo que necesites</h4>
+
             </div>
-          </div>
 
-</div>
-    <br>
-
-</div>
-        <div id="section4" class="container-fluid">
-          <div class="container-fluid bg-grey">
-            <h2 class="text-center">Contacto  </h2>
             <div class="row">
-              <div class="col-sm-5">
-                <p>Contact us and we'll get back to you within 24 hours.</p>
-                <p><span class="glyphicon glyphicon-map-marker"></span> Santo Domingo, Republica Dominicana</p>
-                <p><span class="glyphicon glyphicon-phone"></span> 809-620-2020</p>
-                <p><span class="glyphicon glyphicon-envelope"></span> contact@quicktutors.com</p>
-              </div>
-              <div class="col-sm-7">
-                <div class="row">
-                  <div class="col-sm-6 form-group">
-                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-                  </div>
-                  <div class="col-sm-6 form-group">
-                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-                  </div>
+                <div class="col-sm-6">
+                    <div class="panel panel-default text-center">
+
+                        <div class="panel-heading">
+                            <h1>Sesiones de Monitoria</h1>
+                        </div>
+
+                        <div class="panel-body">
+                            <p>Consigue cualquier tipo de monitor para la materia que necesites de forma rapida y sencilla</p>
+                        </div>
+
+                        <div class="panel-footer">
+                            <h3>RD$500.00</h3>
+                            <h4>por hora</h4>
+
+                        <button class="btn btn-lg">Mas Informacion</button>
+
+                        </div>
+                    </div>
                 </div>
-                <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-                <div class="row">
-                  <div class="col-sm-12 form-group">
-                    <button class="btn btn-default pull-right" type="submit">Enviar</button>
-                  </div>
+
+                <div class="col-sm-6">
+                    <div class="panel panel-default text-center">
+
+                        <div class="panel-heading">
+                            <h1>QuickFire Questions</h1>
+                        </div>
+
+                        <div class="panel-body">
+                            <p>Necesitas responder una pregunta rapido? No te preocupes, con nuestras QuickFire Questions un monitor te respondera enseguida.</p>
+                        </div>
+
+                        <div class="panel-footer">
+                            <h3>RD$30.00</h3>
+                            <h4>Por pregunta</h4>
+                            <button class="btn btn-lg">Mas informacion</button>
+                        </div>
+
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-      </div>
+        </div>
 
         <br>
-        <div id="section5" class="container-fluid">
-          <h1>Preguntas Frecuentes</h1>
-              <div class = "col-lg-6 col-md-6 col sm-6 col-xs-12">
-              <h1><Strong>Como funciona?</strong></h1>
-              <p class = "flow-text">Cuando usted agenda una sesion de monitoria, Quicktutors hace las transacciones financieras de modo que no tendra que pagarle al monitor de mano a mano. Haciendo esto una experiencia placentera tanto para el estudiante como el monitor.</p>
-              </div>
+
+        <div id="section3" class="container-fluid">
+            <div class="container-fluid">
+
+                <h1>Sobre Nosotros</h1>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <h4>Vision</h4>
+
+                        <p class = "flow-text">Diseñar, implementar y Mantener una aplicación que mejore el nivel académico de nuestros clientes con las sesiones de monitorias que tomen diariamente en esta, acercandose asi cada vez mas a sus metas académicas.</p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <h4>Mision</h4>
+                        <p class = "flow-text">Ser la empresa de preferencia de los estudiantes universitarios a la hora de buscar, solicitar y obtener servicios de monitorias privadas en diferentes áreas académicas.</p>
+                    </div>
+
+                    <!-- When in sm mode the 3rd column jumps up below the 2nd column. To fix it put the following right before the column that messes up using the screen mode being sm that messes up. -->
+                    <div class="clearfix visible-sm"></div>
+
+                </div>
+
+            </div>
+
+            <div class="container-fluid bg-grey">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <h2>Nuestros Valores</h2>
+                        <ol>
+                          <li>Responsabilidad </li>
+                          <li>Respeto </li>
+                          <li>Lealtad</li>
+                          <li>Integridad</li>
+                        </ol>
+                </div>
+            </div>
 
         </div>
-    {% endblock %}
+
+        <br>
+
+        <div id="section4" class="container-fluid">
+
+            <div class="container-fluid bg-grey">
+                <h2 class="text-center">Contacto</h2>
+                <div class="row">
+
+                    <div class="col-sm-5">
+
+                        <p>Contact us and we'll get back to you within 24 hours.</p>
+                        <p><span class="glyphicon glyphicon-map-marker"></span> Santo Domingo, Republica Dominicana</p>
+                        <p><span class="glyphicon glyphicon-phone"></span> 809-620-2020</p>
+                        <p><span class="glyphicon glyphicon-envelope"></span> contact@quicktutors.com</p>
+
+                    </div>
+
+                    <div class="col-sm-7">
+
+                        <div class="row">
+
+                            <div class="col-sm-6 form-group">
+                                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                            </div>
+
+                            <div class="col-sm-6 form-group">
+                            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                            </div>
+
+                        </div>
+
+                        <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+                        <br>
+
+                        <div class="row">
+
+                        <div class="col-sm-12 form-group">
+                            <button class="btn btn-default pull-right" type="submit">Enviar</button>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div id="section5" class="container-fluid">
+
+            <h1>Preguntas Frecuentes</h1>
+
+            <div class = "col-lg-6 col-md-6 col sm-6 col-xs-12">
+
+                <h1><Strong>Como funciona?</strong></h1>
+                <p class = "flow-text">Cuando usted agenda una sesion de monitoria, Quicktutors hace las transacciones financieras de modo que no tendra que pagarle al monitor de mano a mano. Haciendo esto una experiencia placentera tanto para el estudiante como el monitor.</p>
+
+            </div>
+
+        </div>
+
+{% endblock %}
