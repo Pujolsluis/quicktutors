@@ -3,6 +3,23 @@
 <html lang="en">
 	<head>
         {#             CODE & STYLE        #}
+
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+        <!--Import Google Icon Font-->
+          <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+          <!--Import materialize.css-->
+          <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+
+        <!--Import jQuery before materialize.js-->
+          <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+          <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -12,26 +29,27 @@
         <!-- Latest compiled JavaScript -->
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-        <!--Import Google Icon Font-->
-         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+         <!--Let browser know website is optimized for mobile-->
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-         <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>
-        $(document).ready(function(){
-            $("#mobile-demo").click(function(){
-                $(this).fadeIn();
-                $(this).fadeOut();
+
+        jQuery.noConflict()(function ($) { // this was missing for me
+            $(document).ready(function() {
+
+               $(".button-collapse").sideNav();
+
             });
         });
+        // Set the width of the side navigation to 250px
+        function openNav() {
+            document.getElementById("mobile-demo").style.width = "250px";
+        }
+
+        // Set the width of the side navigation to 0
+        function closeNav() {
+            document.getElementById("mobile-demo").style.width = "0";
+        }
         </script>
         <style>
             /* navbar */
@@ -39,46 +57,107 @@
                 background-color: 	#191919;
                 border-color: #E7E7E7;
             }
+            .sidenav {
+                height: 100%; /* 100% Full-height */
+                width: 0; /* 0 width - change this with JavaScript */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Stay on top */
+                top: 0;
+                left: 0;
+                background-color: #111; /* Black*/
+                overflow-x: hidden; /* Disable horizontal scroll */
+                padding-top: 60px; /* Place content 60px from the top */
+                transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+            }
+            #mobile-demo {
+                height: 100%; /* 100% Full-height */
+                width: 0; /* 0 width - change this with JavaScript */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Stay on top */
+                top: 0;
+                left: 0;
+                background-color: #111; /* Black*/
+                overflow-x: hidden; /* Disable horizontal scroll */
+                padding-top: 60px; /* Place content 60px from the top */
+                transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+                text-align: center;
+            }
+            .sidenav a {
+                padding: 8px 8px 8px 22px;
+                text-decoration: none;
+                font-size: 20px;
+                color: #818181;
+                display: block;
+                transition: 0.3s
+            }
+            .sidenav a:hover, .offcanvas a:focus{
+                color: #f1f1f1;
+            }
+
+            /* Position and style the close button (top right corner) */
+            .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px !important;
+                margin-left: 50px;
+            }
+            #nuxnav a {
+                font-size: 20px;
+            }
+            .mobile-demo li {
+
+            }
+            #main {
+                transition: margin-left .5s;
+                padding: 0px;
+            }
+
+            @media screen and (max-height: 450px) {
+                .sidenav {padding-top: 15px;}
+                .sidenav a {font-size: 18px;}
+            }
+
         </style>
 
         <meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+
         <title>QuickTutors | {% block title %}{% endblock %}</title>
 	</head>
 
         <body data-spy="scroll" data-target=".navbar" data-offset="50">
-        <!--Import jQuery before materialize.js-->
-              <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-              <script type="text/javascript" src="js/materialize.min.js"></script>
 
         {#                  Base Menu                                   #}
 
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">QuickTutors</a>
-            </div>
+          <nav class="navbar navbar-inverse navbar-fixed-top" >
             <div>
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="#section1">Inicio</a></li>
+
+              <a href="#!" class="brand-logo"> <img src="{% static 'media/homepage/logo.png' %}" height="88" width="175"> </a>
+              <a href="#" data-activates="mobile-demo" onclick="openNav()" class="button-collapse"><i class="material-icons">menu</i></a>
+
+              <ul class="nav navbar-nav right hide-on-med-and-down" id="nuxnav">
+
+                <li><a href="#section1">Inicio</a></li>
                   <li><a href="#section2">Precio</a></li>
                   <li><a href="#section3">Sobre Nosotros</a></li>
                   <li><a href="#section4">Contactenos</a></li>
-                    <li><a href="#section5">Preguntas Frecuentes</a></li>
-                </ul>
-              </div>
+                  <li><a href="#section5">Preguntas Frecuentes</a></li>
+              </ul>
+
+              <ul class="nav navbar-nav sidenav" id="mobile-demo">
+                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                  <li><a href="#section1">Inicio</a></li>
+                  <li><a href="#section2">Precio</a></li>
+                  <li><a href="#section3">Sobre Nosotros</a></li>
+                  <li><a href="#section4">Contactenos</a></li>
+                  <li><a href="#section5">Preguntas Frecuentes</a></li>
+              </ul>
             </div>
-          </div>
-        </nav>
+          </nav>
+
 
         {#                  Base Content                                   #}
-            <div class="page-content">
+            <div class="page-content" id="main">
 
                 {% block content %}
                 {% endblock %}
@@ -102,10 +181,11 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">QuickTutors</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Precios</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Sobre Nosotros</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Contactenos</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Preguntas Frecuentes</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#section1">Inicio</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#section2">Precios</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#section3">Sobre Nosotros</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#section4">Contactenos</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#section5">Preguntas Frecuentes</a></li>
                 </ul>
               </div>
             </div>
