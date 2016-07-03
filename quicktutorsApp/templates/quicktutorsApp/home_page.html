@@ -7,7 +7,7 @@
     {% block content %}
     <style>
         // Media Query Ranges
-            $small-screen-up: 601px !default;
+            $small-screen-up: 601px !default9
             $medium-screen-up: 993px !default;
             $large-screen-up: 1201px !default;
             $small-screen: 600px !default;
@@ -18,11 +18,11 @@
             position: relative;
             scroll-y: none;
         }
-          #section1 {padding-top:50px; height:700px; color: #fff; background-color: #673ab7; background-image: URL("{% static 'media/homepage/home.png' %}"); background-repeat: no-repeat; background-size: 100%; background-position: center;}
-          #section2 {padding-top:50px; height:800px; color: #fff; background-color: #673ab7;}
-          #section3 {padding-top:50px; height:800px; color: #fff; background-color: #ff9800;}
-          #section4 {padding-top:50px; height:800px; color: #fff; background-color: #00bcd4;}
-          #section5 {padding-top:50px; height:800px; color: #fff; background-color: #009688;}
+          #section1 {padding-top:50px; height:1500px; color: #fff; background-color: #009973;}
+          #section2 {padding-top:50px; height:1200px; color: #fff; background-color: #009973;}
+          #section3 {padding-top:50px; height:800px; color: #fff; background-color: #41aac4;}
+          #section4 {padding-top:50px; height:800px; color: #fff; background-color: #BDB69C;}
+          #section5 {padding-top:50px; height:800px; color: #fff; background-color: #80CEB9;}
 
         .cards-container {
           column-break-inside: avoid;
@@ -31,68 +31,276 @@
             overflow: visible;
           }
         }
+        .jumbotron {
+  background-color: #009973; /* Orange */
+  color: #ffffff;
+  padding: 100px 25px;
+        }
+        .bg-grey {
+    background-color: #f6f6f6;
+    color:#000000;
+    padding:60px 50px;
+}
+
+.container-fluid {
+    padding: 60px 50px;
+}
+.panel {
+    border: 1px solid #1a75ff;
+    border-radius:0;
+    color:#000000;
+    transition: box-shadow 0.5s;
+}
+
+.panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+
+.panel-footer .btn:hover {
+    border: 1px solid #1a75ff;
+    background-color: #fff !important;
+    color: #f4511e;
+}
+
+.panel-heading {
+    color: #fff !important;
+    background-color: #1a75ff !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.panel-footer {
+    background-color: #fff !important;
+}
+
+.panel-footer h3 {
+    font-size: 32px;
+}
+
+.panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.panel-footer .btn {
+    margin: 15px 0;
+    background-color: #1a75ff;
+    color: #fff;
+}
 	</style>
-        <div id="section1" class="container-fluid" >
-            <p> &nbsp </p>
-             <p> &nbsp </p>
-            <p></p>
-            <p><a class="waves-effect waves-light btn"><i class="material-icons left">queue</i>Registra una Cuenta</a> &nbsp&nbsp</p>
-            <p><a class="waves-effect waves-light btn"><i class="material-icons left">supervisor_account</i>Acceder a tu Cuenta</a></p>
-        </div>
+<div id="section1" class="container-fluid" >
+
+
+          <div class="jumbotron text-center">
+          <h1>QuickTutors</h1>
+          <p>Innovando monitorias</p>
+          <form class="form-inline">
+            <button type="button" class="btn btn-danger">Registrate</button>
+          </form>
+          </div>
+
+          <div class="container-fluid">
+            <h2>About Company Page</h2>
+            <h4>Lorem ipsum..</h4>
+            <p>Lorem ipsum..</p>
+            <button class="btn btn-default btn-lg">Get in Touch</button>
+          </div>
+
+          <div class="container-fluid bg-grey">
+            <h2>Our Values</h2>
+            <h4><strong>MISSION:</strong> Our mission lorem ipsum..</h4>
+            <p><strong>VISION:</strong> Our vision Lorem ipsum..
+          </div>
+
+          <!-- Container (Services Section) -->
+<div class="container-fluid text-center">
+  <h2>SERVICES</h2>
+  <h4>What we offer</h4>
+  <br>
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-off"></span>
+      <h4>POWER</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-heart"></span>
+      <h4>LOVE</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-lock"></span>
+      <h4>JOB DONE</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-leaf"></span>
+      <h4>GREEN</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-certificate"></span>
+      <h4>CERTIFIED</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-wrench"></span>
+      <h4 style="color:#ffffff;">HARD WORK</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div id="section2" class="container-fluid">
-          <h1>Precios</h1>
-                <ul class="container">
-                <div class=container">
-                  <div class="row">
-                    <div class="col s12 m6">
-                      <div class="card blue darken-1">
-                        <div class="card-content white-text">
-                          <span class="card-title">Tutorias</span>
-                          <p>Puedes seleccionar una de las tantas tutorias que tenemos disponibles, o incluso proponer una nueva y escoger el tutor de tu agrado.</p>
-                            <p> &nbsp </p>
-                            <p> <b> <center> RD$500 por hora </center></b>  </p>
-                        </div>
-                        <div class="card-action">
-                          <a href="#">Mas informacion</a>
-                          <b><a href="#">Subscribirse</a></b>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="text-center">
+            <h1><strong>Precios</strong></h1>
+            <h4>Elige lo que necesites</h4>
+          </div>
+          <div class="row">
+   <div class="col-sm-6">
+     <div class="panel panel-default text-center">
+       <div class="panel-heading">
+         <h1>Sesiones de Monitoria</h1>
+       </div>
+       <div class="panel-body">
+         <p>Consigue cualquier tipo de monitor para la materia que necesites de forma rapida y sencilla</p>
 
-                <div class="row">
-                        <div class="col s12 m6">
-                          <div class="card blue darken-1">
-                            <div class="card-content white-text">
-                              <span class="card-title">QuickFire Questions</span>
-                              <p>Pregunta lo que quieras y recibe una respuesta de nuestros expertos a cualquier hora y en cualquier lugar.</p>
-                                <p> &nbsp </p>
-                                <p> <b> <center> RD$30 por pregunta </center></b>  </p>
-                            </div>
-                            <div class="card-action">
-                              <a href="#">Mas informacion</a>
-                              <b><a href="#">Subscribirse</a></b>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-</ul>
+       </div>
+       <div class="panel-footer">
+         <h3>RD$500.00</h3>
+         <h4>por hora</h4>
+         <button class="btn btn-lg">Mas Informacion</button>
+       </div>
+     </div>
+   </div>
+   <div class="col-sm-6">
+     <div class="panel panel-default text-center">
+       <div class="panel-heading">
+         <h1>QuickFire Questions</h1>
+       </div>
+       <div class="panel-body">
+         <p>Necesitas responder una pregunta rapido? No te preocupes, con nuestras QuickFire Questions un monitor te respondera enseguida.</p>
+       </div>
+       <div class="panel-footer">
+         <h3>RD$30.00</h3>
+         <h4>Por pregunta</h4>
+         <button class="btn btn-lg">Mas informacion</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+
+
+
         </div>
+
+
+
+
+        <br>
         <div id="section3" class="container-fluid">
+
           <h1>Sobre Nosotros</h1>
-          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+          <div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <h4>Vision</h4>
+
+    <p class = "flow-text">Diseñar, implementar y Mantener una aplicación que mejore el nivel académico de nuestros clientes con las sesiones de monitorias que tomen diariamente en esta, acercandose asi cada vez mas a sus metas académicas.</p>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <h4>Mision</h4>
+<p class = "flow-text">Ser la empresa de preferencia de los estudiantes universitarios a la hora de buscar, solicitar y obtener servicios de monitorias privadas en diferentes áreas académicas.</p>  </div>
+  <!-- When in sm mode the 3rd column jumps up below the 2nd column. To fix it put the following right before the column that messes up using the screen mode being sm that messes up. -->
+  <div class="clearfix visible-sm"></div>
+
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <h4>Valores</h4>
+    <ol>
+        <li>Responsabilidad </li>
+        <li>Respeto </li>
+        <li>Lealtad</li>
+        <li>Integridad</li>
+    </ol>
+  </div>
+
+</div>
+</div>
+    <br>
         </div>
         <div id="section4" class="container-fluid">
-          <h1>Contectenos</h1>
-          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-        </div>
+          <div class="container-fluid bg-grey">
+            <h2 class="text-center">Contacto  </h2>
+            <div class="row">
+              <div class="col-sm-5">
+                <p>Contact us and we'll get back to you within 24 hours.</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span> Santo Domingo, Republica Dominicana</p>
+                <p><span class="glyphicon glyphicon-phone"></span> 809-620-2020</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> contact@quicktutors.com</p>
+              </div>
+              <div class="col-sm-7">
+                <div class="row">
+                  <div class="col-sm-6 form-group">
+                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                  </div>
+                  <div class="col-sm-6 form-group">
+                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                  </div>
+                </div>
+                <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+                <div class="row">
+                  <div class="col-sm-12 form-group">
+                    <button class="btn btn-default pull-right" type="submit">Enviar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+        <br>
         <div id="section5" class="container-fluid">
           <h1>Preguntas Frecuentes</h1>
-          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-          <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+              <div class = "col-lg-6 col-md-6 col sm-6 col-xs-12">
+              <h1><Strong>Como funciona?</strong></h1>
+              <p class = "flow-text">Cuando usted agenda una sesion de monitoria, Quicktutors hace las transacciones financieras de modo que no tendra que pagarle al monitor de mano a mano. Haciendo esto una experiencia placentera tanto para el estudiante como el monitor.</p>
+              </div>
+
         </div>
     {% endblock %}
