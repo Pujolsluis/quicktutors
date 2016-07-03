@@ -81,7 +81,7 @@
     .bg-grey {
         background-color: #f6f6f6;
         color:#000000;
-        padding:60px 50px;
+        padding:30px 50px;
     }
 
 
@@ -143,6 +143,10 @@
         background-color: #1a75ff;
         color: #fff;
     }
+
+    .nav-tabs li a {
+    color: #777;
+}
 </style>
 {% endblock %}
 
@@ -226,14 +230,14 @@
 
                 <div class="row">
 
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <h4>Vision</h4>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h3>Vision</h3>
 
                         <p class = "flow-text">Diseñar, implementar y Mantener una aplicación que mejore el nivel académico de nuestros clientes con las sesiones de monitorias que tomen diariamente en esta, acercandose asi cada vez mas a sus metas académicas.</p>
                     </div>
 
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <h4>Mision</h4>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h3>Mision</h3>
                         <p class = "flow-text">Ser la empresa de preferencia de los estudiantes universitarios a la hora de buscar, solicitar y obtener servicios de monitorias privadas en diferentes áreas académicas.</p>
                     </div>
 
@@ -245,16 +249,44 @@
             </div>
 
             <div class="container-fluid bg-grey">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <h2>Nuestros Valores</h2>
-                        <ol>
-                          <li>Responsabilidad </li>
-                          <li>Respeto </li>
-                          <li>Lealtad</li>
-                          <li>Integridad</li>
-                        </ol>
+                <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
+                <h3 class="text-center">Los creadores</h3>
+                <ul class="nav nav-tabs">
+                  <li class="active"><a data-toggle="tab" href="#home">Luis</a></li>
+                  <li><a data-toggle="tab" href="#menu1">Samir</a></li>
+                  <li><a data-toggle="tab" href="#menu2">Fabio</a></li>
+                  <li><a data-toggle="tab" href="#menu1">Rudy</a></li>
+                  <li><a data-toggle="tab" href="#menu1">Nelson</a></li>
+                </ul>
+
+                <div class="tab-content">
+                  <div id="home" class="tab-pane fade in active">
+                    <h2>Luis Pujols, CEO</h2>
+                    <p>Estudiante de termino de Ing. en Software en INTEC, le apasiona su carrera y tiene experiencia en diferentes tecnologias de la misma como son: Desarrollo Movil, Web y Desktop. sus pasatiempos son las competencias de programacion competitiva de algoritmia, los deportes y entrenarse para dominar las tecnologias que le interesan.</p>
+                  </div>
+                  <div id="menu1" class="tab-pane fade">
+                    <h2>Chandler Bing, Guitarist</h2>
+                    <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?</p>
+                  </div>
+                  <div id="menu2" class="tab-pane fade">
+                    <h2>Peter Griffin, Bass player</h2>
+                    <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+                  </div>
                 </div>
+              </div>
+
+              <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                  <h2>Nuestros Valores</h2>
+                      <ol>
+                        <li>Responsabilidad </li>
+                        <li>Respeto </li>
+                        <li>Lealtad</li>
+                        <li>Integridad</li>
+                      </ol>
+              </div>
             </div>
+
+
 
         </div>
 
@@ -311,14 +343,6 @@
           <!-- Preguntas Frecuentes -->
         <div id="section5" class="container-fluid">
 
-            <h1>Preguntas Frecuentes</h1>
-
-            <div class = "col-lg-6 col-md-6 col sm-6 col-xs-12">
-
-                <h1><Strong>Como funciona?</strong></h1>
-                <p class = "flow-text">Cuando usted agenda una sesion de monitoria, Quicktutors hace las transacciones financieras de modo que no tendra que pagarle al monitor de mano a mano. Haciendo esto una experiencia placentera tanto para el estudiante como el monitor.</p>
-
-            </div>
 
         </div>
 
