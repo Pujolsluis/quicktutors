@@ -2,9 +2,12 @@
 {% load i18n %}
 
 {% block content %}
-<form method="post" action="." role="form">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input class="btn btn-default" type="submit" value="{% trans 'Submit' %}" />
-</form>
+    <div class="container">
+        <h2>Register a new Account</h2>
+        <form method="post" action="." role="form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input class="btn btn-default" type="submit" value="{% trans 'Submit' %}" />
+        </form>
+    </div>
 {% endblock %}
