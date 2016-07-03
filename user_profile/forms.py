@@ -26,3 +26,11 @@ class UserProfileForm(forms.ModelForm):
             'end_time',
         ]
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.fields:
+            if field != 'subjects' and field != 'picture':
+                self.fields[field].widget.attrs.update({
+                    'class': 'form-control'
+                })

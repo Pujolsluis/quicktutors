@@ -17,3 +17,10 @@ class SeccionMonitoriaForm(forms.ModelForm):
             'payment_method',
         ]
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.Meta.fields:
+            self.fields[field].widget.attrs.update({
+            'class': 'form-control'
+            })
