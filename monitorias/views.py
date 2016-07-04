@@ -61,10 +61,6 @@ def secciones_list(request):
                                                               'seccionesAceptadas': seccionesAceptadas,
                                                               'seccionesRechazadas': seccionesRechazadas})
 
-@login_required
-def secciones_detail(request,pk):
-    seccion = get_object_or_404(SeccionMonitoria, pk=pk)
-    return render(request, 'monitorias/secciones_detail.html', {'seccion': seccion})
 
 @login_required
 def secciones_new(request, tutorpk):
