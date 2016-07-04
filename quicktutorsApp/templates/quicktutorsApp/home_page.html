@@ -1,360 +1,255 @@
-{% extends 'quicktutorsApp/base.html' %}
-{%load staticfiles %}
-{% block title %}
-    Home
-{% endblock %}
-{% block extrastyle %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
 
 
-    <style>
+<head>
 
-    // Media Query Ranges
-        $small-screen-up: 601px !default9
-        $medium-screen-up: 993px !default;
-        $large-screen-up: 1201px !default;
-        $small-screen: 600px !default;
-        $medium-screen: 992px !default;
-        $large-screen: 1200px !default;
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
-    body {
-        position: relative;
-        scroll-y: none;
-    }
+    <title>QuickTutors - Home</title>
 
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'css/home_page_css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{% static 'css/home_page_css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-    #section1 {
-            padding-top:150px;
-            height:500px;
-            color: #fff;
-            background-color: #009973;
-            background-image:url('http://vermilion-river.com/mrws/photofolio/back-to-school4.jpg');
-            background-repeat: no-repeat;
-            background-position: 50% 0;
-            width: 100%; height: 100%;
-            -ms-background-size: cover;
-            -o-background-size: cover;
-            -moz-background-size: cover;
-            -webkit-background-size: cover;
-            background-size: cover;}
+</head>
 
 
-    #section2 {
-        padding-top: 50px;
-        height: 800px;
-        color: #fff;
-        background-color: #009973;
-    }
+<body>
 
-    .container-fluid .container-section2{
-        height: 800px;
-    }
+    <div class="navbar-fixed">
+        <nav class="white" role="navigation">
 
-    #section3 {
-        padding-top:50px;
-        height:800px;
-        color: #fff;
-        background-color: #41aac4;
-    }
+            <div class="nav-wrapper container">
 
+                <a id="logo-container" href="#" class="brand-logo"><img src="{% static 'media/homepage/quicktutors-homepage-logo.png' %}">uickTutors</a>
 
-    #section4 {
-        padding-top:50px;
-        height:800px;
-        color: #fff;
-        background-color: #BDB69C;
-    }
+                <ul class="right hide-on-med-and-down">
 
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Precios</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Contactenos</a></li>
+                    <!-- Login Modal Trigger -->
+                    <li><a class="waves-effect waves-light btn " href="{% url 'auth_login' %}">Log in</a></li>
 
-    #section5 {
-        padding-top:50px;
-        height:800px;
-        color: #fff;
-        background-color: #80CEB9;
-    }
+                    <!-- Modal Structure -->
+                    <div id="loginModal" class="modal">
+                        <div class="modal-content">
+                                <h4>Modal Header</h4>
+                                <p>A bunch of text</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                        </div>
+                    </div>
 
+                </ul>
 
-    .jumbotron {
-        background-color: #009973; /* Orange */
-        color: #ffffff;
-        opacity:1;
-        padding: 370px 255px;
-    }
+                <ul id="nav-mobile" class="side-nav">
+                <li><a href="#"><i class="material-icons left">home</i>Inicio</a></li>
+                <li><a href="#"><i class="material-icons left">location_city</i>Sobre Nosotros</a></li>
+                <li><a href="#"><i class="material-icons left">local_atm</i>Precios</a></li>
+                <li><a href="#"><i class="material-icons left">live_help</i>Preguntas Frecuentes</a></li>
+                <li><a href="#"><i class="material-icons left">contact_mail</i>Contactenos</a></li>
 
-    .bg-grey {
-        background-color: #f6f6f6;
-        color:#000000;
-        padding:30px 50px;
-    }
+                </ul>
 
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 
-    .container-fluid {
-        padding: 60px 50px;
-    }
+            </div>
 
+        </nav>
+    </div>
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br><br>
 
-    .panel {
-        border: 1px solid #1a75ff;
-        border-radius:0;
-        color:#000000;
-        transition: box-shadow 0.5s;
-    }
+                <h1 class="header center teal-text text-lighten-2">Quick Tutors</h1>
 
+                <div class="row center">
+                  <h5 class="header col s12 light">El lugar donde encontraras los mejores tutores cerca de ti.</h5>
+                </div>
 
-    .panel:hover {
-        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-    }
+                <div class="row center">
+                  <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Sign up</a>
+                </div>
+                <br><br>
 
+            </div>
+        </div>
 
-    .panel-footer .btn:hover {
-        border: 1px solid #1a75ff;
-        background-color: #fff !important;
-        color: #f4511e;
-    }
-
-
-    .panel-heading {
-        color: #fff !important;
-        background-color: #1a75ff !important;
-        padding: 15px;
-        border-bottom: 1px solid transparent;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-    }
-
-
-    .panel-footer {
-        background-color: #fff !important;
-    }
-
-
-    .panel-footer h3 {
-        font-size: 32px;
-    }
-
-
-    .panel-footer h4 {
-        color: #aaa;
-        font-size: 14px;
-    }
-
-
-    .panel-footer .btn {
-        margin: 15px 0;
-        background-color: #1a75ff;
-        color: #fff;
-    }
-
-    .nav-tabs li a {
-    color: #777;
-}
-</style>
-{% endblock %}
-
-{% block content %}
-        <!--HomeStart -->
-    <div id="section1" class="jumbotron text-center">
-
-        <h1>QuickTutors</h1>
-        <p>Innovando en monitorias</p>
-
-        <form class="form-inline">
-
-            <button type="button" class="btn btn-danger">Registrate</button>
-
-        </form>
+        <div class="parallax"><img src="{% static 'media/homepage/background1.jpg' %}" alt="Unsplashed background img 1"></div>
 
     </div>
 
 
+    <div class="container">
+        <div class="section">
 
-        <!-- Precios-->
-        <div id="section2" class="container-fluid">
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12 m4">
 
-            <div class="text-center">
+                  <div class="icon-block">
 
-                <h1><strong>Precios</strong></h1>
-                <h4>Elige lo que necesites</h4>
+                    <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                    <h5 class="center">Speeds up development</h5>
 
-            </div>
+                    <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
 
-            <div class="row panel-group">
-                <div class="col-sm-6">
-                    <div class="panel panel-default text-center">
+                  </div>
 
-                        <div class="panel-heading">
-                            <h1>Sesiones de Monitoria</h1>
-                        </div>
-
-                        <div class="panel-body">
-                            <p>Consigue cualquier tipo de monitor para la materia que necesites de forma rapida y sencilla</p>
-                        </div>
-
-                        <div class="panel-footer">
-                            <h3>RD$500.00</h3>
-                            <h4>por hora</h4>
-
-                        <button class="btn btn-lg">Sign up</button>
-
-                        </div>
-                    </div>
                 </div>
 
-                <div class="col-sm-6">
-                    <div class="panel panel-default text-center">
+                <div class="col s12 m4">
 
-                        <div class="panel-heading">
-                            <h1>QuickFire Questions</h1>
-                        </div>
+                    <div class="icon-block">
 
-                        <div class="panel-body">
-                            <p>QuickFire Questions un monitor te respondera enseguida.</p>
-                        </div>
+                        <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+                        <h5 class="center">User Experience Focused</h5>
 
-                        <div class="panel-footer">
-                            <h3>RD$30.00</h3>
-                            <h4>Por pregunta</h4>
-                            <button class="btn btn-lg">Sign up</button>
-                        </div>
+                        <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+
                     </div>
+
                 </div>
+
+                <div class="col s12 m4">
+
+                    <div class="icon-block">
+
+                        <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+                        <h5 class="center">Easy to work with</h5>
+
+                        <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+
+                    </div>
+
+                </div>
+
             </div>
         </div>
+    </div>
 
-        <br>
-        <!--Quienes somos -->
-        <div id="section3" class="container-fluid">
-          <h1>Sobre Nosotros</h1>
-          
-            <div class="container-fluid bg-grey">
-                <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
-                <h3 class="text-center">Los creadores</h3>
-                <ul class="nav nav-tabs">
-                  <li class="active"><a data-toggle="tab" href="#home">Luis</a></li>
-                  <li><a data-toggle="tab" href="#menu1">Samir</a></li>
-                  <li><a data-toggle="tab" href="#menu2">Fabio</a></li>
-                  <li><a data-toggle="tab" href="#menu3">Rudy</a></li>
-                  <li><a data-toggle="tab" href="#menu4">Nelson</a></li>
-                </ul>
 
-                <div class="tab-content">
-                  <div id="home" class="tab-pane fade in active">
-                    <h2>Luis Pujols, CEO</h2>
-                    <p>Estudiante de termino de Ing. en Software en INTEC, le apasiona su carrera y tiene experiencia en diferentes tecnologias de la misma como son: Desarrollo Movil, Web y Desktop. sus pasatiempos son las competencias de programacion competitiva de algoritmia, los deportes y entrenarse para dominar las tecnologias que le interesan.</p>
-                  </div>
-                  <div id="menu1" class="tab-pane fade">
-                    <h2>Samir Fersobe , CFO</h2>
-                    <p>Estudiante de INTEC en su 8vo trimestre, siempre le han gustado las matematicas de modo que ya ha dado todas las materias de estadisticas disponibles en su carrera. Tiene experiencia de algoritmos y manejo de negocios. Planea enforcarse en el area de aprendizaje de maquina y ciencia de los datos para crear algoritmos financieros.</p>
-                  </div>
-                  <div id="menu2" class="tab-pane fade">
-                    <h2>Fabio Ferrera, CTO</h2>
-                    <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
-                  </div>
-                  <div id="menu3" class="tab-pane fade">
-                    <h2>Rudy Franza, CMO</h2>
-                    <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
-                  </div>
-                  <div id="menu4" class="tab-pane fade">
-                    <h2>Nelson Colon, CQO</h2>
-                    <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
-                  </div>
-                </div>
-              </div>
+    <div class="parallax-container valign-wrapper">
 
-              <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
-                  <h2>Nuestros Valores</h2>
-                      <ol>
-                        <li>Responsabilidad </li>
-                        <li>Respeto </li>
-                        <li>Lealtad</li>
-                        <li>Integridad</li>
-                      </ol>
-              </div>
-            </div>
+        <div class="section no-pad-bot">
 
-            <div class="container-fluid">
+            <div class="container">
 
-                <div class="row">
-
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <h3>Vision</h3>
-
-                        <p class = "flow-text">Diseñar, implementar y Mantener una aplicación que mejore el nivel académico de nuestros clientes con las sesiones de monitorias que tomen diariamente en esta, acercandose asi cada vez mas a sus metas académicas.</p>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <h3>Mision</h3>
-                        <p class = "flow-text">Ser la empresa de preferencia de los estudiantes universitarios a la hora de buscar, solicitar y obtener servicios de monitorias privadas en diferentes áreas académicas.</p>
-                    </div>
-
-                    <!-- When in sm mode the 3rd column jumps up below the 2nd column. To fix it put the following right before the column that messes up using the screen mode being sm that messes up. -->
-                    <div class="clearfix visible-sm"></div>
-
+                <div class="row center">
+                  <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
                 </div>
 
-            </div>
-
-
-
-        </div>
-
-        <br>
-        <!-- Contactenos -->
-        <div id="section4" class="container-fluid">
-
-            <div class="container-fluid bg-grey">
-                <h2 class="text-center">Contacto</h2>
-                <div class="row">
-
-                    <div class="col-sm-5">
-
-                        <p>Contactenos y le responderemos en 24 horas.</p>
-                        <p><span class="glyphicon glyphicon-map-marker"></span> Santo Domingo, Republica Dominicana</p>
-                        <p><span class="glyphicon glyphicon-phone"></span> 809-620-2020</p>
-                        <p><span class="glyphicon glyphicon-envelope"></span> contact@quicktutors.com</p>
-                        <p><i class="fa fa-instagram"></i> @QuickTutorsRD</p>
-                        <p><i class="fa fa-facebook"></i> QuickTutorsRD</p>
-
-                    </div>
-
-                    <div class="col-sm-7">
-
-                        <div class="row">
-
-                            <div class="col-sm-6 form-group">
-
-                                <input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
-                            </div>
-
-                            <div class="col-sm-6 form-group">
-                            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-                            </div>
-
-                        </div>
-
-                        <textarea class="form-control" id="comments" name="comments" placeholder="Comentario" rows="5"></textarea>
-                        <br>
-
-                        <div class="row">
-
-                        <div class="col-sm-12 form-group">
-                            <button class="btn btn-default pull-right" type="submit">Enviar</button>
-                        </div>
-
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
 
-        <br>
-          <!-- Preguntas Frecuentes -->
-        <div id="section5" class="container-fluid">
+        <div class="parallax"><img src="{% static 'media/homepage/background2.jpg' %}" alt="Unsplashed background img 2"></div>
 
+    </div>
+
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+
+                <div class="col s12 center">
+
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+                    <h4>Contact Us</h4>
+                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="parallax-container valign-wrapper">
+
+        <div class="section no-pad-bot">
+
+            <div class="container">
+
+                <div class="row center">
+                    <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                </div>
+
+            </div>
 
         </div>
 
-{% endblock %}
+        <div class="parallax"><img src="{% static 'media/homepage/background3.jpg' %}" alt="Unsplashed background img 3"></div>
+
+    </div>
+
+    <footer class="page-footer teal">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col l6 s12">
+
+                    <h5 class="white-text">Company Bio</h5>
+                    <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+                </div>
+                <div class="col l3 s12">
+
+                    <h5 class="white-text">Settings</h5>
+                    <ul>
+                    <li><a class="white-text" href="#!">Link 1</a></li>
+                    <li><a class="white-text" href="#!">Link 2</a></li>
+                    <li><a class="white-text" href="#!">Link 3</a></li>
+                    <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="col l3 s12">
+
+                    <h5 class="white-text">Connect</h5>
+                    <ul>
+                    <li><a class="white-text" href="#!">Link 1</a></li>
+                    <li><a class="white-text" href="#!">Link 2</a></li>
+                    <li><a class="white-text" href="#!">Link 3</a></li>
+                    <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    <div class="footer-copyright">
+
+        <div class="container">
+
+            Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+
+        </div>
+
+    </div>
+
+    </footer>
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
+
+
+</body>
+
+</html>
