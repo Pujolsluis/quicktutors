@@ -6,8 +6,18 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		  <!-- Compiled and minified CSS -->
+		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+		  <!-- Compiled and minified JavaScript -->
+		  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 
 		<!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -21,6 +31,26 @@
 		<!-- Application CSS File-->
 		<link rel="stylesheet" href="{% static 'css/quicktutorsApp.css'%}">
 
+		<style>
+			#cardtitle{
+				color: #0066cc;
+			}
+			#cardinterior {
+				color: #33cccc;
+			}
+			#cardlinks {
+				color: #f2e6ff;
+				font-style: bold;
+			}
+		</style>
+		<script>
+		$(document).ready(function(){
+
+			$("#flip").click(function(){
+				$("#panel").slideToggle("slow");
+			});
+		});
+		</script>
 		<!-- Material Design Files -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
@@ -84,6 +114,7 @@
                                 {% endblock %}
 
                             </div>
+
                         </div>
 
 					</div>
