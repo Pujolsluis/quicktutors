@@ -20,12 +20,32 @@
                  </div>
             </div>
 
+          <div class="row">
+
+            <div class="col s12">
+                <label><i class="material-icons">filter_list</i></label>
+              <ul class="tabs">
+                <li class="tab col s3"> <a href="{% url 'monitorias:secciones_list_estado' estado=1 %}">Pendientes</a></li>
+                <li class="tab col s3"> <a href="{% url 'monitorias:secciones_list_estado' estado=2 %}">Aceptadas</a></li>
+                <li class="tab col s3"> <a href="{% url 'monitorias:secciones_list_estado' estado=3 %}">Rechazadas</a></li>
+                <li class="tab col s3"> <a href="{% url 'monitorias:secciones_list' %}" class="active">Todas</a></li>
+                  </ul>
+              </div>
+            </div>
+
     <hr>
+          </div>
+        <div>
     {% for seccion in secciones %}
-        <div class="well well-sm">
-        <a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}"> {{ post.title }}<p><strong>Seccion: Estudiante:</strong> {{ seccion.estudiante }} / <strong>Tutor:</strong> {{ seccion.tutor }} <strong>({{ seccion.begin_timeDay }})</strong> </p></a>
+
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header" id="flip"><i class="material-icons">filter_drama</i><a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}"> {{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }}) </div>
+              <div class="collapsible-body" id="panel"><p> <strong> Solicitante: </strong> {{ seccion.estudiante.get_full_name }} </p></div>
+            </li>
+          </ul>
+
+        {% endfor %}
         </div>
-    {% endfor %}
-    </div>
 {% endblock %}
 
