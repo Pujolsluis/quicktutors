@@ -22,55 +22,70 @@
           </div>
 
     <div id="pendientes">
-
+        <ul class="collapsible" data-collapsible="accordion">
         {% for seccion in seccionesPendientes %}
 
-          <ul class="collapsible" data-collapsible="accordion">
             <li>
-              <div class="collapsible-header" id="flip"><i class="material-icons">filter_drama</i><a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}"> {{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }}) </div>
+              <div class="collapsible-header" id="flip">
+                  <i class="material-icons">filter_drama</i>
+                  <a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}">
+                      {{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</a>
+              </div>
               <div class="collapsible-body" id="panel"><p> <strong> Solicitante: </strong> {{ seccion.estudiante.get_full_name }} </p></div>
             </li>
-          </ul>
 
         {% endfor %}
-
+        </ul>
     </div>
 
     <div id="aceptadas">
+
+        <ul class="collapsible" data-collapsible="accordion">
         {% for seccion in seccionesAceptadas %}
 
-          <ul class="collapsible" data-collapsible="accordion">
             <li>
-              <div class="collapsible-header" id="flip"><i class="material-icons">filter_drama</i><a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}"> {{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }}) </div>
+              <div class="collapsible-header" id="flip">
+                  <i class="material-icons">filter_drama</i>
+                  <a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}">
+                      {{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</a>
+              </div>
               <div class="collapsible-body" id="panel"><p> <strong> Solicitante: </strong> {{ seccion.estudiante.get_full_name }} </p></div>
             </li>
-          </ul>
 
         {% endfor %}
+        </ul>
+
     </div>
-    <div id="rechazadas">
-        {% for seccion in seccionesRechazadas %}
 
-          <ul class="collapsible" data-collapsible="accordion">
+    <div id="rechazadas">
+        <ul class="collapsible" data-collapsible="accordion">
+        {% for seccion in seccionesRechazadas %}
             <li>
-              <div class="collapsible-header" id="flip"><i class="material-icons">filter_drama</i><a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}"> {{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }}) </div>
+              <div class="collapsible-header" id="flip">
+                  <i class="material-icons">filter_drama</i>
+                  <a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}">
+                      {{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</a>
+              </div>
               <div class="collapsible-body" id="panel"><p> <strong> Solicitante: </strong> {{ seccion.estudiante.get_full_name }} </p></div>
             </li>
-          </ul>
-
         {% endfor %}
+        </ul>
     </div>
     <div id="todas">
+        <ul class="collapsible" data-collapsible="accordion">
         {% for seccion in seccionesTodas %}
 
-          <ul class="collapsible" data-collapsible="accordion">
             <li>
-              <div class="collapsible-header" id="flip"><i class="material-icons">filter_drama</i><a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}"> {{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }}) </div>
+              <div class="collapsible-header" id="flip">
+                  <i class="material-icons">filter_drama</i>
+                  <a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}">
+                      {{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</a>
+              </div>
               <div class="collapsible-body" id="panel"><p> <strong> Solicitante: </strong> {{ seccion.estudiante.get_full_name }} </p></div>
             </li>
-          </ul>
 
         {% endfor %}
+        </ul>
     </div>
 {% endblock %}
 
