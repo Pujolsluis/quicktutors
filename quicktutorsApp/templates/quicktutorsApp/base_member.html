@@ -3,83 +3,190 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
-		<!-- Latest compiled JavaScript -->
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <title>QuickTutors - Home</title>
 
-		<!-- Lobster Font-->
-		<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="{% static 'css/home_page_css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="{% static 'css/home_page_css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-		<!-- Application CSS File-->
-		<link rel="stylesheet" href="{% static 'css/quicktutorsApp.css'%}">
+        <!-- Favicon  -->
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
 
-		<!-- Material Design Files -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-		<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+		<style>
+			#cardtitle{
+				color: #0066cc;
+			}
+			#cardinterior {
+				color: #33cccc;
+			}
+			#cardlinks {
+				color: #f2e6ff;
+				font-style: bold;
+			}
+
+            header{
+                padding-left:140px;
+            }
+
+            main, footer {
+                padding-left: 340px;
+            }
+
+            @media only screen and (max-width : 992px) {
+                header, main, footer {
+                padding-left: 0;
+                }
+            }
+
+            .user_name_drawer {
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+
+            .user_drawer_panel{
+                margin-top: 0px;
+                background-image: url({% static 'media/member_section/user-drawer-background.jpg' %});
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+
+            }
+		</style>
+		<script>
+		$(document).ready(function(){
+
+			$("#flip").click(function(){
+				$("#panel").slideToggle("slow");
+			});
+		});
+		</script>
+
 
         {% block extrahead %}
         {% endblock %}
 
+
 		<title>QuickTutors | {% block title %}{% endblock %}</title>
 	</head>
 
+
 	<body>
 
-		<div class="mdl-layout mdl-js-layout">
+{#		<div class="mdl-layout mdl-js-layout">#}
+{##}
+{#			<header class="mdl-layout__header">#}
+{#				<div class="mdl-layout__header-row">#}
+{#		        	<span class="mdl-layout-title"><a href="/user/profile">QuickTutors</a></span>#}
+{#		        	<div class="mdl-layout-spacer"></div>#}
+{#                        <a href="{% url 'postman:inbox' %}" class="mdl-button mdl-js-button mdl-button--icon">#}
+{#                        <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="{% postman_unread %}">mail_outline</div>#}
+{#                        </a>#}
+{#                        <a href="{% url 'logout' %}" class="mdl-button mdl-js-button mdl-button--icon"#}
+{#                               for="fixed-header-drawer-exp">#}
+{#                        <i id="ttlogout" class="material-icons">exit_to_app</i>#}
+{#                        <div class="mdl-tooltip" for="ttlogout">#}
+{#                            Logout#}
+{#                        </div>#}
+{#                        </a>#}
+{#		      	</div>#}
+{#			</header>#}
+        <header>
+        <div class="navbar-fixed">
+            <nav class="white" role="navigation">
 
-			<header class="mdl-layout__header">
-				<div class="mdl-layout__header-row">
-		        	<span class="mdl-layout-title"><a href="/user/profile">QuickTutors</a></span>
-		        	<div class="mdl-layout-spacer"></div>
-                        <a href="{% url 'postman:inbox' %}" class="mdl-button mdl-js-button mdl-button--icon">
-                        <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="{% postman_unread %}">mail_outline</div>
-                        </a>
-                        <a href="{% url 'logout' %}" class="mdl-button mdl-js-button mdl-button--icon"
-                               for="fixed-header-drawer-exp">
-                        <i id="ttlogout" class="material-icons">exit_to_app</i>
-                        <div class="mdl-tooltip" for="ttlogout">
-                            Logout
-                        </div>
-                        </a>
-		      	</div>
-			</header>
+                <div class="nav-wrapper container">
 
-			<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-				<div class="mdl-layout__drawer">
-					<header class="avatar_header avatar-div text-center">
-                            <img src="{{ USER_PROFILE.picture.url }}" class="avatar avatar-properties img-circle" width="100" height="100">
-                            <span class="mdl-layout-title avatar-name">{{ user.get_full_name }}</span>
-					</header>
+                    <a id="logo-container" href="#" class="brand-logo"><img src="{% static 'media/homepage/quicktutors-homepage-logo.png' %}">uickTutors</a>
+
+                    <ul class="right hide-on-med-and-down">
+
+{#                        <li><a href="#contactenos">Contactenos</a></li>#}
+                        <li><a href="{% url 'postman:inbox' %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Inbox"><i class="material-icons">mail_outline</i></a></li>
+                        <!-- Logout Button-->
+                        <li><a href="{% url 'auth_logout' %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Log out"><i class="material-icons">exit_to_app</i>
+                        </a></li>
 
 
-					<nav class="mdl-navigation">
-						<a class="mdl-navigation__link" href="{% url 'profile' %}"><i class="material-icons">home</i>Inicio</a>
-						<a class="mdl-navigation__link" href="{% url 'search_page' %}"><i class="material-icons">search</i>Buscar Tutor</a>
-                        <a class="mdl-navigation__link" href="{% url 'monitorias:secciones_list' %}"><i class="material-icons">event_note</i>Monitorias</a>
-						<a class="mdl-navigation__link" href="{% url 'quickfireQuestions:questions_list' %}"><i class="material-icons">forum</i>QuickFire</a>
-						<a class="mdl-navigation__link" href=""><i class="material-icons">inbox</i>Recursos</a>
-                        <a class="mdl-navigation__link" href="{% url 'monitorias:secciones_recommended_tools' %}"><i class="material-icons">extension</i>Tutoring Tools</a>
-					</nav>
 
-				</div>
+                    </ul>
+{#                   ADD PROFILE LINK#}
+                    <ul id="side-navigation" class="side-nav fixed">
+                        <li>
+                            <div class="col s12">
+                                <div class="card-panel user_drawer_panel teal darken-5 z-depth-1">
+                                    <div class="card-content">
+                                    <div class="row">
+                                        <div class="col s12">
+                                        <img src="{{ USER_PROFILE.picture.url }}" alt="user_profile_picture" class="circle responsive-img" width="48px" height="48px">
+                                        </div>
+                                    </div>
+                                    <div class="row user_name_drawer">
+                                        <div class="col s12">
+                                            <ul>
+                                                 <li>
+                                                     <i class="user_name_drawer material-icons left">account_circle</i>{{ USER_PROFILE.user.get_full_name }}
+                                                 </li>
 
-				<main class="mdl-layout__content">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    <li><a href="#"><i class="material-icons left">dashboard</i>Dashboard</a></li>
+                    <li><a href="{% url 'search_page' %}"><i class="material-icons left">search</i>Buscar Tutor</a></li>
+                    <li><a href="{% url 'monitorias:secciones_list' %}"><i class="material-icons left">event_note</i>Monitorias</a></li>
+                    <li><a href="{% url 'quickfireQuestions:questions_list' %}"><i class="material-icons left">forum</i>QuickFire</a></li>
+                    <li><a href="#"><i class="material-icons left">extension</i>Tutoring Tools</a></li>
+{#                    <!-- Login Button-->#}
+{#                    <li><a href="{% url 'auth_login' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log out</a></li>#}
+                    </ul>
+
+
+{#                    <ul id="slide-out" class="side-nav fixed">#}
+{#                        <li><a href="#!">First Sidebar Link</a></li>#}
+{#                        <li><a href="#!">Second Sidebar Link</a></li>#}
+{#                        <li class="no-padding">#}
+{#                            <ul class="collapsible collapsible-accordion">#}
+{##}
+{#                                <li><a class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>#}
+{##}
+{#                                    <div class="collapsible-body">#}
+{#                                        <ul>#}
+{#                                            <li><a href="#!">First</a></li>#}
+{#                                            <li><a href="#!">Second</a></li>#}
+{#                                            <li><a href="#!">Third</a></li>#}
+{#                                            <li><a href="#!">Fourth</a></li>#}
+{#                                        </ul>#}
+{#                                    </div>#}
+{#                                </li>#}
+{#                            </ul>#}
+{#                        </li>#}
+{#                    </ul>#}
+
+                    <a href="#" data-activates="side-navigation" class="button-collapse"><i class="material-icons">menu</i></a>
+
+                </div>
+
+            </nav>
+    </div>
+        </header>
+                <main>
 					<div class="container-fluid">
                         <div class="row">
 {#                            <div class="col-xs-2">#}
 {#                                {%  block postman_menu %}#}
 {#                                {% endblock %}#}
 {#                            </div>#}
-                            <div class="col-xs-12">
+                            <div class="col s12">
 
 
 {#                                Publicity Carousel, that needs fixing or exchanging for something else                #}
@@ -130,15 +237,27 @@
                                 {% endblock %}
 
                             </div>
+
                         </div>
 
 					</div>
-				</main>
-			</div>
+                </main>
 
-			
-			
-		</div>
 
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
+    <script>
+
+        $('.button-collapse').sideNav({
+          menuWidth: 340, // Default is 240
+          edge: 'left', // Choose the horizontal origin
+          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            }
+          );
+    </script>
 	</body>
 </html>

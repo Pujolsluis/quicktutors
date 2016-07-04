@@ -6,26 +6,138 @@
 
     <div class="container-fluid">
     <h1>Secciones de monitoria agendadas</h1>
-            <div class="row">
-                <div class="col-xs-1">
-                   <label><i class="material-icons">filter_list</i>
-                </div>
-                <div class="col-xs-11">
-                    <div class="btn-group">
-                        <a href="{% url 'monitorias:secciones_list_estado' estado=1 %}" class="btn btn-default">Pendientes</a>
-                        <a href="{% url 'monitorias:secciones_list_estado' estado=2 %}"class="btn btn-default">Aceptadas</a>
-                        <a href="{% url 'monitorias:secciones_list_estado' estado=3 %}" class="btn btn-default">Rechazadas</a>
-                       <a href="{% url 'monitorias:secciones_list' %}" class="btn btn-default">Todas</a>
-                    </div>
-                 </div>
+        <div class="row">
+
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"> <a href="#pendientes">Pendientes</a></li>
+                    <li class="tab col s3"> <a href="#aceptadas">Aceptadas</a></li>
+                    <li class="tab col s3"> <a href="#rechazadas">Rechazadas</a></li>
+                    <li class="tab col s3"> <a href="#todas" class="active">Todas</a></li>
+                </ul>
             </div>
+        </div>
 
     <hr>
-    {% for seccion in secciones %}
-        <div class="well well-sm">
-        <a href="{% url 'monitorias:secciones_detail' pk=seccion.pk %}"> {{ post.title }}<p><strong>Seccion: Estudiante:</strong> {{ seccion.estudiante }} / <strong>Tutor:</strong> {{ seccion.tutor }} <strong>({{ seccion.begin_timeDay }})</strong> </p></a>
-        </div>
-    {% endfor %}
+          </div>
+
+    <div id="pendientes">
+        <ul class="collapsible" data-collapsible="accordion">
+        {% for seccion in seccionesPendientes %}
+
+            <li>
+              <div class="collapsible-header" id="flip">
+                  <i class="material-icons">filter_drama</i>
+                    <span class="black-text text-darken-2">{{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</span>
+              </div>
+              <div class="collapsible-body" id="panel">
+                  <p>
+                  <strong>Solicitante: </strong> {{ seccion.estudiante.get_full_name }}
+                  <br>
+                  <strong>Materia: </strong> {{ seccion.subject }}
+                  <br>
+                  <strong>Lugar: </strong> {{ seccion.university }}
+                  <br>
+                  <strong>Punto de Reunion: </strong>{{ seccion.reunionsite }}
+                  <br>
+                  <strong>Duracion: </strong> {{ seccion.hours_wanted }} horas
+                  <br>
+                  <strong>Forma de Pago: </strong>{{ seccion.payment_method }}
+                  </p>
+              </div>
+            </li>
+
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div id="aceptadas">
+
+        <ul class="collapsible" data-collapsible="accordion">
+        {% for seccion in seccionesAceptadas %}
+
+            <li>
+              <div class="collapsible-header" id="flip">
+                  <i class="material-icons">filter_drama</i>
+                    <span class="black-text text-darken-2">{{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</span>
+              </div>
+              <div class="collapsible-body" id="panel">
+                  <p>
+                  <strong>Solicitante: </strong> {{ seccion.estudiante.get_full_name }}
+                  <br>
+                  <strong>Materia: </strong> {{ seccion.subject }}
+                  <br>
+                  <strong>Lugar: </strong> {{ seccion.university }}
+                  <br>
+                  <strong>Punto de Reunion: </strong>{{ seccion.reunionsite }}
+                  <br>
+                  <strong>Duracion: </strong> {{ seccion.hours_wanted }} horas
+                  <br>
+                  <strong>Forma de Pago: </strong>{{ seccion.payment_method }}
+                  </p>
+              </div>
+            </li>
+
+        {% endfor %}
+        </ul>
+
+    </div>
+
+    <div id="rechazadas">
+        <ul class="collapsible" data-collapsible="accordion">
+        {% for seccion in seccionesRechazadas %}
+            <li>
+              <div class="collapsible-header" id="flip">
+                  <i class="material-icons">filter_drama</i>
+                    <span class="black-text text-darken-2">{{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</span>
+              </div>
+              <div class="collapsible-body" id="panel">
+                  <p>
+                  <strong>Solicitante: </strong> {{ seccion.estudiante.get_full_name }}
+                  <br>
+                  <strong>Materia: </strong> {{ seccion.subject }}
+                  <br>
+                  <strong>Lugar: </strong> {{ seccion.university }}
+                  <br>
+                  <strong>Punto de Reunion: </strong>{{ seccion.reunionsite }}
+                  <br>
+                  <strong>Duracion: </strong> {{ seccion.hours_wanted }} horas
+                  <br>
+                  <strong>Forma de Pago: </strong>{{ seccion.payment_method }}
+                  </p>
+              </div>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div id="todas">
+        <ul class="collapsible popout" data-collapsible="accordion">
+        {% for seccion in seccionesTodas %}
+
+            <li>
+              <div class="collapsible-header" id="flip">
+                  <i class="material-icons">filter_drama</i>
+                    <span class="black-text text-darken-2">{{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</span>
+              </div>
+              <div class="collapsible-body" id="panel">
+                  <p>
+                  <strong>Solicitante: </strong> {{ seccion.estudiante.get_full_name }}
+                  <br>
+                  <strong>Materia: </strong> {{ seccion.subject }}
+                  <br>
+                  <strong>Lugar: </strong> {{ seccion.university }}
+                  <br>
+                  <strong>Punto de Reunion: </strong>{{ seccion.reunionsite }}
+                  <br>
+                  <strong>Duracion: </strong> {{ seccion.hours_wanted }} horas
+                  <br>
+                  <strong>Forma de Pago: </strong>{{ seccion.payment_method }}
+                  </p>
+              </div>
+            </li>
+
+        {% endfor %}
+        </ul>
     </div>
 {% endblock %}
 

@@ -18,17 +18,17 @@
     {% endif %}
     <hr>
 
-    <div class="row">
-    <div class="col-xs-6">
+<div class="row">
+    <div class="col s6 m8">
         <div class="row">
 
-            <div class="col-xs-6">
+            <div class="col s12 m6">
                 <label>University</label>
                 <br>
                 {{ userProfile.university }}
             </div>
 
-            <div class="col-xs-6">
+            <div class="col s12 m6">
                 <label>Carrera</label>
                 <br>
                 {{ userProfile.career }}
@@ -38,7 +38,7 @@
 
         <div class="row">
 
-            <div class="col-xs-6">
+            <div class="col s12 m6">
                 <label>Materias que Domina</label>
                 <br>
                 {% for subject in userProfile.subjects.all %}
@@ -47,7 +47,7 @@
                 {% endfor %}
             </div>
 
-            <div class="col-xs-6">
+            <div class="col s12 m6">
                 <label>Tiempo en servicio</label>
                 <br>
                 {{ userProfile.begin_time }} - {{ userProfile.end_time }}
@@ -56,70 +56,26 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col s12">
                 <label>Bio</label>
                 <br>
                 <p>{{ userProfile.bio }}</p>
+
             </div>
         </div>
 
     </div>
 
-    <div class="col-xs-6 profileMedia">
+    <div class="col s6 m4 profileMedia">
 
         <img src="{{ userProfile.picture.url }}" class="img-rounded" width="240" height="240">
         <br>
-        <a href="{{ userProfile.video }}">
-            <button class="mdl-button mdl-js-button mdl-button--primary">
-                <label>Video de introduccion</label>    
-            </button>
-        </a>
+        <a href="{{ userProfile.video }}" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Introduction Video</a>
+
     </div>
 </div>
 
 
 {% endblock %}
 
-
-<div class="row">
-    <div class="col-xs-6">
-        <div class="row">
-
-            <div class="col-xs-6">
-                <label>University</label>
-                <br>
-                {{ userProfile.university }}
-            </div>
-
-            <div class="col-xs-6">
-                <label>Carrera</label>
-                <br>
-                {{ userProfile.career }}
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-xs-6">
-                <label>Materias que Domina</label>
-                <br>
-                {% for subject in userProfile.subjects.all %}
-                {{ subject }}
-                <br>
-                {% endfor %}
-            </div>
-
-            <div class="col-xs-6">
-                <label>Tiempo en servicio</label>
-                <br>
-                {{ userProfile.begin_time }} - {{ userProfile.end_time }}
-            </div>
-
-        </div>
-    </div>
-    <div class="col-xs-6">
-
-    </div>
-</div>
 

@@ -37,21 +37,48 @@
                               <li><a href="{% url 'search_page_filter' subject='Algoritmos y Estructuras de Datos' %}">Algoritmos y Estructuras de Datos</a></li>
                             </ul>
                           </div>
-                        </div>
-                    </div>
-                 </div>
-            </div>
-        {% for userProfile in userProfiles %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h4><span class="glyphicon glyphicon-user"></span><a href="{% url 'tutor_profile' profile_id=userProfile.id %}" >{{ userProfile.user.get_full_name }}</a></h4>
-                        <ul>Datos Personales
-                            <li>{{ userProfile.user.email }}</li>
-                        </ul>
                     </div>
                 </div>
-            </div>
+         </div>
+        </div>
+
+<div class="row">
+
+        {% for userProfile in userProfiles %}
+
+
+                <div class="col s12 m3">
+                  <div class="card blue-grey lighten-1">
+                    <div class="card-content white-text">
+                        <img src="{{userProfile.picture.url}}" width="150" height="150">
+                      <span class="card-title"><h4><a id="cardtitle" href="{% url 'tutor_profile' profile_id=userProfile.id %}" >{{ userProfile.user.get_full_name }}</a></h4></span>
+                      <p><ul id="cardinterior">Datos Personales
+                            <li>{{ userProfile.user.email }}</li>
+                        </ul></p>
+                    </div>
+                    <div class="card-action" >
+                      <a href="#" id="cardlinks">Mas Informacion</a>
+                      <a href="#" id="cardlinks">Contratar</a>
+                    </div>
+                  </div>
+                </div>
+
         {% endfor %}
+
+</div>
+<center>
+
+    <ul class="pagination">
+							<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+							<li class="active"><a href="#!">1</a></li>
+							<li class="waves-effect"><a href="#!">2</a></li>
+							<li class="waves-effect"><a href="#!">3</a></li>
+							<li class="waves-effect"><a href="#!">4</a></li>
+							<li class="waves-effect"><a href="#!">5</a></li>
+							<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+
+</center>
+
 
     {% endblock %}

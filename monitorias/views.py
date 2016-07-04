@@ -4,63 +4,65 @@ from monitorias.forms import SeccionMonitoriaForm
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from postman.api import pm_write
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required
 def secciones_list(request):
     # import ipdb
     # ipdb.set_trace()
     secciones = []
-    pendiente = "pendiente"
-    aceptada = "aceptada"
-    rechazada = "rechazada"
+    seccionesTodas = []
+    seccionesPendientes = []
+    seccionesAceptadas = []
+    seccionesRechazadas = []
+    pendiente = 'pendiente'
+    aceptada = 'aceptada'
+    rechazada = 'rechazada'
     # integrales = SeccionMonitoria.objects.filter(subject__name="Calculo Integral")
     # integralesSubject = integrales[0].subject
     for i in SeccionMonitoria.objects.all().order_by('-publish_date'):
         if request.user.userprofile.isTutor:
+
+            # Todas las secciones de un usuario que es monitor y estudiante
             if i.estudiante == request.user or i.tutor == request.user:
-                    secciones.append(i)
+                seccionesTodas.append(i)
+
+            # secciones pendientes de un usuario que es monitor y estudiante
+            if (i.estudiante == request.user or i.tutor == request.user) and i.status == pendiente:
+                seccionesPendientes.append(i)
+
+            # secciones aceptadas de un usuario que es monitor y estudiante
+            if (i.estudiante == request.user or i.tutor == request.user) and i.status == aceptada:
+                seccionesAceptadas.append(i)
+
+            # secciones rechazadas de un usuario que es monitor y estudiante
+            if (i.estudiante == request.user or i.tutor == request.user) and i.status == rechazada:
+                seccionesRechazadas.append(i)
         else:
+            # todas las secciones de un usuario que es estudiante
             if i.estudiante == request.user:
-                secciones.append(i)
+                seccionesTodas.append(i)
 
-    return render(request, 'monitorias/secciones_list.html', {'secciones': secciones, 'pendiente': pendiente, 'aceptada': aceptada, 'rechazada': rechazada})
+            # secciones pendientes de un usuario que es estudiante
+            if i.estudiante == request.user and i.status == pendiente:
+                seccionesPendientes.append(i)
 
-# Funcion para filtrar lista de secciones de monitorias agendadas
+            # secciones aceptadas de un usuario que es estudiante
+            if i.estudiante == request.user and i.status == aceptada:
+                seccionesAceptadas.append(i)
 
-def secciones_list_estado(request, estado):
+            # secciones rechazadas de un usuario que es estudiante
+            if i.estudiante == request.user and i.status == rechazada:
+                seccionesRechazadas.append(i)
 
-    secciones = []
-
-    for i in SeccionMonitoria.objects.all().order_by('-publish_date'):
-        if request.user.userprofile.isTutor:
-            if (i.estudiante == request.user or i.tutor == request.user) and \
-                    (i.status == "pendiente" and estado == "1"):
-                secciones.append(i)
-
-            if (i.estudiante == request.user or i.tutor == request.user) and \
-                    (i.status == "aceptada" and estado == "2"):
-                secciones.append(i)
-
-            if (i.estudiante == request.user or i.tutor == request.user) and \
-                    (i.status == "rechazada" and estado == "3"):
-                secciones.append(i)
-        else:
-            if (i.estudiante == request.user) and (i.status == "pendiente" and estado == "1"):
-                secciones.append(i)
-
-            if (i.estudiante == request.user) and (i.status == "aceptada" and estado == "2"):
-                secciones.append(i)
-
-            if (i.estudiante == request.user) and (i.status == "rechazada" and estado == "3"):
-                secciones.append(i)
-
-    return render(request, 'monitorias/secciones_list.html', {'secciones': secciones})
+    return render(request, 'monitorias/secciones_list.html', {'seccionesTodas': seccionesTodas,
+                                                              'seccionesPendientes': seccionesPendientes,
+                                                              'seccionesAceptadas': seccionesAceptadas,
+                                                              'seccionesRechazadas': seccionesRechazadas})
 
 
-def secciones_detail(request,pk):
-    seccion = get_object_or_404(SeccionMonitoria, pk=pk)
-    return render(request, 'monitorias/secciones_detail.html', {'seccion': seccion})
-
+@login_required
 def secciones_new(request, tutorpk):
     tutor = User.objects.get(pk=tutorpk)
     admin = User.objects.get(username="quicktutors")
@@ -92,6 +94,7 @@ def secciones_new(request, tutorpk):
         form = SeccionMonitoriaForm()
     return render(request, 'monitorias/secciones_new.html', {'form': form, 'tutor': tutor})
 
+@login_required
 # view para que un tutor pueda aceptar una seccion de monitoria
 def secciones_aceptar(request, pk):
     seccion = SeccionMonitoria.objects.get(pk=pk)
@@ -109,6 +112,7 @@ def secciones_aceptar(request, pk):
                                                              "-" + seccion.tutor.get_short_name())
     return redirect('/secciones/')
 
+@login_required
 # view para que un tutor pueda rechazar una seccion de monitoria
 def secciones_rechazar(request, pk):
     seccion = SeccionMonitoria.objects.get(pk=pk)
@@ -123,6 +127,7 @@ def secciones_rechazar(request, pk):
                                                            " podamos estudiar juntos!\n\n" \
                                                            "Gracias por utilizar nuestro servicio,\n\n" \
                                                            "-" + seccion.tutor.get_short_name())
+
 
     return redirect('/secciones/')
 
@@ -146,3 +151,6 @@ def secciones_onsite_payment(request):
 def secciones_recommended_tools(request):
     tools_list = RecommendedTools.objects.all()
     return render(request, 'monitorias/recommended_tools_page.html', {'tools_list': tools_list})
+
+    return redirect('/secciones/')
+

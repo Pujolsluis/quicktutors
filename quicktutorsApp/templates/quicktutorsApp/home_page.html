@@ -1,9 +1,426 @@
-{% extends 'quicktutorsApp/base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}
-    Home
-{% endblock %}
 
-    {% block content %}
-        <h1>Hello Homepage :3</h1>
-    {% endblock %}
+<style>
+.justifyText{
+text-align : justify;
+}
+</style>
+
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+    <title>QuickTutors - Home</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'css/home_page_css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{% static 'css/home_page_css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <!-- Favicon  -->
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
+
+</head>
+
+
+<body>
+
+    <div class="navbar-fixed">
+        <nav class="white" role="navigation">
+
+            <div class="nav-wrapper container">
+
+                <a id="logo-container" href="#" class="brand-logo"><img src="{% static 'media/homepage/quicktutors-homepage-logo.png' %}">uickTutors</a>
+
+                <ul class="right hide-on-med-and-down">
+
+                    <li><a href="{% url 'home_page' %}">Inicio</a></li>
+                    <li><a href="#sobre_nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#preguntas_frecuentes">Preguntas Frecuentes</a></li>
+                    <li><a href="#contactenos">Contactenos</a></li>
+                    <!-- Login Button-->
+                    <li><a class="waves-effect waves-light btn " href="{% url 'auth_login' %}">Log in</a></li>
+
+
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                <li><a href="{% url 'home_page' %}"><i class="material-icons left" data>home</i>Inicio</a></li>
+                <li><a href="#sobre_nosotros"><i class="material-icons left">location_city</i>Sobre Nosotros</a></li>
+                <li><a href="#precios"><i class="material-icons left">local_atm</i>Precios</a></li>
+                <li><a href="#preguntas_frecuentes"><i class="material-icons left">live_help</i>Preguntas Frecuentes</a></li>
+                <li><a href="#contactenos"><i class="material-icons left">contact_mail</i>Contactenos</a></li>
+                <!-- Login Button-->
+                <li><a href="{% url 'auth_login' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log in</a></li>
+                </ul>
+
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
+            </div>
+
+        </nav>
+    </div>
+
+{#          Index banner and 3 icons container        #}
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br><br>
+
+                <h1 class="header center teal-text text-lighten-2">Quick Tutors</h1>
+
+                <div class="row center">
+                  <h5 class="header col s12 light">El lugar donde encontraras los mejores tutores cerca de ti.</h5>
+                </div>
+
+                <div class="row center">
+                  <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Registrate</a>
+                </div>
+                <br><br>
+
+            </div>
+        </div>
+
+        <div class="parallax"><img src="{% static 'media/homepage/background1.jpg' %}" alt="Unsplashed background img 1"></div>
+
+    </div>
+{#    Icons with text#}
+    <div class="container">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12 m4">
+
+                  <div class="icon-block">
+
+                    <h2 class="center brown-text"><i class="material-icons"><i class="material-icons">touch_app</i></i></h2>
+                    <h5 class="center">A solo un toque</h5>
+                    <div class="justifyText">
+                    <p class="light">Para conseguir un monitor ya no necesitas preguntarle a tus amigos para que te recomienden uno. A solo un toque te presentamos diferentes monitores para que puedas seleccionar al que prefieras y comienzes tus tutorias lo mas antes posible.</p>
+                  </div>
+                  </div>
+
+                </div>
+
+                <div class="col s12 m4">
+
+                    <div class="icon-block">
+
+                        <h2 class="center brown-text"><i class="material-icons">verified_user</i></h2>
+                        <h5 class="center">Tutores Certificados</h5>
+                        <div class="justifyText">
+                        <p class="light">Nuestros tutores han sido procesados y evaluados para solo seleccionar aquellos tutores que son de las mas alta calidad academica y pedagojica. De esta forma brindamos a nuestros clientes un servicio con una calidad certificada y asi poder brindar una experiencia placentera.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col s12 m4">
+
+                    <div class="icon-block">
+
+                        <h2 class="center brown-text"><i class="material-icons">attach_money</i></h2>
+                        <h5 class="center">Paga lo que necesites</h5>
+                        <div class="justifyText">
+                        <p class="light">Nuestra plataforma brinda lo que necesitas cuando lo necesites. Necesitas responder una pregunta rapido, usa una QuickFire questions. Necesitas una tutoria corta, agenda una sesion de 1 hora. Todo esta a tu disposicion.</p>
+                      </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{#          2nd Banner and Sobre nosotros         #}
+
+    {#    Banner#}
+    <div id="sobre_nosotros" class="parallax-container valign-wrapper">
+
+        <div class="parallax"><img src="{% static 'media/homepage/quicktutors-sobre-nosotros-background.jpg' %}" alt="Unsplashed background img 2"></div>
+
+    </div>
+    {#    Sobre nosotros#}
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+
+                <div class="col s12 center">
+
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+                    <h4>Sobre Nosotros</h4>
+                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+{#          3nd Banner and Precios         #}
+
+    {#    Banner#}
+    <div id="precios" class="parallax-container valign-wrapper">
+
+        <div class="section no-pad-bot">
+
+            <div class="container">
+
+                <div class="row center">
+                  <h5 class="header col s12 light">Nuestros precios estan diseñados para ti.</h5>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="parallax"><img src="{% static 'media/homepage/precios-background.jpg' %}" alt="Unsplashed background img 2"></div>
+
+    </div>
+    {#    Precios#}
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+
+                <div class="col s12 center">
+
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+                    <h4>Precios</h4>
+                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+{#          4nd Banner and Preguntas Frecuentes        #}
+    {#    Banner#}
+    <div id="preguntas_frecuentes" class="parallax-container valign-wrapper">
+
+        <div class="section no-pad-bot">
+
+            <div class="container">
+
+                <div class="row center">
+                  <h5 class="header col s12 light">Nuestro equipo esta dispuesto apoyarte aclarar todas tus dudas.</h5>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="parallax"><img src="{% static 'media/homepage/eco-light-bulb-background.png' %}" alt="Unsplashed background img 2"></div>
+
+    </div>
+    {#    Preguntas Frecuentes#}
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+
+                <div class="col s12 center">
+
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+                    <h4>Preguntas Frecuentes</h4>
+                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+{#          5nd Banner and Contactenos         #}
+    {#    Banner#}
+    <div id="contactenos" class="parallax-container valign-wrapper">
+
+        <div class="section no-pad-bot">
+
+            <div class="container">
+
+                <div class="row center">
+{#                  <h5 class="header col s12 black-text">Si tienes alguna inquitud sobre los servicios que ofrecemos, no dudes en contactarnos.</h5>#}
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="parallax"><img src="{% static 'media/homepage/contact-us-background.jpg' %}" alt="Unsplashed background img 2"></div>
+
+    </div>
+    {#    Contactenos#}
+    <div class="container">
+        <div class="section ">
+
+            <div class="row">
+
+                <div class="col s12 m5 ">
+
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+
+                    <h4>Contactenos</h4>
+                    <br>
+                    <ul>
+                        <li><h5><i class="material-icons">location_on</i> Santo Domingo, Republica Dominicana</h5></li>
+                        <li><h5><i class="material-icons">contact_phone</i> 809-620-2020</h5></li>
+                        <li><h5><i class="material-icons">email</i> contact@quicktutors.com</h5></li>
+                    </ul>
+
+                </div>
+
+                <div class ="col s12 m7">
+
+                  <div class="row">
+                    <div class="col s12 ">
+
+                      <div class="card-panel teal-darken-3">
+
+                        <div class="row">
+
+                          <form class="col s12">
+
+                            <div class="row">
+<!-- Aqui es donde esta el problema -->
+
+                              <div class="input-field col s10 m6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="icon_prefix" type="text" class="validate">
+                                <label for="icon_prefix">Nombre</label>
+                              </div>
+
+                              <div class="input-field col s10 m6">
+                                <i class="material-icons prefix">email</i>
+                                <input id="icon_email" type="email" class="validate">
+                                <label for="icon_email">email</label>
+                              </div>
+<!-- aqui es donde termina el problema -->
+                            </div>
+
+                            <div class="row">
+                              <div class="input-field col s12">
+                                  <i class="material-icons prefix">mode_edit</i>
+                                  <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                                  <label for="icon_prefix2">Mensaje</label>
+                              </div>
+                            </div>
+
+                            <div class="row center">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+
+
+                          </form>
+
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+{#          6th banner and footer           #}
+    {#    Banner#}
+    <div class="parallax-container valign-wrapper">
+
+        <div class="section no-pad-bot">
+
+            <div class="container">
+
+                <div class="row center">
+                    <h5 class="header col s12 light">Disfruta de nuestros servicios!</h5>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="parallax"><img src="{% static 'media/homepage/background3.jpg' %}" alt="Unsplashed background img 3"></div>
+
+    </div>
+    {#    Footer#}
+    <footer class="page-footer teal">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col l6 s12">
+
+                    <h5 class="white-text">Company Bio</h5>
+                    <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+                </div>
+                <div class="col l3 s12">
+
+                    <h5 class="white-text">Settings</h5>
+                    <ul>
+                    <li><a class="white-text" href="#!">Link 1</a></li>
+                    <li><a class="white-text" href="#!">Link 2</a></li>
+                    <li><a class="white-text" href="#!">Link 3</a></li>
+                    <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="col l3 s12">
+
+                    <h5 class="white-text">Connect</h5>
+                    <ul>
+                    <li><a class="white-text" href="#!">Link 1</a></li>
+                    <li><a class="white-text" href="#!">Link 2</a></li>
+                    <li><a class="white-text" href="#!">Link 3</a></li>
+                    <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    <div class="footer-copyright">
+
+        <div class="container">
+
+            Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+
+        </div>
+
+    </div>
+
+    </footer>
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
+
+
+</body>
+
+</html>
