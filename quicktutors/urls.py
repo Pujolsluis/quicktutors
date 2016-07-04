@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 import django.contrib.auth.views
 from django.contrib import admin
+from django.views.generic.base import RedirectView
 from . import settings
 
 admin.autodiscover()
+
+favicon_view = RedirectView.as_view(url='/static/favicon.ico', permanent=True)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,6 +33,6 @@ urlpatterns = [
     url(r'^ajax_select/', include('ajax_select.urls')),
     url(r'^secciones/', include('monitorias.urls', namespace='monitorias', app_name='monitorias')),
     url('^questions/', include('quickfireQuestions.urls', namespace='quickfireQuestions', app_name='quickfireQuestions')),
-
+    url(r'^favicon\.ico$', favicon_view),
 
 ]

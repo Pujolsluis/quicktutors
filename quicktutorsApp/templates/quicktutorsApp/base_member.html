@@ -3,33 +3,20 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
-		  <!-- Compiled and minified CSS -->
-		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <title>QuickTutors - Home</title>
 
-		  <!-- Compiled and minified JavaScript -->
-		  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="{% static 'css/home_page_css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="{% static 'css/home_page_css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
-		<!-- Latest compiled JavaScript -->
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-		<!-- Lobster Font-->
-		<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-		<!-- Application CSS File-->
-		<link rel="stylesheet" href="{% static 'css/quicktutorsApp.css'%}">
 
 		<style>
 			#cardtitle{
@@ -51,10 +38,7 @@
 			});
 		});
 		</script>
-		<!-- Material Design Files -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-		<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
 
         {% block extrahead %}
         {% endblock %}
@@ -64,51 +48,71 @@
 
 	<body>
 
-		<div class="mdl-layout mdl-js-layout">
+{#		<div class="mdl-layout mdl-js-layout">#}
+{##}
+{#			<header class="mdl-layout__header">#}
+{#				<div class="mdl-layout__header-row">#}
+{#		        	<span class="mdl-layout-title"><a href="/user/profile">QuickTutors</a></span>#}
+{#		        	<div class="mdl-layout-spacer"></div>#}
+{#                        <a href="{% url 'postman:inbox' %}" class="mdl-button mdl-js-button mdl-button--icon">#}
+{#                        <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="{% postman_unread %}">mail_outline</div>#}
+{#                        </a>#}
+{#                        <a href="{% url 'logout' %}" class="mdl-button mdl-js-button mdl-button--icon"#}
+{#                               for="fixed-header-drawer-exp">#}
+{#                        <i id="ttlogout" class="material-icons">exit_to_app</i>#}
+{#                        <div class="mdl-tooltip" for="ttlogout">#}
+{#                            Logout#}
+{#                        </div>#}
+{#                        </a>#}
+{#		      	</div>#}
+{#			</header>#}
 
-			<header class="mdl-layout__header">
-				<div class="mdl-layout__header-row">
-		        	<span class="mdl-layout-title"><a href="/user/profile">QuickTutors</a></span>
-		        	<div class="mdl-layout-spacer"></div>
-                        <a href="{% url 'postman:inbox' %}" class="mdl-button mdl-js-button mdl-button--icon">
-                        <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="{% postman_unread %}">mail_outline</div>
-                        </a>
-                        <a href="{% url 'logout' %}" class="mdl-button mdl-js-button mdl-button--icon"
-                               for="fixed-header-drawer-exp">
-                        <i id="ttlogout" class="material-icons">exit_to_app</i>
-                        <div class="mdl-tooltip" for="ttlogout">
-                            Logout
-                        </div>
-                        </a>
-		      	</div>
-			</header>
+        <div class="navbar-fixed">
+            <nav class="white" role="navigation">
 
-			<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-				<div class="mdl-layout__drawer">
-					<header class="avatar_header avatar-div text-center">
-                            <img src="{{ USER_PROFILE.picture.url }}" class="avatar avatar-properties img-circle" width="100" height="100">
-                            <span class="mdl-layout-title avatar-name">{{ user.get_full_name }}</span>
-					</header>
+                <div class="nav-wrapper container">
+
+                    <a id="logo-container" href="#" class="brand-logo"><img src="{% static 'media/homepage/quicktutors-homepage-logo.png' %}">uickTutors</a>
+
+                    <ul class="right hide-on-med-and-down">
+
+                        <li><a href="{% url 'home_page' %}">Inicio</a></li>
+                        <li><a href="#sobre_nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                        <li><a href="#preguntas_frecuentes">Preguntas Frecuentes</a></li>
+                        <li><a href="#contactenos">Contactenos</a></li>
+                        <!-- Login Button-->
+                        <li><a class="waves-effect waves-light btn " href="{% url 'auth_login' %}">Log in</a></li>
 
 
-					<nav class="mdl-navigation">
-						<a class="mdl-navigation__link" href="{% url 'profile' %}"><i class="material-icons">home</i>Inicio</a>
-						<a class="mdl-navigation__link" href="{% url 'search_page' %}"><i class="material-icons">search</i>Buscar Tutor</a>
-                        <a class="mdl-navigation__link" href="{% url 'monitorias:secciones_list' %}"><i class="material-icons">event_note</i>Monitorias</a>
-						<a class="mdl-navigation__link" href="{% url 'quickfireQuestions:questions_list' %}"><i class="material-icons">forum</i>QuickFire</a>
-						<a class="mdl-navigation__link" href=""><i class="material-icons">inbox</i>Recursos</a>
-					</nav>
+                    </ul>
 
-				</div>
+                    <ul id="nav-mobile" class="side-nav">
+                    <li><a href="{% url 'home_page' %}"><i class="material-icons left" data>home</i>Inicio</a></li>
+                    <li><a href="#sobre_nosotros"><i class="material-icons left">location_city</i>Sobre Nosotros</a></li>
+                    <li><a href="#precios"><i class="material-icons left">local_atm</i>Precios</a></li>
+                    <li><a href="#preguntas_frecuentes"><i class="material-icons left">live_help</i>Preguntas Frecuentes</a></li>
+                    <li><a href="#contactenos"><i class="material-icons left">contact_mail</i>Contactenos</a></li>
+                    <!-- Login Button-->
+                    <li><a href="{% url 'auth_login' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log in</a></li>
+                    </ul>
 
-				<main class="mdl-layout__content">
+                    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
+                </div>
+
+            </nav>
+    </div>
+
+
+
 					<div class="container-fluid">
                         <div class="row">
 {#                            <div class="col-xs-2">#}
 {#                                {%  block postman_menu %}#}
 {#                                {% endblock %}#}
 {#                            </div>#}
-                            <div class="col-xs-12">
+                            <div class="col s12">
 
                                 {% block content %}
                                 {% endblock %}
@@ -124,6 +128,11 @@
 			
 			
 		</div>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
 
 	</body>
 </html>
