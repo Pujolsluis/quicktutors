@@ -35,6 +35,19 @@
                     <li><a href="#">Precios</a></li>
                     <li><a href="#">Preguntas Frecuentes</a></li>
                     <li><a href="#">Contactenos</a></li>
+                    <!-- Login Modal Trigger -->
+                    <li><a class="waves-effect waves-light btn " href="{% url 'auth_login' %}">Log in</a></li>
+
+                    <!-- Modal Structure -->
+                    <div id="loginModal" class="modal">
+                        <div class="modal-content">
+                                <h4>Modal Header</h4>
+                                <p>A bunch of text</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                        </div>
+                    </div>
 
                 </ul>
 
@@ -58,14 +71,14 @@
             <div class="container">
                 <br><br>
 
-                <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+                <h1 class="header center teal-text text-lighten-2">Quick Tutors</h1>
 
                 <div class="row center">
-                  <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                  <h5 class="header col s12 light">El lugar donde encontraras los mejores tutores cerca de ti.</h5>
                 </div>
 
                 <div class="row center">
-                  <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+                  <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Sign up</a>
                 </div>
                 <br><br>
 
@@ -235,6 +248,7 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="{% static 'js/materialize.js' %}"></script>
     <script src="{% static 'js/init.js' %}"></script>
+
 
 </body>
 

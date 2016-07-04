@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 
 
 
+
 def quicktutorsApp(request):
     if request.user.is_authenticated():
         userProfile = UserProfile.objects.get(user=request.user)

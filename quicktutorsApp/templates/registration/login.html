@@ -2,47 +2,35 @@
 
 {% block content %}
 
-    <div class="logincontainer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-4"></div>
-                    <div class="col-xs-4 text-center">
-                        {% if form.errors %}
-                        <p>Your username and password didn't match. Please try again.</p>
-                        {% endif %}
 
-                        <form method="post" action="." class="form-horizontal" role="form">
-                        {% csrf_token %}
-{##}
-{#                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">#}
-{#                            <input class="mdl-textfield__input" type="text" id="username">#}
-{#                            <label class="mdl-textfield__label" for="username">Username</label>#}
-{#                            </div>#}
-{##}
-{#                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">#}
-{#                            <input class="mdl-textfield__input" type="password" id="password">#}
-{#                            <label class="mdl-textfield__label" for="password">Password</label>#}
-{#                            </div>#}
+    {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
 
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label class ="mdl-textfield__label" for="{{ form.username.id }}">{{ form.username.label }}</label>
-                            <input class= "mdl-textfield__input" id="{{ form.username.id }}" maxlength="254" name="username" type="text">{{ form.username.id }}
-                            </div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label class ="mdl-textfield__label" for="{{ form.password.id }}">{{ form.password.label }}</label>
-                            <input class= "mdl-textfield__input" id="{{ form.password.id }}" name="password" type="password">
-                            </div>
-{#                            <td>{{ form.password.label_tag }}</td>#}
-{#                            <td>{{ form.password }}</td>#}
-                        <br>
-                        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="login" />
-                        <input type="hidden" name="next" value="{{ next }}" />
-                        </form>
-                    <div class="col-xs-4"></div>
-                </div>
+    <form class="col s12" method="post" action="."  role="form">
+    {% csrf_token %}
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input class= "validate" id="{{ form.username.id }}" maxlength="254" name="username" type="text">
+                <label class ="validate" for="{{ form.username.id }}">{{ form.username.label }}</label>
             </div>
         </div>
-    </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input class= "validate" id="{{ form.password.id }}" name="password" type="password">
+                <label class ="validate" for="{{ form.password.id }}">{{ form.password.label }}</label>
+            </div>
+        </div>
+    <br>
+
+        <input class="waves-effect waves-light btn" type="submit" value="login" />
+        <input type="hidden" name="next" value="{{ next }}" />
+
+    </form>
+
+
 {% endblock %}
 
 
