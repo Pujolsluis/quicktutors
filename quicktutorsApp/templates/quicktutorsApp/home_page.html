@@ -37,34 +37,25 @@ text-align : justify;
 
                 <ul class="right hide-on-med-and-down">
 
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="{% url 'home_page' %}">Inicio</a></li>
                     <li><a href="#">Sobre Nosotros</a></li>
                     <li><a href="#">Precios</a></li>
                     <li><a href="#">Preguntas Frecuentes</a></li>
                     <li><a href="#">Contactenos</a></li>
-                    <!-- Login Modal Trigger -->
+                    <!-- Login Button-->
                     <li><a class="waves-effect waves-light btn " href="{% url 'auth_login' %}">Log in</a></li>
 
-                    <!-- Modal Structure -->
-                    <div id="loginModal" class="modal">
-                        <div class="modal-content">
-                                <h4>Modal Header</h4>
-                                <p>A bunch of text</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                        </div>
-                    </div>
 
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
-                <li><a href="#"><i class="material-icons left">home</i>Inicio</a></li>
+                <li><a href="{% url 'home_page' %}"><i class="material-icons left">home</i>Inicio</a></li>
                 <li><a href="#"><i class="material-icons left">location_city</i>Sobre Nosotros</a></li>
                 <li><a href="#"><i class="material-icons left">local_atm</i>Precios</a></li>
                 <li><a href="#"><i class="material-icons left">live_help</i>Preguntas Frecuentes</a></li>
                 <li><a href="#"><i class="material-icons left">contact_mail</i>Contactenos</a></li>
-
+                <!-- Login Button-->
+                <li><a href="{% url 'auth_login' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log in</a></li>
                 </ul>
 
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -73,6 +64,8 @@ text-align : justify;
 
         </nav>
     </div>
+
+{#          Index banner and 3 icons container        #}
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
             <div class="container">
@@ -146,6 +139,88 @@ text-align : justify;
     </div>
 
 
+{#          2nd Banner and Sobre nosotros         #}
+
+    {#    Banner#}
+    <div class="parallax-container valign-wrapper">
+
+        <div class="section no-pad-bot">
+
+            <div class="container">
+
+                <div class="row center">
+                  <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="parallax"><img src="{% static 'media/homepage/background2.jpg' %}" alt="Unsplashed background img 2"></div>
+
+    </div>
+    {#    Sobre nosotros#}
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+
+                <div class="col s12 center">
+
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+                    <h4>Sobre Nosotros</h4>
+                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+{#          3nd Banner and Precios         #}
+
+    {#    Banner#}
+    <div class="parallax-container valign-wrapper">
+
+        <div class="section no-pad-bot">
+
+            <div class="container">
+
+                <div class="row center">
+                  <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="parallax"><img src="{% static 'media/homepage/background2.jpg' %}" alt="Unsplashed background img 2"></div>
+
+    </div>
+    {#    Precios#}
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+
+                <div class="col s12 center">
+
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+                    <h4>Precios</h4>
+                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+{#          4nd Banner and Preguntas Frecuentes        #}
+    {#    Banner#}
     <div class="parallax-container valign-wrapper">
 
         <div class="section no-pad-bot">
@@ -163,7 +238,7 @@ text-align : justify;
         <div class="parallax"><img src="{% static 'media/homepage/background2.jpg' %}" alt="Unsplashed background img 2"></div>
 
     </div>
-
+    {#    Preguntas Frecuentes#}
     <div class="container">
         <div class="section">
 
@@ -172,7 +247,47 @@ text-align : justify;
                 <div class="col s12 center">
 
                     <h3><i class="mdi-content-send brown-text"></i></h3>
-                    <h4>Contact Us</h4>
+                    <h4>Preguntas Frecuentes</h4>
+                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+{#          5nd Banner and Contactenos         #}
+    {#    Banner#}
+    <div class="parallax-container valign-wrapper">
+
+        <div class="section no-pad-bot">
+
+            <div class="container">
+
+                <div class="row center">
+                  <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="parallax"><img src="{% static 'media/homepage/background2.jpg' %}" alt="Unsplashed background img 2"></div>
+
+    </div>
+    {#    Contactenos#}
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+
+                <div class="col s12 center">
+
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+
+                    <h4>Contactenos</h4>
                     <div class="row">
                       <form class="col s12">
                         <div class="row">
@@ -183,6 +298,7 @@ text-align : justify;
                         </div>
                       </form>
                     </div>
+
                 </div>
 
             </div>
@@ -191,6 +307,8 @@ text-align : justify;
     </div>
 
 
+{#          6th banner and footer           #}
+    {#    Banner#}
     <div class="parallax-container valign-wrapper">
 
         <div class="section no-pad-bot">
@@ -208,7 +326,7 @@ text-align : justify;
         <div class="parallax"><img src="{% static 'media/homepage/background3.jpg' %}" alt="Unsplashed background img 3"></div>
 
     </div>
-
+    {#    Footer#}
     <footer class="page-footer teal">
 
         <div class="container">
