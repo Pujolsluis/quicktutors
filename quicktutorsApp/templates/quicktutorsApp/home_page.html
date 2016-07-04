@@ -38,10 +38,10 @@ text-align : justify;
                 <ul class="right hide-on-med-and-down">
 
                     <li><a href="{% url 'home_page' %}">Inicio</a></li>
-                    <li><a href="#">Sobre Nosotros</a></li>
-                    <li><a href="#">Precios</a></li>
-                    <li><a href="#">Preguntas Frecuentes</a></li>
-                    <li><a href="#">Contactenos</a></li>
+                    <li><a href="#sobre_nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#preguntas_frecuentes">Preguntas Frecuentes</a></li>
+                    <li><a href="#contactenos">Contactenos</a></li>
                     <!-- Login Button-->
                     <li><a class="waves-effect waves-light btn " href="{% url 'auth_login' %}">Log in</a></li>
 
@@ -49,11 +49,11 @@ text-align : justify;
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
-                <li><a href="{% url 'home_page' %}"><i class="material-icons left">home</i>Inicio</a></li>
-                <li><a href="#"><i class="material-icons left">location_city</i>Sobre Nosotros</a></li>
-                <li><a href="#"><i class="material-icons left">local_atm</i>Precios</a></li>
-                <li><a href="#"><i class="material-icons left">live_help</i>Preguntas Frecuentes</a></li>
-                <li><a href="#"><i class="material-icons left">contact_mail</i>Contactenos</a></li>
+                <li><a href="{% url 'home_page' %}"><i class="material-icons left" data>home</i>Inicio</a></li>
+                <li><a href="#sobre_nosotros"><i class="material-icons left">location_city</i>Sobre Nosotros</a></li>
+                <li><a href="#precios"><i class="material-icons left">local_atm</i>Precios</a></li>
+                <li><a href="#preguntas_frecuentes"><i class="material-icons left">live_help</i>Preguntas Frecuentes</a></li>
+                <li><a href="#contactenos"><i class="material-icons left">contact_mail</i>Contactenos</a></li>
                 <!-- Login Button-->
                 <li><a href="{% url 'auth_login' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log in</a></li>
                 </ul>
@@ -88,8 +88,7 @@ text-align : justify;
         <div class="parallax"><img src="{% static 'media/homepage/background1.jpg' %}" alt="Unsplashed background img 1"></div>
 
     </div>
-
-
+{#    Icons with text#}
     <div class="container">
         <div class="section">
 
@@ -142,7 +141,7 @@ text-align : justify;
 {#          2nd Banner and Sobre nosotros         #}
 
     {#    Banner#}
-    <div class="parallax-container valign-wrapper">
+    <div id="sobre_nosotros" class="parallax-container valign-wrapper">
 
         <div class="section no-pad-bot">
 
@@ -182,7 +181,7 @@ text-align : justify;
 {#          3nd Banner and Precios         #}
 
     {#    Banner#}
-    <div class="parallax-container valign-wrapper">
+    <div id="precios" class="parallax-container valign-wrapper">
 
         <div class="section no-pad-bot">
 
@@ -221,7 +220,7 @@ text-align : justify;
 
 {#          4nd Banner and Preguntas Frecuentes        #}
     {#    Banner#}
-    <div class="parallax-container valign-wrapper">
+    <div id="preguntas_frecuentes" class="parallax-container valign-wrapper">
 
         <div class="section no-pad-bot">
 
@@ -260,7 +259,7 @@ text-align : justify;
 
 {#          5nd Banner and Contactenos         #}
     {#    Banner#}
-    <div class="parallax-container valign-wrapper">
+    <div id="contactenos" class="parallax-container valign-wrapper">
 
         <div class="section no-pad-bot">
 
@@ -279,7 +278,7 @@ text-align : justify;
     </div>
     {#    Contactenos#}
     <div class="container">
-        <div class="section">
+        <div class="section ">
 
             <div class="row">
 
