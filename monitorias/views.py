@@ -10,20 +10,36 @@ def secciones_list(request):
     # import ipdb
     # ipdb.set_trace()
     secciones = []
-    pendiente = "pendiente"
-    aceptada = "aceptada"
-    rechazada = "rechazada"
+    seccionesTodas = []
+    seccionesPendientes = []
+    seccionesAceptadas = []
+    seccionesRechazadas = []
+    pendiente = 'pendiente'
+    aceptada = 'aceptada'
+    rechazada = 'rechazada'
     # integrales = SeccionMonitoria.objects.filter(subject__name="Calculo Integral")
     # integralesSubject = integrales[0].subject
     for i in SeccionMonitoria.objects.all().order_by('-publish_date'):
         if request.user.userprofile.isTutor:
-            if i.estudiante == request.user or i.tutor == request.user:
-                    secciones.append(i)
+            if (i.estudiante == request.user or i.tutor == request.user):
+                seccionesTodas.append(i)
+
+            if (i.estudiante == request.user or i.tutor == request.user) and i.status == pendiente:
+                seccionesPendientes.append(i)
+
+            if (i.estudiante == request.user or i.tutor == request.user) and i.status == aceptada:
+                seccionesAceptadas.append(i)
+
+            if (i.estudiante == request.user or i.tutor == request.user) and i.status == rechazada:
+                seccionesRechazadas.append(i)
         else:
             if i.estudiante == request.user:
-                secciones.append(i)
+                seccionesTodas.append(i)
 
-    return render(request, 'monitorias/secciones_list.html', {'secciones': secciones, 'pendiente': pendiente, 'aceptada': aceptada, 'rechazada': rechazada})
+    return render(request, 'monitorias/secciones_list.html', {'seccionesTodas': seccionesTodas,
+                                                              'seccionesPendientes': seccionesPendientes,
+                                                              'seccionesAceptadas': seccionesAceptadas,
+                                                              'seccionesRechazadas': seccionesRechazadas})
 
 # Funcion para filtrar lista de secciones de monitorias agendadas
 
