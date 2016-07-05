@@ -4,12 +4,61 @@
     Registration
 {% endblock %}
 {% block content %}
+
     <div class="container">
         <h2>Register a new Account</h2>
-        <form method="post" action="." role="form">
-          {% csrf_token %}
-          {{ form.as_p }}
+        <form class="col s12" method="post" action="." role="form">
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ form.username }}
+                    <label for="{{ form.username.id }}">Username</label>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    {{ form.first_name }}
+                    <label for="{{ form.first_name.id }}">First Name</label>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    {{ form.last_name }}
+                    <label for="{{ form.last_name.id }}">Last Name</label>
+                </div>
+
+                <div class="input-field col s12">
+                    {{ form.email }}
+                    <label for="{{ form.email.id }}">Email</label>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    {{ form.password1 }}
+                    <label for="{{ form.password1.id }}">Password</label>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    {{ form.password2 }}
+                    <label for="{{ form.password2.id }}">Password confirmation</label>
+                </div>
+
+            </div>
+
+
           <input class="btn btn-default" type="submit" value="{% trans 'Submit' %}" />
         </form>
     </div>
+
+
+
+{#    <form method="post" action="." role="form">#}
+{#<p><label for="id_first_name">First name:</label> <input class="form-control" id="id_first_name" maxlength="30" name="first_name" type="text" /></p>#}
+{#<p><label for="id_last_name">Last name:</label> <input class="form-control" id="id_last_name" maxlength="30" name="last_name" type="text" /></p>#}
+{#<p><label for="id_email">Email:</label> <input class="form-control" id="id_email" name="email" type="email" /> <span class="helptext">email address</span></p>#}
+{#<p><label for="id_password1">Password:</label> <input class="form-control" id="id_password1" name="password1" type="password" /></p>#}
+{#<p><label for="id_password2">Password confirmation:</label> <input class="form-control" id="id_password2" name="password2" type="password" /> <span class="helptext">Enter the same password as before, for verification.</span></p>#}
+{#          <input class="btn btn-default" type="submit" value="Submit" />#}
+{#        </form>#}
+
+
+
 {% endblock %}

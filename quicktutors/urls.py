@@ -25,7 +25,7 @@ favicon_view = RedirectView.as_view(url='/static/favicon.ico', permanent=True)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^accounts/', include('registration.backends.hmac.urls', namespace='registration', app_name='registration')),
+    url(r'^accounts/', include('registration.backends.hmac.urls')),
     url(r'^accounts/logout$', django.contrib.auth.views.logout, name='logout', kwargs={'next_page': '/home'}),
     url(r'', include('quicktutorsApp.urls')),
     url(r'^user/', include('user_profile.urls')),
