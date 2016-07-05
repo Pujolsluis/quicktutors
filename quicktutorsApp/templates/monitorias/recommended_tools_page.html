@@ -3,14 +3,34 @@
     Recommended Tools
 {% endblock %}
 {% block content %}
+    <style>
+    .recommended-tools-cards{
+        width: 400px;
+    }
+    </style>
+
     <h1>Herramientas Recomendadas para Monitorias</h1>
     {% for tool in tools_list %}
-        <div class="container text-center">
-        <label>{{ tool.name }}</label>
-        <br>
-        <img src="{{ tool.picture.url }}" class="img-rounded" width="140" height="140">
-        <p>{{ tool.description }}</p>
-        <a href="{{ tool.website }}">Codeshare.io</a>
+
+
+    <div class="row">
+        <div class="col s12">
+            <div class="container recommended-tools-cards">
+                <div class="card teal">
+
+                <div class="card-content white-text">
+                    <div class="center">
+                        <img src="{{ tool.picture.url }}" class="circle responsive-img" width="150" height="150">
+                    </div>
+                    <span class="card-title">{{ tool.name }}</span>
+                    <p>{{ tool.description }}</p>
+                </div>
+                <div class="card-action red accent-2">
+                    <a href="{{ tool.website }}" class="grey-text text-darken-4">Go to Website</a>
+                </div>
+            </div>
         </div>
+    </div>
+
     {% endfor %}
 {% endblock %}

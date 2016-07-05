@@ -4,14 +4,55 @@
     Thank you!
 {% endblock %}
 {% block content %}
+    <style>
+        .affiliates-cards{
+            width: 400px;
+        }
+    </style>
+<div class="row">
+    <div class="col s12">
     <h1>Negocios Afiliados para pagos en efectivo.</h1>
     <p>Puedes visitar cualquiera de nuestros negocios afiliados para validar tu orden, y terminar el proceso de solicitud
     de tu seccion de monitoria.</p>
-    <div class="container text-center">
-        {% for affiliate in affiliates_list %}
-        <h6>{{ affiliate.name }}</h6>
-             <img src="{{ affiliate.picture.url }}" class="img-rounded" width="140" height="140">
-            <p>{{ affiliate.address }}</p>
-        {% endfor%}
-    </div>
+
+     {% for affiliate in affiliates_list %}
+    <div class="row">
+        <div class="col s12">
+            <div class="container affiliates-cards">
+                <div class="card medium">
+
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ affiliate.picture.url }}">
+                    </div>
+
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ affiliate.name }}<i class="material-icons right">more_vert</i></span>
+                        <p>Telefono: <a href="#">+1 {{ affiliate.phone_number }}</a></p>
+                    </div>
+
+                    <div class="card-action">
+                        <a href="{{ affiliate.google_maps }}">
+                            Google Maps</a>
+                        <a href="{{ affiliate.website }}">Social Media</a>
+                    </div>
+
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ affiliate.name }}<i class="material-icons right">close</i></span>
+                        <p>{{ affiliate.address }}</p>
+                        <br>
+                        <div class="center">
+                            <h5>Horario de trabajo:</h5>
+                            <h6>{{ affiliate.laboring_hours }}</h6>
+                            <h6>{{ affiliate.laboring_days }}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+     </div>
+</div>
+
+
+    {% endfor%}
 {% endblock %}
