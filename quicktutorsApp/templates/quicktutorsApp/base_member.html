@@ -4,20 +4,18 @@
 <html lang="en">
 	<head>
 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-        <title>QuickTutors - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
-        <!-- CSS  -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="{% static 'css/home_page_css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="{% static 'css/home_page_css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'css/home_page_css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{% static 'css/home_page_css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-        <!-- Favicon  -->
-        <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
-
+    <!-- Favicon  -->
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
 
 		<style>
 			#cardtitle{
@@ -58,44 +56,19 @@
 
             }
 		</style>
-		<script>
-		$(document).ready(function(){
 
-			$("#flip").click(function(){
-				$("#panel").slideToggle("slow");
-			});
-		});
-		</script>
 
 
         {% block extrahead %}
         {% endblock %}
 
-
 		<title>QuickTutors | {% block title %}{% endblock %}</title>
+
 	</head>
 
 
 	<body>
 
-{#		<div class="mdl-layout mdl-js-layout">#}
-{##}
-{#			<header class="mdl-layout__header">#}
-{#				<div class="mdl-layout__header-row">#}
-{#		        	<span class="mdl-layout-title"><a href="/user/profile">QuickTutors</a></span>#}
-{#		        	<div class="mdl-layout-spacer"></div>#}
-{#                        <a href="{% url 'postman:inbox' %}" class="mdl-button mdl-js-button mdl-button--icon">#}
-{#                        <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="{% postman_unread %}">mail_outline</div>#}
-{#                        </a>#}
-{#                        <a href="{% url 'logout' %}" class="mdl-button mdl-js-button mdl-button--icon"#}
-{#                               for="fixed-header-drawer-exp">#}
-{#                        <i id="ttlogout" class="material-icons">exit_to_app</i>#}
-{#                        <div class="mdl-tooltip" for="ttlogout">#}
-{#                            Logout#}
-{#                        </div>#}
-{#                        </a>#}
-{#		      	</div>#}
-{#			</header>#}
         <header>
         <div class="navbar-fixed">
             <nav class="white" role="navigation">
@@ -252,10 +225,15 @@
     <script src="{% static 'js/init.js' %}"></script>
     <script>
 
+        $(document).ready(function() {
+        $('select').material_select();
+        $('.modal-trigger').leanModal();
+        });
+
         $('.button-collapse').sideNav({
           menuWidth: 340, // Default is 240
           edge: 'left', // Choose the horizontal origin
-          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+          closeOnClick: false // Closes side-nav on <a> clicks, useful for Angular/Meteor
             }
           );
     </script>

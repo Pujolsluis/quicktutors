@@ -4,12 +4,88 @@
 {% endblock %}
     {% block content %}
 
-        <h1>Update your profile</h1>
-        <div class="container">
-        <form action="/user/send_update_profile/" method='POST' enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-default" type="submit">Send</button>
-        </form>
+        <div class="row">
+
+
+    <form class="col s12 center" action="/user/send_update_profile/" method='POST' enctype="multipart/form-data" role="form">
+        <h2>Update your profile</h2>
+            <br>
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col s6">
+                <div class="input-field col s12">
+                    <div class="file-field input-field">
+                      <div class="btn">
+                        <span>Picture</span>
+                        {{ form.picture }}
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                      </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="row">
+
+            <div class="col s12">
+                <div class="input-field col s12">
+                    {{ form.bio }}
+                    <label class="validate" for="{{ form.bio.id }}">Bio:</label>
+                </div>
+            </div>
+
+            {% if USER_PROFILE.isTutor %}
+            <div class="input-field col s12 m6">
+                {{ form.video }}
+                <label for="{{ form.video.id }}">Video de Introducción</label>
+            </div>
+            {% endif %}
+
+        </div>
+
+
+        <div class="row">
+            <div class="input-field col s12 m4">
+                {{ form.studentID }}
+                <label for="{{ form.studentID.id }}">ID Estudiantil</label>
+            </div>
+
+
+            <div class="input-field col s12 m4">
+                {{ form.career }}
+                <label>Carrera</label>
+              </div>
+
+            <div class="input-field col s12 m4">
+                {{ form.university }}
+                <label>Universidad</label>
+              </div>
+        </div>
+
+        {% if USER_PROFILE.isTutor %}
+        <div class="row">
+            <div class="input-field col s12 m6">
+                {{ form.begin_time }}
+                <label for="{{ form.begin_time.id }}">Hora de inicio de servicios:</label>
+            </div>
+            <div class="input-field col s12 m6">
+                {{ form.end_time }}
+                <label for="{{ form.end_time.id }}">Hora de fin de servicios</label>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="row center">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+        </button>
+        </div>
+
+    </form>
+    </div>
+
+
     {% endblock %}

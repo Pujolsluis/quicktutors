@@ -5,20 +5,27 @@
 {% endblock %}
 {% block content %}
 
-    <h3>Perfil de {{ userProfile.user.get_full_name }}
-        {% if user.id == userProfile.user.id or user.is_staff == True %}
-        <a href="{% url 'update_profile' %}" class="glyphicon glyphicon-edit"></a>
-        {% endif %}
-    </h3>
-    {% if user.id != userProfile.user.id and userProfile.isTutor == True %}
-            <a class="btn btn-default" href="{% url 'monitorias:secciones_new' tutorpk=userProfile.user.pk%}">
-            Solicitar Monitoria
-            </a>
-
-    {% endif %}
-    <hr>
-
 <div class="row">
+    <div class="col s12">
+         <h3>Perfil de {{ userProfile.user.get_full_name }}
+
+                {% if user.id == userProfile.user.id or user.is_staff == True %}
+
+                <a href="{% url 'update_profile' %}" class="tooltipped" data-position="bottom"
+                   data-delay="50" data-tooltip="Edit Profile"><i class="material-icons">edit</i></a>
+                {% endif %}
+            </h3>
+            {% if user.id != userProfile.user.id and userProfile.isTutor == True %}
+                    <a class="waves-effect waves-light btn" href="{% url 'monitorias:secciones_new'  tutorpk=userProfile.user.pk %}">
+                        <i class="material-icons left">event</i>
+                        Solicitar Monitoria
+                    </a>
+
+
+            {% endif %}
+            <hr>
+    </div>
+
     <div class="col s6 m8">
         <div class="row">
 
@@ -66,13 +73,26 @@
 
     </div>
 
-    <div class="col s6 m4 profileMedia">
+    <div class="col s6 m4 profileMedia center">
 
         <img src="{{ userProfile.picture.url }}" class="img-rounded" width="240" height="240">
         <br>
-        <a href="{{ userProfile.video }}" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Introduction Video</a>
+        <!-- Video Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#videoModal"><i class="material-icons left">ondemand_video</i>Intro video</a>
 
-    </div>
+        <!-- Video Modal Structure -->
+        <div id="videoModal" class="modal videoModal">
+            <div class="modal-content">
+                <h5>{{ userProfile.user.get_full_name }} - Intro</h5>
+                <hr>
+                <div class="video-container">
+                <iframe width="753" height="380" src="{{ userProfile.video }}" frameborder="0" allowfullscreen onchange="pause()"></iframe>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div
 </div>
 
 

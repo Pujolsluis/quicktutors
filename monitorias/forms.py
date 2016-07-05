@@ -21,6 +21,7 @@ class SeccionMonitoriaForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.fields:
-            self.fields[field].widget.attrs.update({
-            'class': 'form-control'
-            })
+            if field == 'description':
+                self.fields[field].widget.attrs.update({
+                'class': 'validate'
+                })

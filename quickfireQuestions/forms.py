@@ -12,9 +12,10 @@ class QuestionForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.fields:
-            self.fields[field].widget.attrs.update({
-                'class': 'form-control'
-            })
+            if field != 'subject':
+                self.fields[field].widget.attrs.update({
+                    'class': 'validate'
+                })
 
 
 class CommentForm(forms.ModelForm):
@@ -28,5 +29,5 @@ class CommentForm(forms.ModelForm):
 
         for field in self.Meta.fields:
             self.fields[field].widget.attrs.update({
-                'class': 'form-control'
+                'class': 'materialize-textarea'
                 })
