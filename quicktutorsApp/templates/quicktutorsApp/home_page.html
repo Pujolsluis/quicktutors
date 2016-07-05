@@ -46,7 +46,7 @@ text-align : justify;
                     <li><a href="#preguntas_frecuentes">Preguntas Frecuentes</a></li>
                     <li><a href="#contactenos">Contactenos</a></li>
                     <!-- Login Button-->
-                    <li><a class="waves-effect waves-light btn " href="{% url 'auth_login' %}">Log in</a></li>
+                    <li><a class="waves-effect waves-light btn " href="{% url 'registration:auth_login' %}">Entrar</a></li>
 
 
                 </ul>
@@ -58,7 +58,7 @@ text-align : justify;
                 <li><a href="#preguntas_frecuentes"><i class="material-icons left">live_help</i>Preguntas Frecuentes</a></li>
                 <li><a href="#contactenos"><i class="material-icons left">contact_mail</i>Contactenos</a></li>
                 <!-- Login Button-->
-                <li><a href="{% url 'auth_login' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log in</a></li>
+                <li><a href="{% url 'registration:auth_login' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Entrar</a></li>
                 </ul>
 
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -81,7 +81,7 @@ text-align : justify;
                 </div>
 
                 <div class="row center">
-                  <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Registrate</a>
+                  <a href="{% url 'registration:registration_register' %}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Registrate</a>
                 </div>
                 <br><br>
 
@@ -365,7 +365,7 @@ text-align : justify;
                           <form class="col s12">
 
                             <div class="row">
-<!-- Aqui es donde esta el problema -->
+
 
                               <div class="input-field col s10 m6">
                                 <i class="material-icons prefix">account_circle</i>
@@ -378,7 +378,7 @@ text-align : justify;
                                 <input id="icon_email" type="email" class="validate">
                                 <label for="icon_email">email</label>
                               </div>
-<!-- aqui es donde termina el problema -->
+
                             </div>
 
                             <div class="row">
