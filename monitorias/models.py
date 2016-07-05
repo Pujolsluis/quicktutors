@@ -69,6 +69,11 @@ class AffiliateCompany(models.Model):
     name = models.CharField(max_length=100)
     picture = models.ImageField(upload_to=affiliate_company_directory, default='reunion_site_directory/no-image.jpg')
     address = models.TextField(max_length=200, null=True, blank=True)
+    phone_number = models.CharField(max_length=12, blank=True, null=True)
+    laboring_hours = models.TextField(max_length=200, null=True, blank=True)
+    laboring_days = models.TextField(max_length=200, null=True, blank=True)
+    website = models.URLField(blank=True, null=True)
+    google_maps = models.URLField(blank=True, null=True)
 
     def __unicode__(self):
         return self.name
@@ -97,6 +102,7 @@ class Publicity(models.Model):
     name = models.CharField(max_length=100)
     picture = models.ImageField(upload_to=publicity_directory, default='reunion_site_directory/no-image.jpg')
     website = models.URLField(blank=True, null=True)
+
 
     class Meta:
         verbose_name_plural = "publicity Campaigns"
