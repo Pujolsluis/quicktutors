@@ -3,24 +3,34 @@
     Recommended Tools
 {% endblock %}
 {% block content %}
+    <style>
+    .recommended-tools-cards{
+        width: 400px;
+    }
+    </style>
+
     <h1>Herramientas Recomendadas para Monitorias</h1>
     {% for tool in tools_list %}
 
 
     <div class="row">
-        <div class="col s12 m6">
-          <div class="card   teal lighten-2">
-            <div class="card-content white-text">
-                <div class="right"><img src="{{ tool.picture.url }}" class="circle responsive-img" width="150" height="150"></div>
-              <span class="card-title">{{ tool.name }}</span>
-              <p>{{ tool.description }}</p>
+        <div class="col s12">
+            <div class="container recommended-tools-cards">
+                <div class="card teal">
+
+                <div class="card-content white-text">
+                    <div class="center">
+                        <img src="{{ tool.picture.url }}" class="circle responsive-img" width="150" height="150">
+                    </div>
+                    <span class="card-title">{{ tool.name }}</span>
+                    <p>{{ tool.description }}</p>
+                </div>
+                <div class="card-action red accent-2">
+                    <a href="{{ tool.website }}" class="grey-text text-darken-4">Go to Website</a>
+                </div>
             </div>
-            <div class="card-action">
-              <a href="{{ tool.website }}">{{ tool.website }}</a>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 
     {% endfor %}
 {% endblock %}
