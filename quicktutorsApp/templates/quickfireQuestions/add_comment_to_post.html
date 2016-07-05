@@ -3,9 +3,21 @@
     Add a comment
 {% endblock %}
 {% block content %}
-    <h1>New comment</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Send</button>
-    </form>
+
+    <div class="s12">
+        <h3>New comment</h3>
+        <div class="row">
+            <form method="POST" class="col s12">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+
 {% endblock %}
