@@ -5,12 +5,22 @@
 {% block content %}
     <h1>Herramientas Recomendadas para Monitorias</h1>
     {% for tool in tools_list %}
-        <div class="container text-center">
-        <label>{{ tool.name }}</label>
-        <br>
-        <img src="{{ tool.picture.url }}" class="img-rounded" width="140" height="140">
-        <p>{{ tool.description }}</p>
-        <a href="{{ tool.website }}">Codeshare.io</a>
+
+
+    <div class="row">
+        <div class="col s12 m6">
+          <div class="card   teal lighten-2">
+            <div class="card-content white-text">
+                <div class="right"><img src="{{ tool.picture.url }}" class="circle responsive-img" width="150" height="150"></div>
+              <span class="card-title">{{ tool.name }}</span>
+              <p>{{ tool.description }}</p>
+            </div>
+            <div class="card-action">
+              <a href="{{ tool.website }}">{{ tool.website }}</a>
+            </div>
+          </div>
         </div>
+      </div>
+
     {% endfor %}
 {% endblock %}
