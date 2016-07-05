@@ -3,9 +3,40 @@
     Editar Pregunta
 {% endblock %}
 {% block content %}
+    <style>
+    .form-container{
+        padding-top: 40px;
+    }
+    </style>
+
     <h1>Edit question</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
+    <hr>
+    <div class="container form-container">
+
+        <form class="col s12" method="POST" class="post-form" role="form">
+            {% csrf_token %}
+
+            <div class = "row">
+                <div class="input-field col s12 m6">
+                        {{ form.title }}
+                        <label for="{{ form.title.id }}">Titulo</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    {{ form.subject }}
+                    <label>Materia</label>
+                  </div>
+                <div class="col s12">
+                    <div class="input-field col s12">
+                        {{ form.text }}
+                        <label class="validate" for="{{ form.text.id }}">Descripcion</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row center">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+            </button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

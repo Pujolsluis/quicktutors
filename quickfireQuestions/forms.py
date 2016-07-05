@@ -12,9 +12,13 @@ class QuestionForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         for field in self.Meta.fields:
-            if field != 'subject':
+            if field == 'title':
                 self.fields[field].widget.attrs.update({
                     'class': 'validate'
+                })
+            if field == 'text':
+                self.fields[field].widget.attrs.update({
+                    'class': 'materialize-textarea'
                 })
 
 
