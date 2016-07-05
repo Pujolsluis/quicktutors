@@ -72,7 +72,7 @@
                                 {% endif %}
 
 {#                                Correct comment button#}
-                                {% if comment.approved_comment and user.id == question.author.id or user.is_staff == True and question.isAnswered == False %}
+                                {% if comment.approved_comment and  question.isAnswered == False and user.id == question.author.id%}
 
                                     <a href="{% url 'quickfireQuestions:comment_correct_answer' pk=comment.pk %}"
                                            class="tooltipped" data-position="bottom"
