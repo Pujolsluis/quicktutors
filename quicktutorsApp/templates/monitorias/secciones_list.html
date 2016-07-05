@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s2 m3" > <a href="#pendientes">Pendientes</a></li>
+                    <li class="tab col s2 m3"> <a href="#pendientes">Pendientes</a></li>
                     <li class="tab col s2 m3"> <a href="#aceptadas">Aceptadas</a></li>
                     <li class="tab col s2 m3"> <a href="#rechazadas">Rechazadas</a></li>
                     <li class="tab col s2 m3"> <a href="#todas" class="active">Todas</a></li>
@@ -26,7 +26,7 @@
 
             <li>
               <div class="collapsible-header" id="flip">
-                  <i class="material-icons">filter_drama</i>
+                  <i class="material-icons">subject</i>
                     <span class="black-text text-darken-2">{{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</span>
               </div>
               <div class="collapsible-body" id="panel">
@@ -57,7 +57,10 @@
 
             <li>
               <div class="collapsible-header" id="flip">
-                  <i class="material-icons">filter_drama</i>
+
+                  <i class="material-icons">subject</i>
+
+
                     <span class="black-text text-darken-2">{{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</span>
               </div>
               <div class="collapsible-body" id="panel">
@@ -87,7 +90,7 @@
         {% for seccion in seccionesRechazadas %}
             <li>
               <div class="collapsible-header" id="flip">
-                  <i class="material-icons">filter_drama</i>
+                  <i class="material-icons">subject</i>
                     <span class="black-text text-darken-2">{{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</span>
               </div>
               <div class="collapsible-body" id="panel">
@@ -115,7 +118,7 @@
 
             <li>
               <div class="collapsible-header" id="flip">
-                  <i class="material-icons">filter_drama</i>
+                  <i class="material-icons">subject</i>
                     <span class="black-text text-darken-2">{{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</span>
               </div>
               <div class="collapsible-body" id="panel">

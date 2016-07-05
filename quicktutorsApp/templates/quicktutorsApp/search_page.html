@@ -5,11 +5,11 @@
                 <div class="col-xs-12">
                     <label><i class="material-icons">filter_list</i></label> <strong>Filter By</strong>
                     <div class="btn-group">
-                          <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            Ciencias Basicas y Medio Ambientales <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu">
-                            <div class="dropdown-header"><strong>Matematicas</strong></div>
+
+                        <a class="btn dropdown-button" href="#!" data-activates="dropdown2">Ciencias Basicas y Medio Ambientales<i class="mdi-navigation-arrow-drop-down right"></i></a>
+
+                            <ul class="dropdown-content" id="dropdown2">
+                                <div class="dropdown-header"><strong><center>Matematicas</center></strong></div>
                                   <li><a href="{% url 'search_page_filter' subject='Algebra y Geometria Analitica' %}">Algebra y Geometria Analitica</a></li>
                                   <li><a href="{% url 'search_page_filter' subject='Calculo Diferencial' %}">Calculo Diferencial</a></li>
                                   <li><a href="{% url 'search_page_filter' subject='Calculo Integral' %}">Calculo Integral</a></li>
@@ -20,23 +20,21 @@
                                   <li><a href="{% url 'search_page_filter' subject='Discreta I' %}">Discreta I</a></li>
                                   <li><a href="{% url 'search_page_filter' subject='Discreta II' %}">Discreta II</a></li>
                                   <li role="separator" class="divider"></li>
-                            <div class="dropdown-header"><strong>Fisicas</strong></div>
+
+                            <div class="dropdown-header"><strong><center>Fisicas</center></strong></div>
                                   <li><a href="{% url 'search_page_filter' subject='Fisica I' %}">Fisica I</a></li>
                                   <li><a href="{% url 'search_page_filter' subject='Fisica II' %}">Fisica II</a></li>
                                   <li><a href="{% url 'search_page_filter' subject='Fisica III' %}">Fisica III</a></li>
                                   <li><a href="{% url 'search_page_filter' subject='Fisica IV' %}">Fisica IV</a></li>
                             </ul>
-                          </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            Ingenierias <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu">
-                            <div class="dropdown-header"><strong>Ingenierias</strong></div>
+                        <a class="btn dropdown-button" href="#!" data-activates="dropdown3">Ingenierias<i class="mdi-navigation-arrow-drop-down right"></i></a>
+
+                            <ul class="dropdown-content" id="dropdown3" role="menu">
+                            <div class="dropdown-header"><strong><center>Ingenierias</center></strong></div>
                               <li><a href="{% url 'search_page_filter' subject='Fundamentos de Programacion' %}">Fundamentos de Programación</a></li>
                               <li><a href="{% url 'search_page_filter' subject='Logica de Programacion' %}">Logica de Programación</a></li>
                               <li><a href="{% url 'search_page_filter' subject='Algoritmos y Estructuras de Datos' %}">Algoritmos y Estructuras de Datos</a></li>
                             </ul>
-                          </div>
                     </div>
                 </div>
          </div>
@@ -44,27 +42,24 @@
 
 <div class="row">
 
+         <ul class="collection">
         {% for userProfile in userProfiles %}
 
+            <li class="collection-item avatar">
+              <img src="{{userProfile.picture.url}}" alt="" class="circle">
+              <span class="title"><b> {{ userProfile.user.get_full_name }} </b></span>
+              <p><br>Datos Personales: {{ userProfile.user.email }}</p>
+                <p> <a href="{% url 'tutor_profile' profile_id=userProfile.id %}" id="cardlinks"> Mas Informacion </a>
+                    {% if user.id != userProfile.user.id and userProfile.isTutor == True %}
 
-                <div class="col s12 m3">
-                  <div class="card blue-grey lighten-1">
-                    <div class="card-content white-text">
-                        <img src="{{userProfile.picture.url}}" width="150" height="150">
-                      <span class="card-title"><h4><a id="cardtitle" href="{% url 'tutor_profile' profile_id=userProfile.id %}" >{{ userProfile.user.get_full_name }}</a></h4></span>
-                      <p><ul id="cardinterior">Datos Personales
-                            <li>{{ userProfile.user.email }}</li>
-                        </ul></p>
-                    </div>
-                    <div class="card-action" >
-                      <a href="#" id="cardlinks">Mas Informacion</a>
-                      <a href="#" id="cardlinks">Contratar</a>
-                    </div>
-                  </div>
-                </div>
+                        | <a href="{% url 'monitorias:secciones_new' tutorpk=userProfile.user.pk%}" id="cardlinks">Contratar</a> </p>
+
+                    {% endif %}
+              <a href="{% url 'tutor_profile' profile_id=userProfile.id %}" class="secondary-content"><i class="material-icons">contact_phone</i></a>
+            </li>
 
         {% endfor %}
-
+        </ul>
 </div>
 <center>
 
