@@ -8,8 +8,6 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
-        <title>QuickTutors - Home</title>
-
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="{% static 'css/home_page_css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -56,6 +54,9 @@
                 background-repeat: no-repeat;
                 background-size: 100% 100%;
 
+            }
+            .side-nav, .fixed{
+                width: 340px;
             }
 		</style>
 		<script>
@@ -208,7 +209,7 @@
         $('.button-collapse').sideNav({
           menuWidth: 340, // Default is 240
           edge: 'left', // Choose the horizontal origin
-          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+          closeOnClick: false // Closes side-nav on <a> clicks, useful for Angular/Meteor
             }
           );
     </script>

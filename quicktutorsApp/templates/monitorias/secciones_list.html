@@ -7,19 +7,18 @@
     <div class="container-fluid">
     <h1>Secciones de monitoria agendadas</h1>
         <div class="row">
-
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"> <a href="#pendientes">Pendientes</a></li>
-                    <li class="tab col s3"> <a href="#aceptadas">Aceptadas</a></li>
-                    <li class="tab col s3"> <a href="#rechazadas">Rechazadas</a></li>
-                    <li class="tab col s3"> <a href="#todas" class="active">Todas</a></li>
+                    <li class="tab col s2 m3" > <a href="#pendientes">Pendientes</a></li>
+                    <li class="tab col s2 m3"> <a href="#aceptadas">Aceptadas</a></li>
+                    <li class="tab col s2 m3"> <a href="#rechazadas">Rechazadas</a></li>
+                    <li class="tab col s2 m3"> <a href="#todas" class="active">Todas</a></li>
                 </ul>
             </div>
         </div>
 
     <hr>
-          </div>
+
 
     <div id="pendientes">
         <ul class="collapsible" data-collapsible="accordion">
@@ -138,6 +137,7 @@
 
         {% endfor %}
         </ul>
+    </div>
     </div>
 {% endblock %}
 
