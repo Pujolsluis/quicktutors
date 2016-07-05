@@ -4,30 +4,20 @@
 <html lang="en">
 	<head>
 
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
-    <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="{% static 'css/home_page_css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="{% static 'css/home_page_css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <title>QuickTutors - Home</title>
 
-    <!-- Favicon  -->
-    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="{% static 'css/home_page_css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="{% static 'css/home_page_css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+        <!-- Favicon  -->
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
 
 		<style>
-			#cardtitle{
-				color: #0066cc;
-			}
-			#cardinterior {
-				color: #33cccc;
-			}
-			#cardlinks {
-				color: #f2e6ff;
-				font-style: bold;
-			}
 
             header{
                 padding-left:140px;
@@ -55,8 +45,10 @@
                 background-size: 100% 100%;
 
             }
+            .side-nav, .fixed{
+                width: 340px;
+            }
 		</style>
-
 
 
         {% block extrahead %}
@@ -82,7 +74,7 @@
 {#                        <li><a href="#contactenos">Contactenos</a></li>#}
                         <li><a href="{% url 'postman:inbox' %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Inbox"><i class="material-icons">mail_outline</i></a></li>
                         <!-- Logout Button-->
-                        <li><a href="{% url 'auth_logout' %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Log out"><i class="material-icons">exit_to_app</i>
+                        <li><a href="{% url 'registration:auth_logout' %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Log out"><i class="material-icons">exit_to_app</i>
                         </a></li>
 
 
@@ -120,7 +112,7 @@
                     <li><a href="{% url 'quickfireQuestions:questions_list' %}"><i class="material-icons left">forum</i>QuickFire</a></li>
                     <li><a href="#"><i class="material-icons left">extension</i>Tutoring Tools</a></li>
 {#                    <!-- Login Button-->#}
-{#                    <li><a href="{% url 'auth_login' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log out</a></li>#}
+{#                    <li><a href="{% url 'registration:auth_login' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log out</a></li>#}
                     </ul>
 
 
