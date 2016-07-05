@@ -15,7 +15,7 @@ def questions_detail(request, pk):
     question = get_object_or_404(Question, pk=pk)
     return render(request, 'quickfireQuestions/questions_detail.html', {'question': question})
 
-
+@login_required
 def questions_new(request):
     if request.method == "POST":
         form = QuestionForm(request.POST)
@@ -29,7 +29,7 @@ def questions_new(request):
         form = QuestionForm()
     return render(request, 'quickfireQuestions/question_edit.html', {'form': form})
 
-
+@login_required
 def questions_edit(request,pk):
     question = get_object_or_404(Question, pk=pk)
     if request.method == "POST":
@@ -44,6 +44,7 @@ def questions_edit(request,pk):
         form = QuestionForm(instance=question)
     return render(request, 'quickfireQuestions/question_edit.html', {'form': form})
 
+@login_required
 def add_comment_to_questions(request, pk):
     question = get_object_or_404(Question, pk=pk)
     if request.method == "POST":
