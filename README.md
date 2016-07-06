@@ -17,10 +17,27 @@ We decided to make our application in a technology we didn't knew, or only had t
 - Design Pattern: Material Design
 
 ###Our Application Functionality:
-(Pending for content for further development)
+- User Profiles
+- Tutoring sessions
+- Quickfire Questions
+- User Messaging System
+- Online Payment
+- Onsite Payment
+- Recommended Tutoring Tools section
+
 
 ###How to modify our Application?
-(Pending for content for further development)
+To modify our application and contribute to our project, you first need to fork it and then pip install all the following dependencies our application uses:
+- Django-registration
+- Django-postman
+- Django-ajax-selects
+- pytz
+- Pillow
+
+Our main application directory is called:
+- quicktutorsApp
+
+Here you can find all the static, and templates files for the project.
 
 ###Project Documentation
 (Pending for content for further development)
