@@ -48,7 +48,7 @@
             <li class="collection-item avatar">
               <img src="{{userProfile.picture.url}}" alt="" class="circle">
               <span class="title"><b> {{ userProfile.user.get_full_name }} </b></span>
-              <p><br>Datos Personales: {{ userProfile.user.email }}</p>
+              <p><br><strong>Datos Personales:</strong><br><strong>Universidad:</strong> {{ userProfile.university }} | <strong>Horario:</strong> {{ userProfile.begin_time }} - {{ userProfile.end_time }}</p>
                 <p> <a href="{% url 'tutor_profile' profile_id=userProfile.id %}" id="cardlinks"> Mas Informacion </a>
                     {% if user.id != userProfile.user.id and userProfile.isTutor == True %}
 
