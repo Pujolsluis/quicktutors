@@ -7,12 +7,12 @@ from user_profile.models import UserProfile
 from monitorias.models import AffiliateCompany
 # Create your views here.
 
-
+@login_required
 def questions_list(request):
     questionsList = Question.objects.all()
     return render(request, 'quickfireQuestions/questions_list.html', {'questionsList': questionsList})
 
-
+@login_required
 def questions_detail(request, pk):
     question = get_object_or_404(Question, pk=pk)
     return render(request, 'quickfireQuestions/questions_detail.html', {'question': question})

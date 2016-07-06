@@ -127,30 +127,34 @@ def secciones_rechazar(request, pk):
                                                            " podamos estudiar juntos!\n\n" \
                                                            "Gracias por utilizar nuestro servicio,\n\n" \
                                                            "-" + seccion.tutor.get_short_name())
-
-
     return redirect('/secciones/')
 
 
+@login_required
 def secciones_new_accepted(request):
     return render(request, 'monitorias/accepted.html')
 
 
+@login_required
 def secciones_new_cancelled(request):
     return render(request, 'monitorias/cancelled.html')
 
 
+@login_required
 def secciones_online_payment(request):
     return render(request, 'monitorias/online_payment_page.html')
 
 
+@login_required
 def secciones_onsite_payment(request):
     affiliates_list = AffiliateCompany.objects.all()
     return render(request, 'monitorias/onsite_payment_page.html', {'affiliates_list': affiliates_list})
 
+
+@login_required
 def secciones_recommended_tools(request):
     tools_list = RecommendedTools.objects.all()
     return render(request, 'monitorias/recommended_tools_page.html', {'tools_list': tools_list})
 
-    return redirect('/secciones/')
+
 
