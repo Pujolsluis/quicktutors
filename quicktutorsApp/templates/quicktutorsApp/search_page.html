@@ -44,7 +44,7 @@
 
          <ul class="collection">
         {% for userProfile in userProfiles %}
-
+            {% if userProfile.user.username != "quicktutors" %}
             <li class="collection-item avatar">
               <img src="{{userProfile.picture.url}}" alt="" class="circle">
               <span class="title"><b> {{ userProfile.user.get_full_name }} </b></span>
@@ -57,7 +57,7 @@
                     {% endif %}
               <a href="{% url 'tutor_profile' profile_id=userProfile.id %}" class="secondary-content"><i class="material-icons">contact_phone</i></a>
             </li>
-
+            {% endif %}
         {% endfor %}
         </ul>
 </div>
