@@ -30,19 +30,34 @@
                     <span class="black-text text-darken-2">{{ post.title }}  <strong>Tutor:</strong> {{ seccion.tutor.get_full_name }} | <strong>Fecha: </strong>({{ seccion.begin_timeDay }})</span>
               </div>
               <div class="collapsible-body" id="panel">
-                  <p>
-                  <strong>Solicitante: </strong> {{ seccion.estudiante.get_full_name }}
-                  <br>
-                  <strong>Materia: </strong> {{ seccion.subject }}
-                  <br>
-                  <strong>Lugar: </strong> {{ seccion.university }}
-                  <br>
-                  <strong>Punto de Reunion: </strong>{{ seccion.reunionsite }}
-                  <br>
-                  <strong>Duracion: </strong> {{ seccion.hours_wanted }} horas
-                  <br>
-                  <strong>Forma de Pago: </strong>{{ seccion.payment_method }}
-                  </p>
+
+                  {% if user.pk == seccion.tutor.pk %}
+                    <div class="right">
+                       <a href="{% url 'monitorias:secciones_rechazar' pk=seccion.pk %}"
+                               class="tooltipped" data-position="bottom"
+                               data-delay="50" data-tooltip="Remove"><i class="material-icons small">remove_circle_outline</i>
+                        </a>
+                        <a href="{% url 'monitorias:secciones_aceptar' pk=seccion.pk %}"
+                               class="tooltipped" data-position="bottom"
+                               data-delay="50" data-tooltip="Approve"><i class="material-icons small">check</i>
+                        </a>
+                    </div>
+                  {% endif %}
+                    <p>
+                    <strong>Solicitante: </strong> {{ seccion.estudiante.get_full_name }}
+                    <br>
+                    <strong>Materia: </strong> {{ seccion.subject }}
+                    <br>
+                    <strong>Lugar: </strong> {{ seccion.university }}
+                    <br>
+                    <strong>Punto de Reunion: </strong>{{ seccion.reunionsite }}
+                    <br>
+                    <strong>Duracion: </strong> {{ seccion.hours_wanted }} horas
+                    <br>
+                    <strong>Forma de Pago: </strong>{{ seccion.payment_method }}
+                    <div class="right">
+                    </div>
+                    </p>
               </div>
             </li>
 
