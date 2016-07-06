@@ -72,11 +72,16 @@
         <form class="form" role="form" action="{% url 'postman:reply' reply_to_pk %}?next={{ next_url|urlencode }}" method="post">{% csrf_token %}
 
           <div id="pm_reply">
-              <textarea class="form-control" type="text" name="body" rows="5"></textarea>
+              <div class="input-field col s12">
+              <textarea id="replytextarea" class="materialize-textarea" type="text" name="body" rows="5"></textarea>
+              <label for="replytextarea">Responder</label>
 {#              {{ form.body.name }}#}
+                  </div>
           </div>
             <br>
-          <button class="btn btn-default" type="submit">{% trans 'Reply' %}</button>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Reply
+            <i class="material-icons right">send</i>
+            </button>
 
         </form>
 
