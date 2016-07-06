@@ -75,8 +75,7 @@
     </div>
 
     <div class="col s6 m4 profileMedia center">
-
-        <img src="{{ userProfile.picture.url }}" class="img-rounded" width="240" height="240">
+        <img src="{{ userProfile.picture.url }}" class="responsive-image img-rounded" width="150" height="150">
         {% if userProfile.isTutor == True %}
         <br>
         <!-- Video Modal Trigger -->
@@ -93,10 +92,10 @@
             </div>
         </div>
         {% endif %}
-
+            
         </div>
     </div>
-</div>
+
 
 
 {% endblock %}
