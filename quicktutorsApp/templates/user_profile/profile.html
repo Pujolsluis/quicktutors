@@ -42,7 +42,7 @@
             </div>
 
         </div>
-
+        {% if userProfile.isTutor == True %}
         <div class="row">
 
             <div class="col s12 m6">
@@ -61,6 +61,7 @@
             </div>
 
         </div>
+        {% endif %}
 
         <div class="row">
             <div class="col s12">
@@ -76,6 +77,7 @@
     <div class="col s6 m4 profileMedia center">
 
         <img src="{{ userProfile.picture.url }}" class="img-rounded" width="240" height="240">
+        {% if userProfile.isTutor == True %}
         <br>
         <!-- Video Modal Trigger -->
         <a class="waves-effect waves-light btn modal-trigger" href="#videoModal"><i class="material-icons left">ondemand_video</i>Intro video</a>
@@ -90,9 +92,10 @@
                 </div>
             </div>
         </div>
+        {% endif %}
 
         </div>
-    </div
+    </div>
 </div>
 
 
