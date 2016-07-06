@@ -107,10 +107,26 @@
                             </div>
                         </li>
                     <li><a href="{% url 'profile' %}"><i class="material-icons left">dashboard</i>Perfil</a></li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li>
+                                <a class="collapsible-header"><i class="material-icons left">inbox</i>Mensajeria</a>
+                                <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="{% url 'postman:write' %}">Mensaje Nuevo</a></li>
+                                    <li><a href="{% url 'postman:inbox' %}">Inbox</a></li>
+                                    <li><a href="{% url 'postman:archives' %}">Archivados</a></li>
+                                    <li><a href="{% url 'postman:trash' %}">Borrados</a></li>
+                                </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
                     <li><a href="{% url 'search_page' %}"><i class="material-icons left">search</i>Buscar Tutor</a></li>
                     <li><a href="{% url 'monitorias:secciones_list' %}"><i class="material-icons left">event_note</i>Monitorias</a></li>
                     <li><a href="{% url 'quickfireQuestions:questions_list' %}"><i class="material-icons left">forum</i>QuickFire</a></li>
                     <li><a href="{% url 'monitorias:secciones_recommended_tools' %}"><i class="material-icons left">extension</i>Tutoring Tools</a></li>
+
 {#                    <!-- Login Button-->#}
 {#                    <li><a href="{% url 'registration:auth_login' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log out</a></li>#}
                     </ul>
