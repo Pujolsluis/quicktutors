@@ -1,20 +1,20 @@
-{% load i18n %}{% autoescape off %}{% trans "Dear user," %}
+{% load i18n %}{% autoescape off %}{% trans "Querido Usuario," %}
 {% if action == 'rejection' %}
-{% blocktrans with object.sent_at|date:"DATETIME_FORMAT" as date and object.obfuscated_recipient as recipient %}En {{ date }}, usted deseaba enviar un mensaje al usuario '{{ recipient }}'.{% endblocktrans %}
+{% blocktrans with object.sent_at|date:"DATETIME_FORMAT" as date and object.obfuscated_recipient as recipient %}En {{ date }}, usted deseaba enviar un mensaje al usuario '{{ recipient.get_full_name }}'.{% endblocktrans %}
 
 {% trans "Su mensaje a sido rechazado por un moderador" %}{% if object.moderation_reason %}{% trans ", por la siguiente razon:" %}
     {{ object.moderation_reason }}{% else %}.{% endif %}
 
 {% else %}{# 'acceptance' #}
-{% if object.parent_id %}{% if object.parent.sender_id == object.recipient_id %}{% blocktrans with object.parent.sent_at|date:"DATETIME_FORMAT" as date and object.obfuscated_sender as sender %}En {{ date }}, usted ha enviado un mensaje al usuario '{{ sender }}'.{% endblocktrans %}
+{% if object.parent_id %}{% if object.parent.sender_id == object.recipient_id %}{% blocktrans with object.parent.sent_at|date:"DATETIME_FORMAT" as date and object.obfuscated_sender as sender %}En {{ date }}, usted ha enviado un mensaje al usuario '{{ sender.get_full_name }}'.{% endblocktrans %}
 {% trans "El receptor le ha respondido su mensaje." %}
-{% else %}{% blocktrans with object.obfuscated_sender as sender %}Ha sido copiado en una respuesta por el usuario '{{ sender }}'.{% endblocktrans %}
+{% else %}{% blocktrans with object.obfuscated_sender as sender %}Ha sido copiado en una respuesta por el usuario '{{ sender.get_full_name }}'.{% endblocktrans %}
 {% endif %}
-{% else %}{% blocktrans with object.obfuscated_sender as sender %}Usted ha recibido un nuevo mensaje del usuario '{{ sender }}'.{% endblocktrans %}
+{% else %}{% blocktrans with object.obfuscated_sender as sender %}Usted ha recibido un nuevo mensaje del usuario '{{ sender.get_full_name }}'.{% endblocktrans %}
 {% endif %}
 {% endif %}{# 'acceptance' #}
 {% trans "Gracias por utilizar nuestros servicios." %}
 {% trans "QuickTutors Staff" %}
 
-{% blocktrans %}Nota: Este mensaje es generado por un sistema automatico
+{% blocktrans %}Nota: Este mensaje es generado por un sistema automatico.
 No responda este mensaje, ya que no sera tomado en consideración.{% endblocktrans %}{% endautoescape %}
