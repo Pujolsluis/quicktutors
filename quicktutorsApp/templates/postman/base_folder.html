@@ -68,7 +68,7 @@ in the INSTALLED_APPS setting.
                     </div>
                 </div>
 
-            <table id="pm_messages" class="highlight responsive-table" >
+            <table id="pm_messages" class="highlight" >
 
                 <thead>
 
@@ -108,7 +108,6 @@ in the INSTALLED_APPS setting.
                                     <h6>
                                     {{ message.obfuscated_sender|or_me:user }}
                                         {% if message.count %}
-                                           <span class="badge">{{ message.count }}</span>
                                         {% endif %}
                                     </h6>
                                 </td>
