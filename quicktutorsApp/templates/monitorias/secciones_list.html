@@ -3,6 +3,11 @@
     Secciones de Monitorias
 {% endblock %}
 {% block content %}
+    <style>
+    .buttons-tutor{
+        padding-right: 20px;
+    }
+    </style>
 
     <div class="container-fluid">
     <h1>Secciones de monitoria agendadas</h1>
@@ -32,7 +37,7 @@
               <div class="collapsible-body" id="panel">
 
                   {% if user.pk == seccion.tutor.pk %}
-                    <div class="right">
+                    <div class="right buttons-tutor">
                        <a href="{% url 'monitorias:secciones_rechazar' pk=seccion.pk %}"
                                class="tooltipped" data-position="bottom"
                                data-delay="50" data-tooltip="Remove"><i class="material-icons small">remove_circle_outline</i>
