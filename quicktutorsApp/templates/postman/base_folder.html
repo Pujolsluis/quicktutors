@@ -47,17 +47,17 @@ in the INSTALLED_APPS setting.
                             <span id="pm_buttons">
 
                                 {% block pm_delete_button %}
-                                    <button type="submit" onclick="this.form.action='{% url 'postman:delete' %}'"
+                                    <button class="waves-effect waves-light btn" type="submit" onclick="this.form.action='{% url 'postman:delete' %}'"
 {#                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"#}>{% trans "Delete" %}</button>
                                 {% endblock %}
 
                                 {% block pm_archive_button %}
-                                    <button type="submit" onclick="this.form.action='{% url 'postman:archive' %}'"
+                                    <button class="waves-effect waves-light btn" type="submit" onclick="this.form.action='{% url 'postman:archive' %}'"
 {#                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"#}>{% trans "Archive" %}</button>
                                 {% endblock %}
 
                                 {% block pm_undelete_button %}
-                                    <button type="submit" onclick="this.form.action='{% url 'postman:undelete' %}'"
+                                    <button class="waves-effect waves-light btn" type="submit" onclick="this.form.action='{% url 'postman:undelete' %}'"
 {#                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"#}>{% trans "Undelete" %}</button>
                                 {% endblock %}
 
@@ -68,7 +68,7 @@ in the INSTALLED_APPS setting.
                     </div>
                 </div>
 
-            <table id="pm_messages" class="table table-striped table-hover table-responsive" >
+            <table id="pm_messages" class="highlight responsive-table" >
 
                 <thead>
 
@@ -98,7 +98,8 @@ in the INSTALLED_APPS setting.
                         <tr>
                             <h6>
                                <td>
-                                   <input type="checkbox" {% if by_conversation and message.thread_id %}name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %} />
+                                   <input id="{{ message.id }}" type="checkbox" {% if by_conversation and message.thread_id %}name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %} />
+                                    <label for="{{ message.id }}"></label>
                                </td>
                             </h6>
 
