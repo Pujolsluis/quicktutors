@@ -78,8 +78,8 @@ class UserProfile(models.Model):
     university = models.ForeignKey(University, null=True)
     subjects = models.ManyToManyField(Subject)
     video = models.URLField(null=True, blank=True)
-    begin_time = models.TimeField(blank=True, default=timezone.now)
-    end_time = models.TimeField(blank=True, default=timezone.now)
+    begin_time = models.TimeField(blank=True, null=True, default=timezone.now)
+    end_time = models.TimeField(blank=True, null=True, default=timezone.now)
     quickfirequestions_available = models.IntegerField(default=0)
 
     def __unicode__(self):
