@@ -5,11 +5,13 @@
 
 {% block content %}
 
+{#  Title and new Quickfire question button  #}
     <h1>QuickFire Questions <a href="{% url 'quickfireQuestions:questions_new' %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="New QuickFire"><i class="material-icons medium">library_add</i></a></h1>
 
 <div id="quickFire">
-        <ul class="collapsible" data-collapsible="accordion">
+    <ul class="collapsible" data-collapsible="accordion">
 
+{#     Question List#}
     {% for question in questionsList %}
 
             <li>
@@ -47,7 +49,7 @@
                   </div>
 
 
-
+{#                 Add comment Button#}
                   <div class="left">
                       {% if question.isAnswered == False %}
                         <a href="{% url 'quickfireQuestions:add_comment_to_questions' pk=question.pk %}"
@@ -58,7 +60,7 @@
 
 
 
-
+{#                  Closed or open button's #}
                   <div class="right">
                         {% if question.isAnswered == True %}
                             <a class="waves-effect waves-light btn disabled"><i class="material-icons left">lock</i>Closed</a>
@@ -73,6 +75,7 @@
             </li>
 
     {% endfor %}
- </ul>
-    </div>
+
+    </ul>
+</div>
 {% endblock %}
