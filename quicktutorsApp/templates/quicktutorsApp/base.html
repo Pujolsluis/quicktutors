@@ -24,7 +24,7 @@
 
 
 <body>
-
+{#   Navbar that contains site homepage links   #}
     <div class="navbar-fixed">
         <nav class="white" role="navigation">
 
@@ -39,11 +39,13 @@
                     <li><a href="{% url 'home_page' %}#precios">Precios</a></li>
                     <li><a href="{% url 'home_page' %}#preguntas_frecuentes">Preguntas Frecuentes</a></li>
                     <li><a href="{% url 'home_page' %}#contactenos">Contactenos</a></li>
+
                     <!-- Login Button-->
                     <li><a class="waves-effect waves-light btn " href="{% url 'auth_login' %}">Entrar</a></li>
 
                 </ul>
 
+{#              SideNav with its corresponding collapsible menu button      #}
                 <ul id="nav-mobile" class="side-nav">
                 <li><a href="{% url 'home_page' %}"><i class="material-icons left">home</i>Inicio</a></li>
                 <li><a href="{% url 'home_page' %}#sobre_nosotros"><i class="material-icons left">location_city</i>Sobre Nosotros</a></li>
@@ -61,14 +63,13 @@
 
     </div>
 
-
+{#      Main content block      #}
     <div class="container-fluid teal lighten-1">
         <div class="container white">
             <div class="section">
-
                 <div class="row">
-
                     <div class="col s12 center-align">
+
                         <br><br>
                         {% block content %}
                         {% endblock %}
@@ -81,33 +82,26 @@
         </div>
     </div>
 
-
+{#      Pre-Footer parallax container       #}
     <div class="parallax-container valign-wrapper">
-
         <div class="section no-pad-bot">
-
             <div class="container">
-
                 <div class="row center">
                     <h5 class="header col s12 light">Disfruta de los servicios de Quicktutors!</h5>
                 </div>
-
             </div>
-
         </div>
 
         <div class="parallax"><img src="{% static 'media/homepage/background3.jpg' %}" alt="Unsplashed background img 3"></div>
-
     </div>
-    {#    Footer#}
+
+{#      Footer          #}
     <footer class="page-footer teal">
 
         <div class="container">
             <div class="row">
 
                 <div class="col l6 s12">
-
-
                 </div>
                 <div class="col l4 s12 ">
 
@@ -120,21 +114,15 @@
                     </ul>
 
                 </div>
-
                 <div class="col l3 s12">
-
-
-
                 </div>
             </div>
         </div>
 
+{#  Footer copyright section    #}
     <div class="footer-copyright">
-
         <div class="container">
-
-            <a class="brown-text text-lighten-3" href=""></a>
-
+            <a class="brown-text text-lighten-3" href="">QuickTutors 2016</a>
         </div>
 
     </div>

@@ -31,6 +31,7 @@ text-align : justify;
 
 <body>
 
+{#  Navbar with links to each section of the homepage   #}
     <div class="navbar-fixed">
         <nav class="white" role="navigation">
 
@@ -51,6 +52,7 @@ text-align : justify;
 
                 </ul>
 
+{#              Mobile SideNav bar with its corresponding collapsable button for mobile #}
                 <ul id="nav-mobile" class="side-nav">
                 <li><a href="{% url 'home_page' %}"><i class="material-icons left" data>home</i>Inicio</a></li>
                 <li><a href="#sobre_nosotros"><i class="material-icons left">location_city</i>Sobre Nosotros</a></li>
@@ -68,7 +70,7 @@ text-align : justify;
         </nav>
     </div>
 
-{#          Index banner and 3 icons container        #}
+{#          Index banner and 3 icons with info container        #}
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
             <div class="container">

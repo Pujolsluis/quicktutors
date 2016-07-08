@@ -62,16 +62,17 @@
 	<body>
 
         <header>
+{#            Fixed Navbar that contains logo and logout, inbox buttons     #}
         <div class="navbar-fixed">
             <nav class="white" role="navigation">
 
                 <div class="nav-wrapper container">
-
+{#                    Logo#}
                     <a id="logo-container" href="#" class="brand-logo"><img src="{% static 'media/homepage/quicktutors-homepage-logo.png' %}">uickTutors</a>
 
                     <ul class="right hide-on-med-and-down">
 
-{#                        <li><a href="#contactenos">Contactenos</a></li>#}
+                        <!-- Inbox Button-->
                         <li><a href="{% url 'postman:inbox' %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Inbox"><i class="material-icons">mail_outline</i></a></li>
                         <!-- Logout Button-->
                         <li><a href="{% url 'auth_logout' %}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Log out"><i class="material-icons">exit_to_app</i>
@@ -80,10 +81,11 @@
 
 
                     </ul>
-{#                   ADD PROFILE LINK#}
+{#                   SideNav Menu       #}
                     <ul id="side-navigation" class="side-nav fixed">
                         <li>
                             <div class="col s12">
+{#                                User section in SideNav menu, image and user full name text   #}
                                 <div class="card-panel user_drawer_panel teal darken-5 z-depth-1">
                                     <div class="card-content">
                                     <div class="row">
@@ -106,8 +108,11 @@
                                 </div>
                             </div>
                         </li>
+
+{#                        Menu Items    #}
                     <li><a href="{% url 'profile' %}"><i class="material-icons left">dashboard</i>Perfil</a></li>
                     <li class="no-padding">
+{#                        Messages accordion    #}
                         <ul class="collapsible collapsible-accordion">
                             <li>
                                 <a class="collapsible-header"><i class="material-icons left">inbox</i>Mensajeria</a>
@@ -122,37 +127,18 @@
                             </li>
                         </ul>
                     </li>
+
                     <li><a href="{% url 'search_page' %}"><i class="material-icons left">search</i>Buscar Tutor</a></li>
                     <li><a href="{% url 'monitorias:secciones_list' %}"><i class="material-icons left">event_note</i>Monitorias</a></li>
                     <li><a href="{% url 'quickfireQuestions:questions_list' %}"><i class="material-icons left">forum</i>QuickFire</a></li>
                     <li><a href="{% url 'monitorias:secciones_recommended_tools' %}"><i class="material-icons left">extension</i>Tutoring Tools</a></li>
 
-{#                    <!-- Login Button-->#}
-{#                    <li><a href="{% url 'registration:auth_login' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log out</a></li>#}
+{#                    <!-- Logout Button-->#}
+                    <li><a href="{% url 'registration:auth_logout' %}" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Log out</a></li>
                     </ul>
 
 
-{#                    <ul id="slide-out" class="side-nav fixed">#}
-{#                        <li><a href="#!">First Sidebar Link</a></li>#}
-{#                        <li><a href="#!">Second Sidebar Link</a></li>#}
-{#                        <li class="no-padding">#}
-{#                            <ul class="collapsible collapsible-accordion">#}
-{##}
-{#                                <li><a class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>#}
-{##}
-{#                                    <div class="collapsible-body">#}
-{#                                        <ul>#}
-{#                                            <li><a href="#!">First</a></li>#}
-{#                                            <li><a href="#!">Second</a></li>#}
-{#                                            <li><a href="#!">Third</a></li>#}
-{#                                            <li><a href="#!">Fourth</a></li>#}
-{#                                        </ul>#}
-{#                                    </div>#}
-{#                                </li>#}
-{#                            </ul>#}
-{#                        </li>#}
-{#                    </ul>#}
-
+{#                    Mobile Collapsable menu icon#}
                     <a href="#" data-activates="side-navigation" class="button-collapse"><i class="material-icons">menu</i></a>
 
                 </div>
@@ -161,16 +147,12 @@
     </div>
         </header>
                 <main>
+{#                Main content section  #}
 					<div class="container-fluid">
                         <div class="row">
-{#                            <div class="col-xs-2">#}
-{#                                {%  block postman_menu %}#}
-{#                                {% endblock %}#}
-{#                            </div>#}
                             <div class="col s12">
 
-
-{#                                Publicity Carousel, that needs fixing or exchanging for something else                #}
+{#                                Publicity Carousel, that needs fixing width & height or exchanging for something else                #}
 
 {#                                <div class="container">#}
 {#                                    <div id="publicityCarousel" class="carousel slide container-fluid" style="width: 100%; margin: 0 auto" data-ride="carousel">#}
@@ -215,13 +197,13 @@
 {#                                    </div>#}
 {#                                </div>#}
 
+
+{#                          Main content block      #}
                                 {% block content %}
                                 {% endblock %}
 
                             </div>
-
                         </div>
-
 					</div>
                 </main>
 

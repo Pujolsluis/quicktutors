@@ -1,6 +1,9 @@
 {% extends 'quicktutorsApp/base_member.html' %}
-    {% block content %}
+{% block content %}
+
         <h1>Buscar un Tutor</h1>
+
+{#      Filter List buttons  #}
         <div class="row">
                 <div class="col-xs-12">
                     <label><i class="material-icons">filter_list</i></label> <strong>Filter By</strong>
@@ -40,26 +43,31 @@
          </div>
         </div>
 
+{#      List of Available Tutors#}
 <div class="row">
-
          <ul class="collection">
+
         {% for userProfile in userProfiles %}
+
             {% if userProfile.user.username != "quicktutors" %}
-            <li class="collection-item avatar">
-              <img src="{{userProfile.picture.url}}" alt="" class="circle">
-              <span class="title"><b> {{ userProfile.user.get_full_name }} </b></span>
-              <p><br><strong>Datos Personales:</strong><br><strong>Universidad:</strong> {{ userProfile.university }} | <strong>Horario:</strong> {{ userProfile.begin_time }} - {{ userProfile.end_time }}</p>
-                <p> <a href="{% url 'tutor_profile' profile_id=userProfile.id %}" id="cardlinks"> Mas Informacion </a>
-                    {% if user.id != userProfile.user.id and userProfile.isTutor == True %}
+                <li class="collection-item avatar">
 
-                        | <a href="{% url 'monitorias:secciones_new' tutorpk=userProfile.user.pk%}" id="cardlinks">Contratar</a> </p>
+                    <img src="{{userProfile.picture.url}}" alt="" class="circle">
 
-                    {% endif %}
-              <a href="{% url 'tutor_profile' profile_id=userProfile.id %}" class="secondary-content"><i class="material-icons">contact_phone</i></a>
-            </li>
+                    <span class="title"><b> {{ userProfile.user.get_full_name }} </b></span>
+                    <p><br><strong>Datos Personales:</strong><br><strong>Universidad:</strong> {{ userProfile.university }} | <strong>Horario:</strong> {{ userProfile.begin_time }} - {{ userProfile.end_time }}</p>
+                    <p> <a href="{% url 'tutor_profile' profile_id=userProfile.id %}" id="cardlinks"> Mas Informacion </a>
+
+                        {% if user.id != userProfile.user.id and userProfile.isTutor == True %}
+
+                             | <a href="{% url 'monitorias:secciones_new' tutorpk=userProfile.user.pk%}" id="cardlinks">Contratar</a> </p>
+
+                        {% endif %}
+                    <a href="{% url 'tutor_profile' profile_id=userProfile.id %}" class="secondary-content"><i class="material-icons">contact_phone</i></a>
+                </li>
             {% endif %}
         {% endfor %}
+
         </ul>
 </div>
-
-    {% endblock %}
+{% endblock %}
