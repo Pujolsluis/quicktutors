@@ -2,11 +2,12 @@
 {% block title %}
     Edit Profile
 {% endblock %}
-    {% block content %}
 
-        <div class="row">
+{% block content %}
 
+<div class="row">
 
+{#  Update profile form  #}
     <form class="col s12 center" action="/user/send_update_profile/" method='POST' enctype="multipart/form-data" role="form">
         <h2>Update your profile</h2>
             <br>
@@ -85,7 +86,8 @@
         </div>
 
     </form>
-    </div>
+
+</div>
 
 
-    {% endblock %}
+{% endblock %}

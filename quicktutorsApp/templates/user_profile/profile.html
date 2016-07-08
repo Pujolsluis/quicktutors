@@ -6,6 +6,8 @@
 {% block content %}
 
 <div class="row">
+
+{#  Profile title, edit button and solicitar monitoria button   #}
     <div class="col s12">
          <h3>Perfil de {{ userProfile.user.get_full_name }}
 
@@ -26,6 +28,7 @@
             <hr>
     </div>
 
+{#  Profile data  #}
     <div class="col s6 m8">
         <div class="row">
 
@@ -95,7 +98,6 @@
 
         </div>
     </div>
-
 
 
 {% endblock %}
