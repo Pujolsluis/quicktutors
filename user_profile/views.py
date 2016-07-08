@@ -9,6 +9,7 @@ from django.template import RequestContext
 # Create your views here.
 
 
+# Update profile form render
 @login_required
 def update_profile(request):
     userProfile = UserProfile.objects.get(user=request.user)
@@ -25,12 +26,14 @@ def update_profile(request):
                                     'end_time': userProfile.end_time})
     return render(request, 'user_profile/update_profile.html', {'form': form, 'userProfile': userProfile})
 
+# Personal profile render
 @login_required
 def personal_profile(request):
     if request.user.is_authenticated():
         userProfile = UserProfile.objects.get(user=request.user)
     return render(request, 'user_profile/profile.html', {'userProfile': userProfile})
 
+# Any user profile render
 @login_required
 def profile(request, profile_id):
     if profile_id == "0" or profile_id == '':
@@ -39,10 +42,10 @@ def profile(request, profile_id):
     else:
         userProfile = UserProfile.objects.get(pk=profile_id)
 
-
     return render(request, 'user_profile/profile.html', {'userProfile': userProfile})
 
 
+# Update profile form save.
 @login_required
 def send_update_profile(request):
     profile = UserProfile.objects.get(user=request.user)
@@ -60,11 +63,14 @@ def send_update_profile(request):
 
     return redirect('/user/update_profile/')
 
+
+# Tutor search page render
 @login_required
 def profile_search_page(request):
     userProfiles = UserProfile.objects.all().filter(isTutor=True)
     return render(request, 'quicktutorsApp/search_page.html', {'userProfiles': userProfiles})
 
+# Tutor filter by subject render
 @login_required
 def profile_filter_subject(request, subject):
     userProfiles = UserProfile.objects.all().filter(isTutor=True).filter(subjects__name=subject)

@@ -4,15 +4,21 @@ from django.utils import timezone
 
 # Create your models here.
 
+
+# Directories Path's
 def user_directory_path(instance, filename):
     return 'quicktutorsApp/media/user_directory/user_{0}/{1}'.format(instance.user.id, filename)
+
 
 def reunionSite_directory_path(self,filename):
     return 'quicktutorsApp/media/reunion_site_directory/{0}'.format(filename)
 
+
 def university_directory_path(self,filename):
     return 'quicktutorsApp/media/university_directory/{0}'.format(filename)
 
+
+# Subject Area Model
 class Area(models.Model):
     name = models.CharField(max_length=100)
 
@@ -23,6 +29,7 @@ class Area(models.Model):
         return self.name
 
 
+# Career Model
 class Career(models.Model):
     name = models.CharField(max_length=100)
 
@@ -33,6 +40,7 @@ class Career(models.Model):
         return self.name
 
 
+# Reunion Site Model
 class ReunionSite(models.Model):
     name = models.CharField(max_length=100)
     picture = models.ImageField(upload_to=reunionSite_directory_path, default='reunion_site_directory/no-image.jpg')
@@ -44,6 +52,8 @@ class ReunionSite(models.Model):
     def __str__(self):
         return self.name
 
+
+# University Model
 class University(models.Model):
     name = models.CharField(max_length=100)
     picture = models.ImageField(upload_to=university_directory_path, default='university_directory/no-img.jpg')
@@ -55,6 +65,8 @@ class University(models.Model):
     def __str__(self):
         return self.name
 
+
+# Subject Model
 class Subject(models.Model):
     name = models.CharField(max_length=100)
     area = models.ForeignKey(Area, null=True)
@@ -67,7 +79,7 @@ class Subject(models.Model):
         return self.name
 
 
-
+# User Profile model
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     isTutor = models.BooleanField(default=False)
@@ -92,9 +104,12 @@ class UserProfile(models.Model):
             return self.user.username
         return ''
 
+
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
+# User Profile automatic creation with new user creation
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:

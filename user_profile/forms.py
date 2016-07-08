@@ -5,6 +5,8 @@ from user_profile.models import University
 from user_profile.models import Subject
 from django.forms import FileInput
 
+
+# User profile form
 class UserProfileForm(forms.ModelForm):
 
     studentID = forms.CharField(widget=forms.TextInput, label="ID Estudiantil")
@@ -13,7 +15,7 @@ class UserProfileForm(forms.ModelForm):
     picture = forms.ImageField(label=('User Picture'), required=False,
                                     error_messages={'invalid': "Image files only"},
                                     widget=FileInput)
-    # subjects = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=Subject.objects.order_by('name'), label="Materias que domina")
+
 
 
     class Meta:
@@ -32,6 +34,7 @@ class UserProfileForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        # Setting the form fields classes to materialize css form classes
         for field in self.Meta.fields:
             if field == 'studentID' or field == 'video':
                 self.fields[field].widget.attrs.update({
