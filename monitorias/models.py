@@ -5,6 +5,7 @@ from django.utils import timezone
 # Create your models here.
 
 
+# Directories path's
 def affiliate_company_directory(self,filename):
     return 'quicktutorsApp/media/affiliate_company/{0}'.format(filename)
 
@@ -12,10 +13,12 @@ def affiliate_company_directory(self,filename):
 def recommended_tools_directory(self,filename):
     return 'quicktutorsApp/media/recommended_tool/{0}'.format(filename)
 
+
 def publicity_directory(self,filename):
     return 'quicktutorsApp/media/publicity/{0}'.format(filename)
 
 
+# Seccion de monitoria model
 class SeccionMonitoria(models.Model):
     ACEPTADA = 'aceptada'
     PENDIENTE = 'pendiente'
@@ -65,6 +68,8 @@ class SeccionMonitoria(models.Model):
     def __str__(self):
         return "Sección: " + self.estudiante.get_short_name() + " / " + self.tutor.get_short_name() + " de " + self.subject.name + " - " + self.begin_timeDay.__str__()
 
+
+# Affiliate Company model
 class AffiliateCompany(models.Model):
     name = models.CharField(max_length=100)
     picture = models.ImageField(upload_to=affiliate_company_directory, default='reunion_site_directory/no-image.jpg')
@@ -82,6 +87,7 @@ class AffiliateCompany(models.Model):
         return self.name
 
 
+# Recommended tools model
 class RecommendedTools(models.Model):
     name = models.CharField(max_length=100)
     picture = models.ImageField(upload_to=recommended_tools_directory, default='reunion_site_directory/no-image.jpg')
@@ -98,12 +104,13 @@ class RecommendedTools(models.Model):
         return self.name
 
 
+# Publicity model
 class Publicity(models.Model):
     name = models.CharField(max_length=100)
     picture = models.ImageField(upload_to=publicity_directory, default='reunion_site_directory/no-image.jpg')
     website = models.URLField(blank=True, null=True)
 
-
+    # setting the publicity model admin plural name
     class Meta:
         verbose_name_plural = "publicity Campaigns"
 

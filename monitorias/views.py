@@ -7,11 +7,11 @@ from postman.api import pm_write
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+
+# Secciones agendadas List render
 @login_required
 def secciones_list(request):
-    # import ipdb
-    # ipdb.set_trace()
-    secciones = []
+
     seccionesTodas = []
     seccionesPendientes = []
     seccionesAceptadas = []
@@ -19,8 +19,7 @@ def secciones_list(request):
     pendiente = 'pendiente'
     aceptada = 'aceptada'
     rechazada = 'rechazada'
-    # integrales = SeccionMonitoria.objects.filter(subject__name="Calculo Integral")
-    # integralesSubject = integrales[0].subject
+
     for i in SeccionMonitoria.objects.all().order_by('-publish_date'):
         if request.user.userprofile.isTutor:
 
@@ -61,7 +60,7 @@ def secciones_list(request):
                                                               'seccionesAceptadas': seccionesAceptadas,
                                                               'seccionesRechazadas': seccionesRechazadas})
 
-
+# New seccion form
 @login_required
 def secciones_new(request, tutorpk):
     tutor = User.objects.get(pk=tutorpk)
@@ -94,8 +93,9 @@ def secciones_new(request, tutorpk):
         form = SeccionMonitoriaForm()
     return render(request, 'monitorias/secciones_new.html', {'form': form, 'tutor': tutor})
 
+
+# Function so a tutor can accept a new seccion
 @login_required
-# view para que un tutor pueda aceptar una seccion de monitoria
 def secciones_aceptar(request, pk):
     seccion = SeccionMonitoria.objects.get(pk=pk)
     seccion.status = "aceptada"
@@ -112,8 +112,9 @@ def secciones_aceptar(request, pk):
                                                              "-" + seccion.tutor.get_short_name())
     return redirect('/secciones/')
 
+
+# Function so a tutor can reject a new section
 @login_required
-# view para que un tutor pueda rechazar una seccion de monitoria
 def secciones_rechazar(request, pk):
     seccion = SeccionMonitoria.objects.get(pk=pk)
     seccion.status = "rechazada"
@@ -130,27 +131,32 @@ def secciones_rechazar(request, pk):
     return redirect('/secciones/')
 
 
+# Accepted payment secciones render
 @login_required
 def secciones_new_accepted(request):
     return render(request, 'monitorias/accepted.html')
 
 
+# Cancelled payment secciones render
 @login_required
 def secciones_new_cancelled(request):
     return render(request, 'monitorias/cancelled.html')
 
 
+# Online secciones payment render
 @login_required
 def secciones_online_payment(request):
     return render(request, 'monitorias/online_payment_page.html')
 
 
+# Onsite secciones payment render
 @login_required
 def secciones_onsite_payment(request):
     affiliates_list = AffiliateCompany.objects.all()
     return render(request, 'monitorias/onsite_payment_page.html', {'affiliates_list': affiliates_list})
 
 
+# Secciones recommended tools render
 @login_required
 def secciones_recommended_tools(request):
     tools_list = RecommendedTools.objects.all()
