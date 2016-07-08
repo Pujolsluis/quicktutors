@@ -2,6 +2,7 @@ from django import forms
 from .models import Question, Comment
 
 
+# Question Form
 class QuestionForm(forms.ModelForm):
 
     class Meta:
@@ -10,7 +11,7 @@ class QuestionForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
+        # Setting the materialize css form classes
         for field in self.Meta.fields:
             if field == 'title':
                 self.fields[field].widget.attrs.update({
@@ -22,6 +23,7 @@ class QuestionForm(forms.ModelForm):
                 })
 
 
+# Comment Form
 class CommentForm(forms.ModelForm):
 
     class Meta:
@@ -30,7 +32,7 @@ class CommentForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
+        # Setting the materialize css form classes
         for field in self.Meta.fields:
             self.fields[field].widget.attrs.update({
                 'class': 'materialize-textarea'

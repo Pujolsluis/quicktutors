@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-
+# Question Model
 class Question(models.Model):
     isAnswered = models.BooleanField(default=False)
     author = models.ForeignKey('auth.User')
@@ -26,6 +26,7 @@ class Question(models.Model):
         return self.title
 
 
+# Comment Model
 class Comment(models.Model):
     question = models.ForeignKey('quickfireQuestions.Question', related_name='comments')
     author = models.ForeignKey(User)

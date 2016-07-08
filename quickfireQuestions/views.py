@@ -7,16 +7,22 @@ from user_profile.models import UserProfile
 from monitorias.models import AffiliateCompany
 # Create your views here.
 
+
+# QuickFire Questions list render
 @login_required
 def questions_list(request):
     questionsList = Question.objects.all()
     return render(request, 'quickfireQuestions/questions_list.html', {'questionsList': questionsList})
 
+
+# QuickFire Question detail page render
 @login_required
 def questions_detail(request, pk):
     question = get_object_or_404(Question, pk=pk)
     return render(request, 'quickfireQuestions/questions_detail.html', {'question': question})
 
+
+#  New QuickFire Question form
 @login_required
 def questions_new(request):
     if request.method == "POST":
@@ -34,6 +40,8 @@ def questions_new(request):
         form = QuestionForm()
     return render(request, 'quickfireQuestions/question_edit.html', {'form': form})
 
+
+# Edit QuickFire Question form
 @login_required
 def questions_edit(request,pk):
     question = get_object_or_404(Question, pk=pk)
@@ -50,6 +58,7 @@ def questions_edit(request,pk):
     return render(request, 'quickfireQuestions/question_edit.html', {'form': form})
 
 
+# Add comment to QuickFire Question form
 @login_required
 def add_comment_to_questions(request, pk):
     question = get_object_or_404(Question, pk=pk)
@@ -66,6 +75,7 @@ def add_comment_to_questions(request, pk):
     return render(request, 'quickfireQuestions/add_comment_to_post.html', {'form': form})
 
 
+# Approve QuickFire Question
 @login_required
 def comment_approve(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
@@ -73,6 +83,7 @@ def comment_approve(request, pk):
     return redirect('quickfireQuestions:questions_detail', pk=comment.question.pk)
 
 
+# Remove QuickFire Question
 @login_required
 def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
@@ -81,6 +92,7 @@ def comment_remove(request, pk):
     return redirect('quickfireQuestions:questions_detail', pk=question_pk)
 
 
+# Select Correct comment of QuickFire Question
 @login_required
 def comment_correct_answer(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
@@ -92,6 +104,8 @@ def comment_correct_answer(request, pk):
     comment.save()
     return redirect('quickfireQuestions:questions_detail', pk=question_pk)
 
+
+# QuickFire Question payment page render
 @login_required
 def quickfire_pay(request, option):
     if option == "online":
@@ -103,10 +117,14 @@ def quickfire_pay(request, option):
         affiliates_list = AffiliateCompany.objects.all()
         return render(request, 'quickfireQuestions/onsite_payment_page.html', {'affiliates_list': affiliates_list})
 
+
+# QuickFireQuestion accepted payment landing page
 @login_required
 def questions_pay_accepted(request):
     return render(request, 'quickfireQuestions/accepted.html')
 
+
+# QuickFireQuestion cancelled payment landing page
 @login_required
 def questions_pay_cancelled(request):
     return render(request, 'quickfireQuestions/cancelled.html')
